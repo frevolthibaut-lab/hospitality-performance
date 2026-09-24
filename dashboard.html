@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10283f">
+<meta name="robots" content="noindex,nofollow">
+<title>Dashboard exécutif | Hospitality Performance</title>
+<style>
+:root{--navy:#10283f;--navy2:#183a58;--teal:#1f8a86;--bg:#f4f7f8;--card:#fff;--text:#172330;--muted:#667684;--line:#dce5e9;--ok:#26734d;--warn:#9a6500;--danger:#a83232}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select{font:inherit}.hide{display:none!important}.top{background:var(--navy);color:#fff;padding:16px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;position:sticky;top:0;z-index:10}
+.brand{font-size:13px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.sub{font-size:11px;opacity:.7;margin-top:3px}.topActions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{border:0;border-radius:9px;padding:9px 12px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}.btnLight{background:#edf2f4;color:var(--navy)}.btnOutline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)}
+.shell{max-width:1440px;margin:auto;padding:18px}.toolbar{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:14px;flex-wrap:wrap}.field label{display:block;font-size:11px;font-weight:850;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}
+select,input{border:1px solid #cbd7dc;border-radius:9px;padding:10px 11px;background:#fff;color:var(--text);min-width:270px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:0 7px 24px rgba(16,40,63,.045)}.hero{padding:20px;display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:14px}.hero h1{margin:0;color:var(--navy);font-size:27px}.hero p{margin:6px 0 0;color:var(--muted);font-size:13px}.method{font-size:11px;color:var(--muted);text-align:right;line-height:1.45}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:14px}.kpi{padding:15px}.kpiLabel{font-size:11px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.035em}.kpiValue{font-size:27px;color:var(--navy);font-weight:900;margin-top:7px}.kpiSub{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.35}
+.grid2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:14px;margin-bottom:14px}.section{padding:17px}.sectionTitle{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:13px}.sectionTitle h2{font-size:17px;color:var(--navy);margin:0}.pill{font-size:10px;font-weight:850;border-radius:99px;padding:5px 8px;background:#eef2f4;color:#52616d;white-space:nowrap}.high{background:#faeaea;color:#9d3232}.medium{background:#fff3d9;color:#8b5b00}.ok{background:#e8f5ef;color:#216a49}
+.dim{display:grid;grid-template-columns:120px 1fr 48px;gap:9px;align-items:center;margin:11px 0;font-size:12px}.dimName{font-weight:750}.track{height:8px;background:#edf1f3;border-radius:99px;overflow:hidden}.fill{height:100%;background:var(--teal);border-radius:99px}.dimScore{text-align:right;font-weight:850;color:var(--navy)}
+.coverageItem{margin:10px 0}.coverageTop{display:flex;justify-content:space-between;gap:8px;font-size:11px;margin-bottom:5px}.coverageTop b{color:#33485a}.coverageStatus{color:var(--muted)}
+.insight{padding:11px 0;border-top:1px solid var(--line)}.insight:first-child{border-top:0;padding-top:0}.insightTop{display:flex;justify-content:space-between;gap:10px}.insight h3{font-size:13px;margin:0;color:var(--navy)}.insight p{font-size:11px;line-height:1.45;color:var(--muted);margin:5px 0 0}
+.priority{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:center;padding:11px 0;border-top:1px solid var(--line)}.priority:first-child{border-top:0}.rank{width:27px;height:27px;border-radius:8px;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:900}.priority h3{font-size:12px;margin:0;color:var(--navy)}.priorityMeta{font-size:10px;color:var(--muted);margin-top:4px}.scores{font-size:10px;text-align:right;color:var(--muted);line-height:1.5}
+.figures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.figure{padding:12px;border:1px solid var(--line);border-radius:11px;background:#f8fafb}.figure b{display:block;color:var(--navy);font-size:17px}.figure span{font-size:10px;color:var(--muted);line-height:1.3}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.phase{padding:13px;border:1px solid var(--line);border-radius:11px;background:#f8fafb}.phase b{font-size:13px;color:var(--navy)}.phase strong{display:block;font-size:25px;color:var(--teal);margin:6px 0 2px}.phase span{font-size:10px;color:var(--muted)}
+.warning{padding:11px 12px;border-radius:10px;background:#fff7e5;border:1px solid #f0dfb8;font-size:11px;line-height:1.45;color:#72521a;margin-top:12px}.empty{padding:40px;text-align:center;color:var(--muted)}
+.login{max-width:430px;margin:70px auto;padding:25px}.login h1{margin:0 0 7px;color:var(--navy)}.login .field{margin:13px 0}.login input{width:100%;min-width:0}.login button{width:100%;justify-content:center;background:var(--teal);color:#fff}.msg{font-size:12px;color:var(--danger);margin-top:10px}
+@media(max-width:1050px){.kpis{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:1fr}.figures{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.top{align-items:flex-start}.topActions{justify-content:flex-end}.shell{padding:10px}.hero{flex-direction:column}.method{text-align:left}.kpis{grid-template-columns:repeat(2,1fr)}.figures,.timeline{grid-template-columns:1fr}.dim{grid-template-columns:95px 1fr 42px}.priority{grid-template-columns:30px minmax(0,1fr)}.scores{grid-column:2;text-align:left}select{min-width:0;width:100%}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div><div class="brand">Hospitality Performance</div><div class="sub">Dashboard exécutif · HP Diagnostic</div></div>
+  <div id="topActions" class="topActions hide"><a class="btn btnOutline" href="admin.html">Administration</a><a class="btn btnOutline" href="economics.html">Analyse économique</a><button id="logoutBtn" class="btn btnLight">Déconnexion</button></div>
+</header>
+
+<section id="loginView" class="login card">
+  <h1>Dashboard exécutif</h1><p style="color:var(--muted);font-size:13px">Accès interne Hospitality Performance.</p>
+  <div class="field"><label>Email</label><input id="email" type="email" autocomplete="email"></div>
+  <div class="field"><label>Mot de passe</label><input id="password" type="password" autocomplete="current-password"></div>
+  <button id="loginBtn" class="btn">Se connecter</button><div id="loginMsg" class="msg"></div>
+</section>
+
+<main id="appView" class="shell hide">
+  <div class="toolbar">
+    <div class="field"><label>Diagnostic</label><select id="diagSelect"></select></div>
+    <div id="loadState" style="font-size:11px;color:var(--muted)">—</div>
+  </div>
+
+  <section id="dashboard" class="hide">
+    <div class="hero card">
+      <div><h1 id="establishment">—</h1><p id="heroMeta">Synthèse exécutive du diagnostic</p></div>
+      <div class="method">Méthode <b>HP V1</b><br>Les chiffres affichés restent liés à leur source et à leur période.</div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi card"><div class="kpiLabel">HP Score</div><div id="score" class="kpiValue">—</div><div id="scoreSub" class="kpiSub">—</div></div>
+      <div class="kpi card"><div class="kpiLabel">Couverture économique</div><div id="econCoverage" class="kpiValue">—</div><div id="econCoverageSub" class="kpiSub">—</div></div>
+      <div class="kpi card"><div class="kpiLabel">Insights</div><div id="insightCount" class="kpiValue">—</div><div id="insightSub" class="kpiSub">—</div></div>
+      <div class="kpi card"><div class="kpiLabel">Priorités actives</div><div id="priorityCount" class="kpiValue">—</div><div class="kpiSub">Impact × Effort</div></div>
+      <div class="kpi card"><div class="kpiLabel">Plan 90 jours</div><div id="planCount" class="kpiValue">—</div><div id="planSub" class="kpiSub">—</div></div>
+    </div>
+
+    <div class="grid2">
+      <section class="section card"><div class="sectionTitle"><h2>Score par dimension</h2><span class="pill">/20</span></div><div id="dimensions"></div></section>
+      <section class="section card"><div class="sectionTitle"><h2>Couverture des données</h2><span id="areasPill" class="pill">—</span></div><div id="coverage"></div></section>
+    </div>
+
+    <div class="grid2">
+      <section class="section card"><div class="sectionTitle"><h2>Constats décisifs</h2><span id="highPill" class="pill high">—</span></div><div id="insights"></div></section>
+      <section class="section card"><div class="sectionTitle"><h2>Top priorités</h2><span class="pill">Impact × Effort</span></div><div id="priorities"></div></section>
+    </div>
+
+    <section class="section card" style="margin-bottom:14px">
+      <div class="sectionTitle"><h2>Chiffres établis</h2><span class="pill ok">Données documentées</span></div>
+      <div id="figures" class="figures"></div>
+      <div id="economicWarning" class="warning"></div>
+    </section>
+
+    <div class="grid2">
+      <section class="section card"><div class="sectionTitle"><h2>Plan 30 / 60 / 90</h2><span class="pill">Feuille de route</span></div><div id="timeline" class="timeline"></div></section>
+      <section class="section card"><div class="sectionTitle"><h2>Limites actuelles</h2><span class="pill medium">À compléter</span></div><div id="limits"></div></section>
+    </div>
+  </section>
+</main>
+
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.116.0";
+const sb=createClient("https://wztiaiwjprarpdzsudpx.supabase.co","sb_publishable_JqSGi4QEil2MBaI5tYsQvA_wQnxz8U_");
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+const num=(v,d=0)=>v===null||v===undefined?"—":Number(v).toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d});
+const euro=v=>v===null||v===undefined?"—":Number(v).toLocaleString("fr-FR",{maximumFractionDigits:0})+" €";
+let diagnostics=[],current=null;
+
+async function boot(){
+ const {data:{session}}=await sb.auth.getSession();
+ if(session) showApp(); else $("loginView").classList.remove("hide");
+}
+$("loginBtn").onclick=async()=>{
+ $("loginMsg").textContent="";
+ const {error}=await sb.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});
+ if(error){$("loginMsg").textContent=error.message;return} showApp();
+};
+$("logoutBtn").onclick=async()=>{await sb.auth.signOut();location.reload()};
+
+async function showApp(){
+ $("loginView").classList.add("hide");$("appView").classList.remove("hide");$("topActions").classList.remove("hide");
+ const {data,error}=await sb.from("hp_diagnostics").select("id,establishment_name,establishment_type,created_at").order("created_at",{ascending:false});
+ if(error){$("loadState").textContent=error.message;return}
+ diagnostics=data||[];
+ $("diagSelect").innerHTML=diagnostics.map(d=>`<option value="${esc(d.id)}">${esc(d.establishment_name)}</option>`).join("");
+ if(diagnostics.length){current=diagnostics[0].id;await loadDashboard()}
+}
+$("diagSelect").onchange=async e=>{current=e.target.value;await loadDashboard()};
+
+async function loadDashboard(){
+ $("loadState").textContent="Chargement…";$("dashboard").classList.add("hide");
+ const [{data:d,error:e1},{data:p,error:e2},{data:plan,error:e3}]=await Promise.all([
+   sb.from("hp_executive_dashboard_v1").select("*").eq("diagnostic_id",current).maybeSingle(),
+   sb.from("hp_prioritized_actions_v1").select("*").eq("diagnostic_id",current).order("blocked").order("action_rank"),
+   sb.from("hp_action_plan_v1").select("*").eq("diagnostic_id",current)
+ ]);
+ if(e1||!d){$("loadState").textContent=(e1&&e1.message)||"Dashboard indisponible";return}
+ render(d,p||[],plan||[]);$("dashboard").classList.remove("hide");$("loadState").textContent="Données actualisées";
+}
+
+function render(d,priorities,plan){
+ $("establishment").textContent=d.establishment_name||"Diagnostic";
+ $("heroMeta").textContent=`Synthèse exécutive · couverture scoring ${num(d.score_coverage_pct)} % · méthode ${d.methodology_version||"v1"}`;
+ $("score").textContent=d.hp_score_final!==null?`${num(d.hp_score_final)}/100`:`${num(d.preliminary_score)}/100*`;
+ $("scoreSub").textContent=d.hp_score_final!==null?"HP Score final":`Score provisoire · ${num(d.score_coverage_pct)} % couvert`;
+ $("econCoverage").textContent=`${num(d.economic_coverage_pct)} %`;
+ $("econCoverageSub").textContent=`${num(d.analyzable_areas)}/${num(d.service_areas)} pôles au moins partiellement exploitables`;
+ $("insightCount").textContent=num(d.insight_count);
+ $("insightSub").textContent=`${num(d.high_priority_insights)} priorité(s) haute(s)`;
+ const actionable=priorities.filter(x=>!x.blocked&&Number(x.action_rank)<=4);
+ $("priorityCount").textContent=num(actionable.length);
+ const totalPlan=Number(d.actions_30||0)+Number(d.actions_60||0)+Number(d.actions_90||0);
+ $("planCount").textContent=num(totalPlan);
+ $("planSub").textContent=`${num(d.actions_30)} / ${num(d.actions_60)} / ${num(d.actions_90)} actions`;
+
+ const dims=Array.isArray(d.dimension_scores)?d.dimension_scores:[];
+ $("dimensions").innerHTML=dims.map(x=>`<div class="dim"><div class="dimName">${esc(x.dimension)}</div><div class="track"><div class="fill" style="width:${Math.min(100,(Number(x.score||0)/20)*100)}%"></div></div><div class="dimScore">${num(x.score)}/${num(x.max_score)}</div></div>`).join("")||'<div class="empty">Score indisponible.</div>';
+
+ const cov=Array.isArray(d.economic_coverage)?d.economic_coverage:[];
+ $("areasPill").textContent=`${num(d.analyzable_areas)}/${num(d.service_areas)} pôles`;
+ $("coverage").innerHTML=cov.map(x=>`<div class="coverageItem"><div class="coverageTop"><b>${esc(x.area)}</b><span class="coverageStatus">${esc(x.status)} · ${num(x.coverage_pct)} %</span></div><div class="track"><div class="fill" style="width:${Math.min(100,Number(x.coverage_pct||0))}%"></div></div></div>`).join("");
+
+ const ins=Array.isArray(d.insights)?d.insights:[];
+ const decisive=[...ins].sort((a,b)=>(a.priority==="Haute"?0:1)-(b.priority==="Haute"?0:1)).slice(0,4);
+ $("highPill").textContent=`${num(d.high_priority_insights)} haute(s)`;
+ $("insights").innerHTML=decisive.map(i=>`<div class="insight"><div class="insightTop"><h3>${esc(i.title)}</h3><span class="pill ${i.priority==="Haute"?"high":"medium"}">${esc(i.priority)}</span></div><p>${esc(i.finding)}</p></div>`).join("")||'<div class="empty">Aucun insight.</div>';
+
+ $("priorities").innerHTML=actionable.map(p=>`<div class="priority"><div class="rank">${num(p.action_rank)}</div><div><h3>${esc(p.title)}</h3><div class="priorityMeta">${esc(p.service_area)} · ${esc(p.quadrant)}</div></div><div class="scores">Impact ${num(p.impact_score_calc,1)}/5<br>Effort ${num(p.effort_score_calc,1)}/5</div></div>`).join("");
+
+ const figs=[];
+ if(d.revenue_ht_common_period!==null) figs.push(["CA HT documenté",euro(d.revenue_ht_common_period),`${dateFr(d.period_start)} → ${dateFr(d.period_end)}`]);
+ if(d.paid_tickets!==null) figs.push(["Tickets avec paiement",num(d.paid_tickets),`Encaissement moyen ${euro(d.avg_payment_per_ticket)}`]);
+ if(d.rh_productivity_ht_per_hour!==null) figs.push(["Productivité RH",num(d.rh_productivity_ht_per_hour,2)+" € HT/h",`${dateFr(d.rh_period_start)} → ${dateFr(d.rh_period_end)}`]);
+ if(d.hours_variance_pct!==null) figs.push(["Écart heures / planning",num(d.hours_variance_pct,1)+" %",`${num(d.tension_signal_count)} signaux de tension potentielle`]);
+ $("figures").innerHTML=figs.map(f=>`<div class="figure"><b>${esc(f[1])}</b><span>${esc(f[0])}<br>${esc(f[2])}</span></div>`).join("");
+ $("economicWarning").innerHTML=`<b>Potentiel économique :</b> ${esc(d.economic_value_status)}`;
+
+ const phases=[["0-30","0–30 jours",d.actions_30],["31-60","31–60 jours",d.actions_60],["61-90","61–90 jours",d.actions_90]];
+ $("timeline").innerHTML=phases.map(([code,label,count])=>`<div class="phase"><b>${label}</b><strong>${num(count)}</strong><span>action${Number(count)>1?"s":""} planifiée${Number(count)>1?"s":""}</span></div>`).join("");
+
+ const blocked=priorities.filter(x=>x.blocked);
+ const limits=[];
+ if(Number(d.score_coverage_pct)<100) limits.push(`${100-Number(d.score_coverage_pct)} % du scoring reste à confirmer.`);
+ if(Number(d.economic_coverage_pct)<100) limits.push(`La couverture économique globale est de ${num(d.economic_coverage_pct)} % : les zones non documentées ne doivent pas être interprétées comme performantes ou défaillantes.`);
+ if(blocked.length) limits.push(...blocked.map(x=>`${x.title} : bloqué par une donnée source manquante.`));
+ limits.push("Les encaissements caisse et le CA HT Combo ont des bases différentes : leur écart reste un contrôle de rapprochement, pas une perte économique.");
+ $("limits").innerHTML=limits.map(x=>`<div class="insight"><p style="margin:0">${esc(x)}</p></div>`).join("");
+}
+function dateFr(v){if(!v)return"—";const [y,m,d]=String(v).split("-");return `${d}/${m}/${y}`}
+boot();
+</script>
+</body>
+</html>
