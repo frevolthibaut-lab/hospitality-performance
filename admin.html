@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#103833">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Espace interne | Hospitality Performance</title>
+  <style>
+    :root{--navy:#10283f;--navy2:#183a58;--teal:#1f8a86;--bg:#f4f7f8;--card:#fff;--text:#172330;--muted:#667684;--line:#dce5e9;--danger:#a83232;--ok:#26734d;--warn:#a46a00}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    button,input,select,textarea{font:inherit}.hide{display:none!important}
+    .shell{min-height:100vh}.top{background:var(--navy);color:#fff;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px;position:sticky;top:0;z-index:10}
+    .brand{font-weight:900;letter-spacing:.1em;text-transform:uppercase;font-size:13px}.sub{opacity:.7;font-size:12px;margin-top:3px}.top-actions{display:flex;gap:8px;align-items:center;flex:1;justify-content:flex-end}.top-search{width:min(360px,32vw);position:relative}.top-search input{height:40px;padding:9px 13px 9px 36px;border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.1);color:#fff}.top-search input::placeholder{color:rgba(255,255,255,.62)}.top-search input:focus{background:#fff;color:var(--text);border-color:#fff;box-shadow:none}.top-search:before{content:"⌕";position:absolute;left:12px;top:7px;font-size:20px;color:rgba(255,255,255,.7);z-index:1}.top-search:focus-within:before{color:var(--teal)}
+    .btn{border:0;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}.btn-primary{background:var(--teal);color:#fff}.btn-light{background:#edf2f4;color:var(--navy)}.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)}.btn:disabled{opacity:.5;cursor:wait}
+    .login-wrap{max-width:460px;margin:70px auto;padding:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 28px rgba(16,40,63,.06)}
+    .login{padding:30px}.login h1{margin:0 0 8px;color:var(--navy);font-size:28px}.muted{color:var(--muted);line-height:1.5}.field{margin:16px 0}.field label{display:block;font-weight:750;margin-bottom:7px;font-size:14px}
+    input,select,textarea{width:100%;border:1px solid #cbd7dc;border-radius:9px;padding:11px 12px;background:#fff;color:var(--text)}textarea{min-height:90px;resize:vertical}input:focus,select:focus,textarea:focus{outline:0;border-color:var(--teal);box-shadow:0 0 0 3px rgba(31,138,134,.12)}
+    .msg{margin-top:14px;padding:11px 12px;border-radius:9px;font-size:14px;display:none}.msg.ok{display:block;background:#eaf6ef;color:var(--ok)}.msg.err{display:block;background:#faeded;color:var(--danger)}
+    .app{max-width:1500px;margin:auto;padding:18px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:16px}.panel{overflow:hidden}.panel-head{padding:18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}
+    .panel-head h2,.detail h2{margin:0;color:var(--navy);font-size:20px}.count{font-size:12px;background:#edf6f5;color:#176d69;padding:6px 9px;border-radius:99px;font-weight:800}
+    .search{padding:12px;border-bottom:1px solid var(--line)}.list{max-height:calc(100vh - 185px);overflow:auto}.item{padding:15px 16px;border-bottom:1px solid var(--line);cursor:pointer}.item:hover,.item.on{background:#f0f7f7}.item-title{font-weight:850;color:var(--navy);display:flex;justify-content:space-between;gap:8px}.item-meta{font-size:12px;color:var(--muted);margin-top:5px}.badge{font-size:11px;padding:4px 7px;border-radius:99px;background:#edf1f3;color:#53616d;white-space:nowrap}.autobadge{font-size:11px;padding:4px 8px;border-radius:99px;background:#e9f5f4;color:#176d69;font-weight:850;white-space:nowrap}.autobadge.warn{background:#fff4dd;color:#8a5b00}.autobadge.manual{background:#edf1f3;color:#53616d}.score-note{padding:12px 14px;margin:0 0 16px;border:1px solid var(--line);border-radius:11px;background:#f8fafb;color:var(--muted);font-size:13px;line-height:1.45}
+    .empty{padding:45px 24px;text-align:center;color:var(--muted)}.detail{min-width:0}.hero{padding:22px;display:flex;justify-content:space-between;gap:16px;align-items:flex-start;border-bottom:1px solid var(--line)}.hero h1{margin:0;color:var(--navy);font-size:28px}.hero p{margin:6px 0 0;color:var(--muted)}
+    .tabs{display:flex;gap:4px;padding:10px 12px;border-bottom:1px solid var(--line);overflow:auto}.tab{border:0;background:transparent;padding:9px 11px;border-radius:8px;font-weight:800;color:var(--muted);cursor:pointer;white-space:nowrap}.tab.on{background:#e9f5f4;color:#176d69}
+    .tabpage{display:none;padding:20px}.tabpage.on{display:block}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .info{border:1px solid var(--line);border-radius:12px;padding:14px}.info .k{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:850;margin-bottom:5px}.info .v{font-weight:700;word-break:break-word}
+    .answer{padding:14px 0;border-bottom:1px solid var(--line)}.answer:last-child{border:0}.answer b{display:block;color:var(--navy);margin-bottom:5px}.answer div{white-space:pre-wrap;line-height:1.45}
+    .scorebar{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:18px}.scorebox{border:1px solid var(--line);border-radius:12px;padding:13px;text-align:center;background:#fff}.scorebox strong{display:block;font-size:22px;color:var(--navy)}.scorebox span{font-size:11px;color:var(--muted)}.scorebox.total{background:var(--navy);color:#fff}.scorebox.total strong,.scorebox.total span{color:#fff}
+    .criterion{border:1px solid var(--line);border-radius:13px;margin:11px 0;overflow:hidden}.criterion-head{padding:13px 14px;background:#f8fafb;display:flex;justify-content:space-between;gap:12px;align-items:center}.criterion-head b{color:var(--navy)}.code{font-size:11px;font-weight:900;color:var(--teal);margin-right:7px}.criterion-body{padding:13px;display:grid;grid-template-columns:110px 1fr 1fr 130px;gap:10px;align-items:start}.criterion textarea{min-height:76px}
+    .section-title{margin:24px 0 10px;color:var(--navy);font-size:18px}.savebar{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}.save-state{font-size:13px;color:var(--muted);align-self:center}.danger{color:var(--danger)}.oktext{color:var(--ok)}
+    .analysis-intro{margin:0 0 14px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#f8fbfb;line-height:1.5}
+    .analysis-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:18px}
+    .analysis-card{border:1px solid var(--line);border-radius:10px;padding:13px;background:#fff}.analysis-card h4{margin:0 0 7px;font-size:15px}.analysis-card p{margin:5px 0;color:#425958;line-height:1.45;font-size:13px}.analysis-card .mini,.analysis-intro .mini{font-size:12px;color:var(--muted)}
+    .analysis-card.priority{border-left:4px solid #a24a32}.analysis-card.strength{border-left:4px solid #25827d}.analysis-card.opportunity{border-left:4px solid #9b7b27}.analysis-card.confirm{border-left:4px solid #7b8790}
+    .analysis-code{display:inline-block;font-size:11px;font-weight:900;background:#edf3f3;border-radius:999px;padding:3px 7px;margin-right:6px}.analysis-section h3{margin:18px 0 10px}.analysis-empty{padding:12px;border:1px dashed var(--line);border-radius:9px;color:var(--muted);margin-bottom:18px}
+    @media(max-width:800px){.analysis-grid{grid-template-columns:1fr}}
+    @media(max-width:900px){.app{grid-template-columns:1fr}.list{max-height:310px}.grid3{grid-template-columns:1fr 1fr}.scorebar{grid-template-columns:repeat(3,1fr)}.criterion-body{grid-template-columns:1fr 1fr}.top{position:static;flex-wrap:wrap}.top-actions{width:100%;justify-content:flex-start}.top-search{width:min(100%,420px);flex:1}}
+    @media(max-width:600px){.app{padding:9px}.top{padding:14px}.top .sub{display:none}.top-actions{gap:6px}.top-search{order:4;flex-basis:100%;width:100%;max-width:none}.top-actions .btn{padding:9px 10px}.hero{padding:17px;display:block}.hero h1{font-size:23px}.hero .btn{margin-top:12px}.tabpage{padding:14px}.grid2,.grid3{grid-template-columns:1fr}.scorebar{grid-template-columns:1fr 1fr}.criterion-body{grid-template-columns:1fr}.login{padding:22px}}
+  
+/* HP Visual System V3 */
+:root{--hp-green:#103833;--hp-green2:#174b43;--hp-green3:#2e6b5e;--hp-cream:#f7f6f2;--hp-ink:#17211f;--hp-muted:#727b78;--hp-line:#e2e5e2;--hp-paper:#fff;--hp-gold:#c98d27}
+body{background:var(--hp-cream)!important;color:var(--hp-ink)!important}
+.hp-topbar{min-height:80px;background:var(--hp-green);color:#fff;display:grid;grid-template-columns:minmax(280px,340px) minmax(0,1fr);align-items:center;gap:24px;padding:0 34px;position:sticky;top:0;z-index:30}
+.hp-identity{display:flex;align-items:center;gap:16px;min-width:0}.hp-monogram{font:42px/1 Georgia,"Times New Roman",serif;letter-spacing:-.06em}.hp-brand{font:23px/1.1 Georgia,"Times New Roman",serif;white-space:nowrap}
+.hp-top-right{display:flex;justify-content:flex-end;align-items:center;gap:26px;min-width:0}.hp-top-right a,.hp-top-right button{color:#fff!important;background:none!important;border:0!important;border-radius:0!important;padding:11px 0!important;font-size:14px;font-weight:500!important;text-decoration:none;cursor:pointer;white-space:nowrap}
+.hp-top-right .hp-active{border-bottom:2px solid #fff!important}
+.hp-tabs{height:55px;background:var(--hp-cream);border-bottom:1px solid var(--hp-line);display:flex;align-items:flex-end;gap:30px;padding:0 max(26px,calc((100vw - 1440px)/2 + 26px));overflow:auto;white-space:nowrap}
+.hp-tabs a{height:55px;display:flex;align-items:center;padding:0 10px;color:#68736f;text-decoration:none;font-size:13px;border-bottom:2px solid transparent}.hp-tabs a.active{color:var(--hp-ink);font-weight:700;border-color:var(--hp-ink)}
+.hp-page-title,h1,h2,h3{font-family:Georgia,"Times New Roman",serif}
+.card,.panel,.login{border-color:var(--hp-line)!important;box-shadow:0 3px 14px rgba(17,39,34,.035)!important}
+@media(max-width:900px){.hp-topbar{grid-template-columns:1fr;padding:14px 18px;gap:8px}.hp-top-right{justify-content:flex-start;gap:18px;overflow:auto}.hp-tabs{padding:0 10px;gap:10px}}
+
+:root{--navy:#103833;--navy2:#174b43;--teal:#2e6b5e;--bg:#f7f6f2;--card:#fff;--text:#17211f;--muted:#727b78;--line:#e2e5e2}
+.top-search{width:min(390px,34vw)}.top-search input{height:46px!important;background:#fff!important;color:var(--hp-ink)!important;border:0!important;border-radius:6px!important;padding-left:42px!important}.top-search input::placeholder{color:#a0a6a4!important}.top-search:before{color:#5f6966!important;top:9px!important}
+.app{max-width:1440px;padding:20px 26px;gap:16px}.card,.panel{border-radius:7px!important}.panel-head h2,.detail h2,.hero h1,.section-title{color:var(--hp-ink)!important}.panel-head h2,.hero h1,.section-title{font-family:Georgia,"Times New Roman",serif}
+.item:hover,.item.on{background:#efede7!important}.item-title{color:var(--hp-ink)!important}.count{background:#eeece7!important;color:#666!important}.tab.on{background:#edf1ee!important;color:var(--hp-green)!important}.btn-primary{background:var(--hp-green)!important}.btn-light{background:#efefeb!important;color:var(--hp-green)!important}
+@media(max-width:900px){.top-actions{width:100%;justify-content:flex-start!important}.top-search{width:min(100%,420px)}}
+
+
+/* HP Fixed Navigation V1 */
+:root{--hp-topbar-h:80px;--hp-tabs-h:55px}
+.hp-fixed-tabs,.hp-tabs{
+  position:sticky!important;top:var(--hp-topbar-h)!important;z-index:29!important;
+  background:#f7f6f2!important;
+}
+.hp-topbar,.topbar{position:sticky!important;top:0!important;z-index:40!important}
+.hp-global-search{position:relative;min-width:260px;max-width:520px;width:min(42vw,520px)}
+.hp-global-search:before{content:"⌕";position:absolute;left:15px;top:7px;font-size:25px;color:#66716d;z-index:1}
+.hp-global-search input{width:100%;height:44px;border:0;border-radius:6px;padding:0 14px 0 47px;background:#fff;color:#17211f;box-shadow:0 2px 8px rgba(0,0,0,.12);outline:none}
+.hp-global-search input::placeholder{color:#9ca5a2}
+.hp-global-search input:focus{box-shadow:0 0 0 2px rgba(255,255,255,.25),0 2px 8px rgba(0,0,0,.14)}
+@media(max-width:900px){
+ :root{--hp-topbar-h:0px}
+ .hp-topbar,.topbar{position:relative!important}
+ .hp-fixed-tabs,.hp-tabs{top:0!important}
+ .hp-global-search{width:100%;max-width:none;min-width:220px}
+}
+
+.hp-topbar{grid-template-columns:300px minmax(280px,520px) 1fr!important}
+.hp-top-right{grid-column:3;justify-content:flex-end!important}
+.top-search{grid-column:2;width:100%!important;max-width:520px!important}
+.hp-tabs{position:sticky!important;top:80px!important;z-index:29!important}
+@media(max-width:900px){.hp-topbar{grid-template-columns:1fr!important}.top-search,.hp-top-right{grid-column:1}.hp-tabs{top:0!important}}
+
+
+/* HP Impact Tracking V1 */
+.impactCard{margin:18px 0 22px;border:1px solid #dbe3df;border-radius:12px;background:#fafbf9;padding:16px}
+.impactHead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.impactHead h3{font:20px/1.1 Georgia,"Times New Roman",serif;margin:0 0 5px;color:var(--hp-ink)}
+.impactHead p{margin:0;color:var(--muted);font-size:12px;line-height:1.45}
+.impactState{font-size:10px;font-weight:800;padding:6px 9px;border-radius:99px;white-space:nowrap;background:#eef0ef;color:#68716e}
+.impactState.ready{background:#e8f4ea;color:#347448}.impactState.warn{background:#fff3d9;color:#8b5b00}.impactState.done{background:#e8f4ea;color:#347448}
+.impactMetrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+.impactMetric{background:#fff;border:1px solid #e3e8e5;border-radius:9px;padding:11px}
+.impactMetric span{display:block;font-size:10px;color:var(--muted);margin-bottom:5px}
+.impactMetric b{font-size:20px;color:var(--hp-ink)}
+.impactProgress{height:8px;border-radius:99px;background:#e7ebe8;overflow:hidden;margin:12px 0 6px}
+.impactProgress>div{height:100%;background:#2e6b5e;border-radius:99px}
+.impactFoot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:12px}
+.impactNote{font-size:11px;line-height:1.45;color:var(--muted);max-width:680px}
+.impactNote.warning{color:#7a5b18}
+.impactBaselineMeta{font-size:11px;color:var(--muted);margin-top:10px}
+@media(max-width:820px){.impactMetrics{grid-template-columns:1fr}.impactFoot{align-items:flex-start;flex-direction:column}}
+
+
+/* HP Before / After */
+.impactCompare{margin-top:16px;border-top:1px solid #e1e7e3;padding-top:15px}
+.impactCompareHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-end;margin-bottom:12px}
+.impactCompareHead h4{margin:0;font-size:15px;color:var(--hp-ink)}
+.impactCompareHead span{font-size:11px;color:var(--muted)}
+.impactCompareSummary{display:grid;grid-template-columns:1fr auto 1fr auto;gap:12px;align-items:center;background:#fff;border:1px solid #e3e8e5;border-radius:10px;padding:12px}
+.impactCompareScore small{display:block;font-size:10px;color:var(--muted);margin-bottom:3px}
+.impactCompareScore b{font-size:24px;color:var(--hp-ink)}
+.impactArrow{font-size:18px;color:#7e8985}
+.impactDelta{font-size:14px;font-weight:800;padding:7px 10px;border-radius:99px;background:#eef2ef;color:#52605b;white-space:nowrap}
+.impactDelta.positive{background:#e8f4ea;color:#2f7445}
+.impactDelta.negative{background:#f8e8e8;color:#9b3c3c}
+.impactDims{display:grid;gap:9px;margin-top:12px}
+.impactDimRow{display:grid;grid-template-columns:120px 1fr 54px 18px 54px 70px;gap:9px;align-items:center}
+.impactDimName{font-size:11px;font-weight:700;color:var(--hp-ink)}
+.impactDimTrack{height:8px;background:#e8ece9;border-radius:99px;overflow:hidden;position:relative}
+.impactDimBefore,.impactDimAfter{position:absolute;left:0;top:0;height:100%;border-radius:99px}
+.impactDimBefore{background:#c8d1cd}
+.impactDimAfter{background:#3b7064;height:4px;top:2px}
+.impactDimValue,.impactDimDelta{font-size:11px;text-align:right;font-weight:700;color:var(--hp-ink)}
+.impactCompareEmpty{font-size:11px;color:var(--muted);padding:12px 0 2px}
+@media(max-width:820px){
+ .impactCompareSummary{grid-template-columns:1fr auto 1fr}.impactDelta{grid-column:1/-1;justify-self:start}
+ .impactDimRow{grid-template-columns:95px 1fr 44px 14px 44px 56px}
+}
+
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="hp-topbar">
+    <div class="hp-identity"><div class="hp-monogram">HP</div><div class="hp-brand">Hospitality Performance</div></div>
+    <div></div>
+    <div class="top-actions hp-top-right"><button id="logout" class="hide">Déconnexion</button></div>
+  </header>
+  <nav id="internalTabs" class="hp-tabs hide">
+    <a data-hp-page href="dashboard.html">Dashboard</a>
+    <a href="./" target="_blank" rel="noopener">Questionnaire</a>
+    <a class="active" data-hp-page href="admin.html">Administration</a>
+    <a data-hp-page href="economics.html">Performance</a>
+    <a data-hp-page href="documents.html">Documents</a>
+    <a data-hp-page href="report.html">Restitution</a>
+  </nav>
+
+  <section id="loginView" class="login-wrap">
+    <div class="card login">
+      <h1>Accès consultant</h1>
+      <p class="muted">Cet espace contient les réponses clients, le scoring HP et le suivi commercial.</p>
+      <div class="field"><label>Email</label><input id="email" type="email" value="frevol.thibaut@gmail.com" autocomplete="username"></div>
+      <div class="field"><label>Mot de passe</label><input id="password" type="password" minlength="8" autocomplete="current-password" placeholder="8 caractères minimum"></div>
+      <div style="display:flex;gap:9px;flex-wrap:wrap">
+        <button id="loginBtn" class="btn btn-primary">Se connecter</button>
+        <button id="signupBtn" class="btn btn-light">Créer mon accès</button>
+      </div>
+      <div id="authMsg" class="msg"></div>
+      <p class="muted" style="font-size:12px;margin-bottom:0">Le premier accès peut nécessiter une confirmation par email. L’accès aux données reste bloqué côté base pour les autres comptes.</p>
+    </div>
+  </section>
+
+  <main id="appView" class="app hide">
+    <aside class="card panel">
+      <div class="panel-head"><h2>Diagnostics</h2><span id="count" class="count">0</span></div>
+      <div id="diagList" class="list"></div>
+    </aside>
+
+    <section class="card detail">
+      <div id="noSelection" class="empty">Sélectionnez un diagnostic.</div>
+      <div id="detailView" class="hide">
+        <div class="hero">
+          <div><h1 id="dName"></h1><p id="dMeta"></p></div>
+          <button id="refreshBtn" class="btn btn-light">Actualiser</button>
+        </div>
+        <nav class="tabs">
+          <button class="tab on" data-tab="overview">Synthèse</button>
+          <button class="tab" data-tab="answers">Questionnaire</button>
+          <button class="tab" data-tab="scoring">Scoring HP</button>
+          <button class="tab" data-tab="analysis">Analyse</button>
+          <button class="tab" data-tab="commercial">Suivi</button>
+        </nav>
+
+        <div id="overview" class="tabpage on">
+          <div id="identityGrid" class="grid3"></div>
+
+          <section class="impactCard">
+            <div class="impactHead">
+              <div>
+                <h3>Suivi d’impact</h3>
+                <p>Fige le HP Score initial afin de pouvoir mesurer l’évolution de l’établissement lors des futurs suivis.</p>
+              </div>
+              <span id="impactStateBadge" class="impactState">Chargement…</span>
+            </div>
+            <div class="impactMetrics">
+              <div class="impactMetric"><span>HP Score actuel</span><b id="impactCurrentScore">—</b></div>
+              <div class="impactMetric"><span>Couverture du scoring</span><b id="impactCoverage">—</b></div>
+              <div class="impactMetric"><span>Baseline</span><b id="impactBaselineValue">Non figée</b></div>
+              <div class="impactMetric"><span>Stade du dossier</span><b id="impactLifecycle">Diagnostic en cours</b></div>
+            </div>
+            <div class="impactProgress"><div id="impactProgressBar" style="width:0"></div></div>
+            <div id="impactBaselineMeta" class="impactBaselineMeta"></div>
+            <label id="baselineConfirmWrap" style="display:flex;gap:9px;align-items:flex-start;margin-top:12px;font-size:11px;color:var(--hp-ink)">
+              <input id="baselineConfirm" type="checkbox" style="width:auto;margin-top:2px">
+              <span>Je confirme que cette mesure représente la situation de l’établissement avant la mise en œuvre des actions HP.</span>
+            </label>
+            <div class="impactFoot">
+              <div id="impactNote" class="impactNote">Le diagnostic doit atteindre au moins 80 % de couverture avant de pouvoir figer le T0.</div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <button id="freezeBaselineBtn" class="btn btn-primary" disabled>Figer le diagnostic initial</button>
+                <button id="createFollowupBtn" class="btn btn-light" disabled>Créer une évaluation de suivi</button>
+              </div>
+            </div>
+            <div id="impactActionState" class="save-state" style="margin-top:9px"></div>
+
+            <div class="impactCompare">
+              <div class="impactCompareHead">
+                <h4>Évolution HP Score</h4>
+                <span id="impactCompareDates">Baseline vs dernier suivi</span>
+              </div>
+              <div id="impactCompareContent" class="impactCompareEmpty">La comparaison sera disponible après la création d’une baseline et d’au moins une évaluation de suivi.</div>
+            </div>
+          </section>
+
+          <h3 class="section-title">Lecture rapide</h3>
+          <div id="quickAnswers"></div>
+        </div>
+
+        <div id="answers" class="tabpage"><div id="allAnswers"></div></div>
+
+        <div id="scoring" class="tabpage">
+          <div class="score-note">Le scoring est pré-calculé à partir des réponses structurées. Les critères sans information suffisante restent à confirmer. Le HP Score final /100 n’est considéré comme complet qu’après validation des 20 critères.</div>
+          <div id="scorebar" class="scorebar"></div>
+          <div id="criteria"></div>
+          <div class="savebar"><span id="scoreState" class="save-state"></span><button id="saveScores" class="btn btn-primary">Enregistrer le scoring</button></div>
+        </div>
+
+        <div id="analysis" class="tabpage"><div id="analysisContent"><div class="empty">Analyse en cours de chargement…</div></div></div>
+
+        <div id="commercial" class="tabpage">
+          <div class="grid2">
+            <div class="field"><label>Statut</label><select id="status"><option>Nouveau</option><option>Pris en charge</option><option>Clos</option></select></div>
+            <div class="field"><label>Issue commerciale</label><select id="outcome"><option>En cours</option><option>Gagné</option><option>Perdu</option><option>À relancer</option></select></div>
+            <div class="field"><label>CA potentiel identifié (€)</label><input id="potentialRevenue" type="number" min="0" step="1"></div>
+            <div class="field"><label>Temps récupérable (h/mois)</label><input id="recoverableHours" type="number" min="0" step="0.5"></div>
+            <div class="field"><label>Offre proposée</label><select id="offer"><option value="">—</option><option>HP Growth</option><option>HP Operations</option><option>HP Control</option><option>HP Systems</option><option>Autonomie</option><option>À définir</option></select></div>
+            <div class="field"><label>Valeur proposée (€)</label><input id="proposedValue" type="number" min="0" step="1"></div>
+          </div>
+          <div class="field"><label>Notes internes</label><textarea id="notes" placeholder="Constats, contexte, prochaines actions…"></textarea></div>
+          <div class="savebar"><span id="diagState" class="save-state"></span><button id="saveDiag" class="btn btn-primary">Enregistrer le suivi</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.116.0";
+
+const SUPABASE_URL="https://wztiaiwjprarpdzsudpx.supabase.co";
+const SUPABASE_KEY="sb_publishable_JqSGi4QEil2MBaI5tYsQvA_wQnxz8U_";
+const sb=createClient(SUPABASE_URL,SUPABASE_KEY);
+
+const labels={
+ avg_ticket:"Ticket moyen (€)",tools_used:"Outils utilisés (ancien format)",pos_tool:"Caisse / POS",reservation_tool:"Réservations / gestion des tables",planning_hr_tool:"Planning / RH",accounting_tool:"Comptabilité / facturation",stock_purchasing_tool:"Stocks / achats / coût matière",crm_commercial_tool:"CRM / devis / groupes / événements",reporting_tool:"Reporting / tableaux de bord",other_tools:"Autres outils",double_entry:"Doubles saisies / copier-coller",top_problems:"3 principaux problèmes ou irritants",has_dashboard:"Dashboard / reporting",kpi_frequency:"Fréquence de consultation des KPI",quote_followup:"Relance des devis non signés",response_delay:"Délai moyen de réponse commerciale",shareable_data:"Données partageables",margin_tracking:"Suivi coût matière / marges",knows_avg_ticket:"Connaissance du ticket moyen",knows_conversion:"Connaissance du taux devis → vente",service_friction:"Principal point de friction en service",biggest_time_waste:"Plus grande perte de temps hebdomadaire",runs_without_owner:"Fonctionnement sans dirigeant",six_month_priority:"Priorité à 6 mois",existing_automation:"Automatisations existantes",groups_significance:"Enjeu groupes / entreprises / événements",monthly_group_leads:"Demandes groupes / événements par mois",upcoming_constraints:"Contraintes / projets à venir",procedures_documented:"Procédures documentées",consolidated_reporting:"Fréquence du reporting consolidé",productivity_tracking:"Suivi de la productivité",management_routines:"Routines de management",internal_communication:"Communication interne",onboarding_process:"Intégration des nouveaux collaborateurs",acquisition_process:"Pilotage de l’acquisition",pricing_review:"Revue des offres et prix",loyalty_tracking:"Suivi de la fidélisation",flow_process:"Structuration des flux de service",planning_process:"Construction des plannings",automation_maturity:"Niveau d’automatisation"
+};
+const dims=["Human","Performance","Growth","Operations","Systems"];
+const dimFr={Human:"Humain",Performance:"Performance",Growth:"Croissance",Operations:"Opérations",Systems:"Systèmes"};
+let diagnostics=[],criteria=[],selected=null,scores=[],analysisSummary=null,impactCurrent=null,baselineSnapshot=null,latestFollowup=null,impactComparison=null;
+
+const $=id=>document.getElementById(id);
+
+function hpSyncNav(id){
+  document.querySelectorAll("[data-hp-page]").forEach(a=>{
+    const base=a.getAttribute("data-base")||a.getAttribute("href").split("?")[0];
+    a.setAttribute("data-base",base);
+    a.href=id?`${base}?diagnostic=${encodeURIComponent(id)}`:base;
+  });
+}
+
+const esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+const val=v=>(v===null||v===undefined||v==="")?"—":v;
+const numOrNull=v=>v===""?null:Number(v);
+
+function authMessage(text,type="ok"){const e=$("authMsg");e.textContent=text;e.className="msg "+type}
+async function signIn(){
+  const email=$("email").value.trim(),password=$("password").value;
+  if(!email||password.length<8){authMessage("Renseignez l’email et un mot de passe d’au moins 8 caractères.","err");return}
+  $("loginBtn").disabled=true;
+  const {error}=await sb.auth.signInWithPassword({email,password});
+  $("loginBtn").disabled=false;
+  if(error) authMessage(error.message,"err"); else await enterApp();
+}
+async function signUp(){
+  const email=$("email").value.trim(),password=$("password").value;
+  if(!email||password.length<8){authMessage("Choisissez un mot de passe d’au moins 8 caractères.","err");return}
+  $("signupBtn").disabled=true;
+  const {data,error}=await sb.auth.signUp({email,password});
+  $("signupBtn").disabled=false;
+  if(error){authMessage(error.message,"err");return}
+  if(data.session) await enterApp();
+  else authMessage("Compte créé. Confirmez l’adresse via l’email envoyé par Supabase, puis revenez ici pour vous connecter.","ok");
+}
+async function enterApp(){
+  const {data:{session}}=await sb.auth.getSession();
+  if(!session)return;
+  $("loginView").classList.add("hide");$("appView").classList.remove("hide");$("logout").classList.remove("hide");$("internalTabs").classList.remove("hide");
+  await loadData();
+}
+async function logout(){await sb.auth.signOut();location.reload()}
+
+async function loadData(){
+  const [d,c]=await Promise.all([
+    sb.from("hp_diagnostics").select("*").order("created_at",{ascending:false}),
+    sb.from("hp_criteria").select("*").order("sort_order")
+  ]);
+  if(d.error||c.error){
+    $("diagList").innerHTML='<div class="empty danger">Accès aux données refusé ou indisponible.<br>Vérifiez que vous êtes connecté avec le compte autorisé.</div>';
+    return;
+  }
+  diagnostics=d.data||[];criteria=c.data||[];renderList();
+  const q=new URLSearchParams(location.search).get("diagnostic");
+  if(q&&diagnostics.some(x=>x.id===q)) await selectDiagnostic(q);
+  else if(selected){const fresh=diagnostics.find(x=>x.id===selected.id);if(fresh)await selectDiagnostic(fresh.id)}
+}
+
+function renderList(){
+  const q="";
+  const rows=diagnostics.filter(d=>(d.establishment_name+" "+(d.respondent_name||"")+" "+(d.respondent_email||"")).toLowerCase().includes(q));
+  $("count").textContent=diagnostics.length;
+  $("diagList").innerHTML=rows.length?rows.map(d=>`<div class="item ${selected?.id===d.id?"on":""}" data-id="${d.id}">
+    <div class="item-title"><span>${esc(d.establishment_name)}</span><span class="badge">${esc(d.status)}</span></div>
+    <div class="item-meta">${esc(d.establishment_type||"Type non renseigné")} · ${new Date(d.created_at).toLocaleDateString("fr-FR")}</div>
+  </div>`).join(""):'<div class="empty">Aucun diagnostic.</div>';
+  document.querySelectorAll(".item").forEach(e=>e.onclick=()=>selectDiagnostic(e.dataset.id));
+}
+
+async function selectDiagnostic(id){
+  selected=diagnostics.find(d=>d.id===id);if(!selected)return;hpSyncNav(id);history.replaceState(null,"",`?diagnostic=${encodeURIComponent(id)}`);
+  renderList();$("noSelection").classList.add("hide");$("detailView").classList.remove("hide");
+  $("dName").textContent=selected.establishment_name;
+  $("dMeta").textContent=[selected.establishment_type,selected.respondent_name,selected.respondent_role].filter(Boolean).join(" · ");
+  renderOverview();renderAnswers();fillCommercial();
+  const [
+    {data,error},
+    {data:analysisData,error:analysisError},
+    {data:impactData,error:impactError},
+    {data:baselineData,error:baselineError},
+    {data:followupData,error:followupError},
+    {data:comparisonData,error:comparisonError}
+  ]=await Promise.all([
+    sb.from("hp_diagnostic_scores").select("*").eq("diagnostic_id",id),
+    sb.from("hp_diagnostic_analysis_summary").select("*").eq("diagnostic_id",id).maybeSingle(),
+    sb.from("hp_client_report_summary_v1")
+      .select("diagnostic_id,preliminary_score,hp_score_final,score_coverage_pct,scored_criteria,dimension_scores,methodology_version")
+      .eq("diagnostic_id",id).maybeSingle(),
+    sb.from("hp_score_snapshots")
+      .select("id,snapshot_date,hp_score,score_coverage_pct,methodology_version,notes")
+      .eq("diagnostic_id",id).eq("snapshot_type","baseline").maybeSingle(),
+    sb.from("hp_score_snapshots")
+      .select("id,snapshot_date,hp_score,score_coverage_pct,methodology_version,snapshot_label")
+      .eq("diagnostic_id",id).eq("snapshot_type","follow_up")
+      .order("snapshot_date",{ascending:false}).limit(1).maybeSingle(),
+    sb.from("hp_score_impact_v1")
+      .select("*").eq("diagnostic_id",id).maybeSingle()
+  ]);
+  scores=error?[]:(data||[]);
+  analysisSummary=analysisError?null:analysisData;
+  impactCurrent=impactError?null:impactData;
+  baselineSnapshot=baselineError?null:baselineData;
+  latestFollowup=followupError?null:followupData;
+  impactComparison=comparisonError?null:comparisonData;
+  renderScoring();renderAnalysis();renderImpactTracking();renderImpactComparison();
+}
+
+function info(k,v){return `<div class="info"><div class="k">${esc(k)}</div><div class="v">${esc(val(v))}</div></div>`}
+
+function renderImpactTracking(){
+  const btn=$("freezeBaselineBtn");
+  const confirmBox=$("baselineConfirm");
+  const confirmWrap=$("baselineConfirmWrap");
+  const followupBtn=$("createFollowupBtn");
+  const badge=$("impactStateBadge");
+  const state=$("impactActionState");
+  state.textContent="";
+
+  if(!impactCurrent){
+    $("impactCurrentScore").textContent="—";
+    $("impactCoverage").textContent="—";
+    $("impactBaselineValue").textContent=baselineSnapshot?`${Number(baselineSnapshot.hp_score).toLocaleString("fr-FR",{maximumFractionDigits:1})}/100`:"Non figée";
+    $("impactLifecycle").textContent=baselineSnapshot?(latestFollowup?"Suivi en cours":"Baseline figée"):"Diagnostic en cours";
+    followupBtn.disabled=!baselineSnapshot;
+    $("impactProgressBar").style.width="0%";
+    $("impactNote").textContent="Le score actuel n’est pas disponible.";
+    badge.textContent=baselineSnapshot?"Baseline figée":"Indisponible";
+    badge.className="impactState "+(baselineSnapshot?"done":"");
+    btn.disabled=true;
+    confirmBox.checked=false;
+    confirmBox.disabled=true;
+    confirmWrap.style.opacity=".55";
+    return;
+  }
+
+  const score=impactCurrent.hp_score_final ?? impactCurrent.preliminary_score;
+  const coverage=Number(impactCurrent.score_coverage_pct||0);
+  $("impactCurrentScore").textContent=score==null?"—":`${Number(score).toLocaleString("fr-FR",{maximumFractionDigits:1})}/100`;
+  $("impactCoverage").textContent=`${coverage.toLocaleString("fr-FR",{maximumFractionDigits:0})} %`;
+  $("impactProgressBar").style.width=`${Math.max(0,Math.min(100,coverage))}%`;
+
+  if(baselineSnapshot){
+    $("impactBaselineValue").textContent=`${Number(baselineSnapshot.hp_score).toLocaleString("fr-FR",{maximumFractionDigits:1})}/100`;
+    $("impactBaselineMeta").textContent=`Figée le ${new Date(baselineSnapshot.snapshot_date).toLocaleDateString("fr-FR")} · couverture ${Number(baselineSnapshot.score_coverage_pct).toLocaleString("fr-FR",{maximumFractionDigits:0})} % · méthode ${baselineSnapshot.methodology_version||"—"}`;
+    $("impactLifecycle").textContent=latestFollowup?"Suivi en cours":"Baseline figée";
+    followupBtn.disabled=false;
+    $("impactNote").textContent="Cette baseline constitue le T0 de référence et ne doit plus être remplacée. Les futurs suivis seront comparés à cette mesure.";
+    $("impactNote").className="impactNote";
+    badge.textContent="Baseline figée";
+    badge.className="impactState done";
+    btn.textContent="Baseline figée";
+    btn.disabled=true;
+    confirmBox.checked=false;
+    confirmBox.disabled=true;
+    confirmWrap.style.opacity=".55";
+    return;
+  }
+
+  $("impactBaselineValue").textContent="Non figée";
+  $("impactBaselineMeta").textContent="";
+  $("impactLifecycle").textContent="Diagnostic en cours";
+  followupBtn.disabled=true;
+  confirmBox.disabled=false;
+  confirmWrap.style.opacity="1";
+  btn.textContent="Figer le diagnostic initial";
+
+  if(coverage<80){
+    badge.textContent="Couverture insuffisante";
+    badge.className="impactState warn";
+    $("impactNote").textContent=`Encore ${Math.max(0,80-coverage).toLocaleString("fr-FR",{maximumFractionDigits:0})} point(s) de couverture à documenter avant de pouvoir figer le T0.`;
+    $("impactNote").className="impactNote warning";
+    btn.disabled=true;
+  }else if(coverage<100){
+    badge.textContent="Prêt avec réserve";
+    badge.className="impactState warn";
+    $("impactNote").textContent="La baseline peut être figée, mais le scoring n’est pas complet. Le taux de couverture sera enregistré avec le T0 et devra être pris en compte dans les comparaisons futures.";
+    $("impactNote").className="impactNote warning";
+    btn.disabled=!confirmBox.checked;
+  }else{
+    badge.textContent="Prêt à figer";
+    badge.className="impactState ready";
+    $("impactNote").textContent="Les 20 critères sont documentés. Le diagnostic initial peut être figé comme référence T0.";
+    $("impactNote").className="impactNote";
+    btn.disabled=!confirmBox.checked;
+  }
+}
+
+async function freezeBaseline(){
+  if(!selected||baselineSnapshot)return;
+  if(!$("baselineConfirm").checked){$("impactActionState").textContent="Confirmez que cette mesure correspond bien à la situation avant accompagnement.";return;}
+  const coverage=Number(impactCurrent?.score_coverage_pct||0);
+  if(coverage<80)return;
+
+  const warning=coverage<100
+    ?`Le scoring est couvert à ${coverage} %. La baseline sera définitive et conservera ce niveau de couverture.`
+    :"Les 20 critères sont documentés.";
+
+  if(!confirm(`${warning}\n\nFiger ce diagnostic comme T0 de référence ?`))return;
+
+  const btn=$("freezeBaselineBtn");
+  btn.disabled=true;
+  $("impactActionState").textContent="Création de la baseline…";
+
+  const {data,error}=await sb.rpc("hp_freeze_baseline",{p_diagnostic_id:selected.id});
+  if(error){
+    console.error("Erreur création baseline",error);
+    $("impactActionState").textContent="Erreur : "+error.message;
+    btn.disabled=false;
+    return;
+  }
+
+  $("impactActionState").textContent="Baseline créée.";
+  const {data:baselineData,error:baselineError}=await sb.from("hp_score_snapshots")
+    .select("id,snapshot_date,hp_score,score_coverage_pct,methodology_version,notes")
+    .eq("id",data).maybeSingle();
+
+  if(!baselineError)baselineSnapshot=baselineData;
+  $("baselineConfirm").checked=false;
+  const {data:comparisonData}=await sb.from("hp_score_impact_v1").select("*").eq("diagnostic_id",selected.id).maybeSingle();
+  impactComparison=comparisonData||impactComparison;
+  renderImpactTracking();renderImpactComparison();
+}
+
+async function createFollowup(){
+  if(!selected||!baselineSnapshot)return;
+  const coverage=Number(impactCurrent?.score_coverage_pct||0);
+  if(coverage<80){
+    $("impactActionState").textContent="La couverture doit atteindre au moins 80 % pour enregistrer un suivi.";
+    return;
+  }
+  const label=prompt("Nom de cette évaluation de suivi :",`Suivi ${new Date().toLocaleDateString("fr-FR")}`);
+  if(label===null)return;
+  if(!confirm("Créer un snapshot de suivi avec le HP Score et les critères actuellement enregistrés ?"))return;
+
+  const btn=$("createFollowupBtn");
+  btn.disabled=true;
+  $("impactActionState").textContent="Création du suivi…";
+  const {data,error}=await sb.rpc("hp_create_followup_snapshot",{
+    p_diagnostic_id:selected.id,
+    p_label:(label||"").trim()||null
+  });
+  if(error){
+    console.error("Erreur création suivi",error);
+    $("impactActionState").textContent="Erreur : "+error.message;
+    btn.disabled=false;
+    return;
+  }
+  const {data:followupData,error:followupError}=await sb.from("hp_score_snapshots")
+    .select("id,snapshot_date,hp_score,score_coverage_pct,methodology_version,snapshot_label")
+    .eq("id",data).maybeSingle();
+  if(!followupError)latestFollowup=followupData;
+  $("impactActionState").textContent="Évaluation de suivi enregistrée.";
+  const {data:comparisonData}=await sb.from("hp_score_impact_v1").select("*").eq("diagnostic_id",selected.id).maybeSingle();
+  impactComparison=comparisonData||impactComparison;
+  renderImpactTracking();renderImpactComparison();
+}
+
+function dimensionMap(arr){
+  const out={};
+  (Array.isArray(arr)?arr:[]).forEach(x=>{
+    const raw=String(x.dimension||"");
+    const key=raw==="Humain"?"Human":raw==="Croissance"?"Growth":raw==="Opérations"?"Operations":raw==="Systèmes"?"Systems":raw;
+    out[key]={
+      score:Number(x.score||0),
+      max:Number(x.max_score||20),
+      coverage:Number(x.coverage_pct||0)
+    };
+  });
+  return out;
+}
+function fmtPts(v){
+  if(v===null||v===undefined||Number.isNaN(Number(v)))return "—";
+  const n=Number(v);
+  return `${n>0?"+":""}${n.toLocaleString("fr-FR",{maximumFractionDigits:1})} pt${Math.abs(n)>1?"s":""}`;
+}
+function renderImpactComparison(){
+  const box=$("impactCompareContent");
+  const dates=$("impactCompareDates");
+  if(!impactComparison||!impactComparison.baseline_snapshot_id||!impactComparison.latest_snapshot_id){
+    box.className="impactCompareEmpty";
+    box.textContent=impactComparison?.baseline_snapshot_id
+      ?"Baseline enregistrée. Créez une première évaluation de suivi pour afficher l’évolution."
+      :"La comparaison sera disponible après la création d’une baseline et d’au moins une évaluation de suivi.";
+    dates.textContent="Baseline vs dernier suivi";
+    return;
+  }
+  if(impactComparison.comparison_status==="Méthodologie non comparable"){
+    box.className="impactCompareEmpty";
+    box.textContent="Les deux mesures utilisent des versions de méthodologie différentes. La comparaison directe est désactivée.";
+    dates.textContent="Comparaison indisponible";
+    return;
+  }
+
+  const before=Number(impactComparison.baseline_hp_score);
+  const after=Number(impactComparison.latest_hp_score);
+  const delta=Number(impactComparison.hp_score_delta_points||0);
+  const deltaClass=delta>0?"positive":delta<0?"negative":"";
+  const bd=new Date(impactComparison.baseline_date).toLocaleDateString("fr-FR");
+  const ad=new Date(impactComparison.latest_date).toLocaleDateString("fr-FR");
+  dates.textContent=`${bd} → ${ad}`;
+
+  const bDims=dimensionMap(impactComparison.baseline_dimension_scores);
+  const aDims=dimensionMap(impactComparison.latest_dimension_scores);
+  const dimRows=dims.map(dim=>{
+    const b=bDims[dim]||{score:0,max:20}, a=aDims[dim]||{score:0,max:20};
+    const max=Math.max(Number(b.max||20),Number(a.max||20),1);
+    const dlt=Number(a.score)-Number(b.score);
+    return `<div class="impactDimRow">
+      <div class="impactDimName">${esc(dimFr[dim])}</div>
+      <div class="impactDimTrack">
+        <div class="impactDimBefore" style="width:${Math.max(0,Math.min(100,b.score/max*100))}%"></div>
+        <div class="impactDimAfter" style="width:${Math.max(0,Math.min(100,a.score/max*100))}%"></div>
+      </div>
+      <div class="impactDimValue">${Number(b.score).toLocaleString("fr-FR",{maximumFractionDigits:1})}</div>
+      <div class="impactArrow">→</div>
+      <div class="impactDimValue">${Number(a.score).toLocaleString("fr-FR",{maximumFractionDigits:1})}</div>
+      <div class="impactDimDelta">${fmtPts(dlt)}</div>
+    </div>`;
+  }).join("");
+
+  box.className="";
+  box.innerHTML=`<div class="impactCompareSummary">
+      <div class="impactCompareScore"><small>Baseline</small><b>${before.toLocaleString("fr-FR",{maximumFractionDigits:1})}/100</b></div>
+      <div class="impactArrow">→</div>
+      <div class="impactCompareScore"><small>Dernier suivi</small><b>${after.toLocaleString("fr-FR",{maximumFractionDigits:1})}/100</b></div>
+      <div class="impactDelta ${deltaClass}">${fmtPts(delta)}</div>
+    </div>
+    <div class="impactDims">${dimRows}</div>`;
+}
+
+function renderOverview(){
+  $("identityGrid").innerHTML=[
+    info("Contact",selected.respondent_name),info("Fonction",selected.respondent_role),info("Email",selected.respondent_email),
+    info("Type",selected.establishment_type),info("Sites",selected.site_count),info("Effectif",selected.employee_count),
+    info("Capacité",selected.capacity),info("CA annuel",selected.annual_revenue_band),info("Statut",selected.status)
+  ].join("");
+  const keys=["top_problems","six_month_priority","biggest_time_waste","groups_significance","service_friction","pos_tool","reservation_tool","planning_hr_tool","accounting_tool","stock_purchasing_tool","crm_commercial_tool","reporting_tool"];
+  $("quickAnswers").innerHTML=keys.map(k=>answerBlock(k,selected.answers?.[k])).join("");
+}
+function answerBlock(k,v){return `<div class="answer"><b>${esc(labels[k]||k)}</b><div>${esc(val(v))}</div></div>`}
+function renderAnswers(){
+  const core=[
+    ["Nom de l’établissement",selected.establishment_name],["Répondant",selected.respondent_name],["Fonction",selected.respondent_role],
+    ["Email",selected.respondent_email],["Téléphone",selected.respondent_phone],["Type d’établissement",selected.establishment_type],
+    ["Nombre de sites",selected.site_count],["Effectif",selected.employee_count],["Capacité",selected.capacity],["CA annuel",selected.annual_revenue_band]
+  ];
+  const a=Object.entries(selected.answers||{});
+  $("allAnswers").innerHTML=core.map(([k,v])=>`<div class="answer"><b>${esc(k)}</b><div>${esc(val(v))}</div></div>`).join("")+a.map(([k,v])=>answerBlock(k,v)).join("");
+}
+
+function scoreFor(code){return scores.find(s=>s.criterion_code===code)||{}}
+function calc(){
+  const out={dims:{},totalPoints:0,totalCount:0};
+  dims.forEach(d=>out.dims[d]={points:0,count:0});
+  criteria.forEach(c=>{
+    const s=scoreFor(c.code);
+    if(s.score!==null&&s.score!==undefined&&s.score!==""){
+      out.dims[c.dimension].points+=Number(s.score);
+      out.dims[c.dimension].count++;
+      out.totalPoints+=Number(s.score);out.totalCount++;
+    }
+  });
+  out.coverage=Math.round(out.totalCount/20*100);
+  out.preliminary=out.totalCount?Math.round(out.totalPoints/(out.totalCount*5)*100):null;
+  return out
+}
+function renderScorebar(){
+  const s=calc();
+  $("scorebar").innerHTML=dims.map(d=>{
+    const x=s.dims[d],complete=x.count===4;
+    return `<div class="scorebox"><strong>${complete?x.points+"/20":(x.count?x.points+"/"+(x.count*5):"—")}</strong><span>${dimFr[d]} · ${x.count}/4 critères</span></div>`
+  }).join("")+`<div class="scorebox total"><strong>${s.totalCount===20?s.totalPoints+"/100":(s.preliminary===null?"—":s.preliminary+"/100*")}</strong><span>${s.totalCount===20?"HP Score final":"Score provisoire · couverture "+s.coverage+"%"}</span></div>`;
+}
+function autoBadge(s){
+  if(s.score_source==="manual")return '<span class="autobadge manual">Manuel</span>';
+  if(s.auto_score===null||s.auto_score===undefined)return '<span class="autobadge warn">À confirmer</span>';
+  if(s.auto_confidence==="high")return '<span class="autobadge">Auto · fiable</span>';
+  return '<span class="autobadge warn">Auto · à confirmer</span>';
+}
+function renderScoring(){
+  renderScorebar();
+  let current="";
+  $("criteria").innerHTML=criteria.map(c=>{
+    const s=scoreFor(c.code);let heading="";
+    if(c.dimension!==current){current=c.dimension;heading=`<h3 class="section-title">${esc(dimFr[current])} /20</h3>`}
+    return heading+`<div class="criterion" data-code="${esc(c.code)}" data-dim="${esc(c.dimension)}">
+      <div class="criterion-head"><div><span class="code">${esc(c.code)}</span><b>${esc(c.label)}</b></div>${autoBadge(s)}</div>
+      <div class="criterion-body">
+        <div class="field" style="margin:0"><label>Score /5</label><select class="score"><option value="">—</option>${[0,1,2,3,4,5].map(n=>`<option value="${n}" ${String(s.score)===String(n)?"selected":""}>${n}</option>`).join("")}</select></div>
+        <div class="field" style="margin:0"><label>Éléments observés</label><textarea class="evidence">${esc(s.observed_evidence||"")}</textarea></div>
+        <div class="field" style="margin:0"><label>Action recommandée</label><textarea class="action">${esc(s.recommended_action||"")}</textarea></div>
+        <div class="field" style="margin:0"><label>Priorité</label><select class="priority"><option value="">—</option>${["Haute","Moyenne","Faible"].map(p=>`<option ${s.priority===p?"selected":""}>${p}</option>`).join("")}</select></div>
+      </div>
+    </div>`
+  }).join("");
+  document.querySelectorAll(".score").forEach(e=>e.onchange=()=>{
+    const code=e.closest(".criterion").dataset.code, existing=scoreFor(code);
+    existing.criterion_code=code;existing.score=e.value===""?null:Number(e.value);
+    if(!scores.find(s=>s.criterion_code===code))scores.push(existing);renderScorebar()
+  });
+}
+async function saveScores(){
+  if(!selected)return;
+  const rows=[...document.querySelectorAll(".criterion")].map(el=>{
+    const existing=scoreFor(el.dataset.code);
+    const chosen=el.querySelector(".score").value===""?null:Number(el.querySelector(".score").value);
+    const unchangedAuto=existing.score_source==="auto" && chosen===existing.auto_score;
+    return {
+      diagnostic_id:selected.id,criterion_code:el.dataset.code,
+      score:chosen,score_source:unchangedAuto?"auto":"manual",
+      observed_evidence:el.querySelector(".evidence").value.trim()||null,
+      recommended_action:el.querySelector(".action").value.trim()||null,
+      priority:el.querySelector(".priority").value||null,
+      updated_at:new Date().toISOString()
+    }
+  });
+  $("saveScores").disabled=true;$("scoreState").textContent="Enregistrement…";
+  const {error}=await sb.from("hp_diagnostic_scores").upsert(rows,{onConflict:"diagnostic_id,criterion_code"});
+  $("saveScores").disabled=false;
+  if(error){$("scoreState").textContent="Erreur : "+error.message;$("scoreState").className="save-state danger"}
+  else{$("scoreState").textContent="Scoring enregistré";$("scoreState").className="save-state oktext";const [{data},{data:a}]=await Promise.all([sb.from("hp_diagnostic_scores").select("*").eq("diagnostic_id",selected.id),sb.from("hp_diagnostic_analysis_summary").select("*").eq("diagnostic_id",selected.id).maybeSingle()]);scores=data||[];analysisSummary=a||null;renderScoring();renderAnalysis()}
+}
+
+function renderAnalysis(){
+  const root=$("analysisContent");
+  if(!analysisSummary){root.innerHTML='<div class="empty danger">Analyse indisponible. Actualisez après vérification du scoring.</div>';return}
+  const a=analysisSummary,priorities=a.top_priorities||[],strengths=a.strengths||[],opportunities=a.economic_opportunities||[],confirm=a.to_confirm||[];
+  const score=a.hp_score??a.preliminary_score_100,scoreLabel=a.hp_score!==null&&a.hp_score!==undefined?"HP Score final":"Score provisoire";
+  const cards=(items,type,renderer)=>items.length?`<div class="analysis-grid">${items.map(x=>`<div class="analysis-card ${type}">${renderer(x)}</div>`).join("")}</div>`:'<div class="analysis-empty">Aucun élément dans cette catégorie.</div>';
+  root.innerHTML=`<div class="analysis-intro"><b>${scoreLabel} : ${esc(score??"—")}/100</b> · couverture ${esc(a.coverage_percent??"—")}%<br><span class="mini">Lecture automatique issue du scoring. Les montants économiques restent à chiffrer à partir des données réelles de l’établissement.</span></div>
+    <div class="analysis-section"><h3>Top 5 priorités</h3></div>
+    ${cards(priorities,"priority",x=>`<h4><span class="analysis-code">${esc(x.code)}</span>${esc(x.criterion)} · ${esc(x.score)}/5</h4><p><b>Constat.</b> ${esc(x.finding)}</p><p><b>Conséquence.</b> ${esc(x.consequence)}</p><p><b>Action.</b> ${esc(x.action)}</p><p class="mini">Levier : ${esc(x.economic_lever||"—")} · indice ${esc(x.priority_index)}</p>`)}
+    <div class="analysis-section"><h3>Points forts</h3></div>
+    ${cards(strengths,"strength",x=>`<h4><span class="analysis-code">${esc(x.code)}</span>${esc(x.criterion)} · ${esc(x.score)}/5</h4><p>${esc(x.finding)}</p>`)}
+    <div class="analysis-section"><h3>Opportunités économiques à chiffrer</h3></div>
+    ${cards(opportunities.slice(0,8),"opportunity",x=>`<h4><span class="analysis-code">${esc(x.code)}</span>${esc(x.lever)}</h4><p>${esc(x.criterion)} · score ${esc(x.score)}/5</p><p class="mini"><b>Données nécessaires :</b> ${esc(x.metric_needed)}</p>`)}
+    <div class="analysis-section"><h3>À confirmer sur le terrain</h3></div>
+    ${cards(confirm,"confirm",x=>`<h4><span class="analysis-code">${esc(x.code)}</span>${esc(x.criterion)}</h4><p>${esc(x.reason)}</p>`)}`;
+}
+
+function fillCommercial(){
+  $("status").value=(String(selected.status||"").toLowerCase().includes("clos")?"Clos":(!selected.status||selected.status==="Nouveau"?"Nouveau":"Pris en charge"));$("outcome").value=selected.commercial_outcome||"En cours";
+  $("potentialRevenue").value=selected.potential_revenue??"";$("recoverableHours").value=selected.recoverable_hours_month??"";
+  $("offer").value=selected.proposed_offer??"";$("proposedValue").value=selected.proposed_value??"";$("notes").value=selected.internal_notes??"";
+}
+async function saveDiagnostic(){
+  const patch={status:$("status").value,commercial_outcome:$("outcome").value,potential_revenue:numOrNull($("potentialRevenue").value),
+    recoverable_hours_month:numOrNull($("recoverableHours").value),proposed_offer:$("offer").value||null,proposed_value:numOrNull($("proposedValue").value),
+    internal_notes:$("notes").value.trim()||null,updated_at:new Date().toISOString()};
+  $("saveDiag").disabled=true;$("diagState").textContent="Enregistrement…";
+  const {data,error}=await sb.from("hp_diagnostics").update(patch).eq("id",selected.id).select().single();
+  $("saveDiag").disabled=false;
+  if(error){$("diagState").textContent="Erreur : "+error.message;$("diagState").className="save-state danger"}
+  else{$("diagState").textContent="Suivi enregistré";$("diagState").className="save-state oktext";selected=data;diagnostics=diagnostics.map(d=>d.id===data.id?data:d);renderList();renderOverview()}
+}
+
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===t));document.querySelectorAll(".tabpage").forEach(p=>p.classList.toggle("on",p.id===t.dataset.tab))});
+$("loginBtn").onclick=signIn;$("signupBtn").onclick=signUp;$("logout").onclick=logout;$("refreshBtn").onclick=loadData;$("saveScores").onclick=saveScores;$("saveDiag").onclick=saveDiagnostic;$("freezeBaselineBtn").onclick=freezeBaseline;$("createFollowupBtn").onclick=createFollowup;$("baselineConfirm").onchange=()=>renderImpactTracking();
+
+const {data:{session}}=await sb.auth.getSession();
+if(session)await enterApp();
+</script>
+</body>
+</html>
