@@ -1,0 +1,1642 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Restitution HP — Option 2 Scorecard | Hospitality Performance</title>
+<style>
+:root{--navy:#10283f;--teal:#1f8a86;--ink:#172330;--muted:#667684;--line:#dce5e9;--soft:#f4f7f8;--warn:#9a6500}
+*{box-sizing:border-box}body{margin:0;background:#e9eef0;color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select{font:inherit}.hide{display:none!important}.appbar{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;padding:12px 18px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.brand{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.controls select{padding:8px 10px;border:0;border-radius:8px;min-width:220px}.btn{border:0;border-radius:8px;padding:8px 11px;font-weight:800;cursor:pointer;text-decoration:none}.btnLight{background:#edf2f4;color:var(--navy)}.btnTeal{background:var(--teal);color:#fff}
+.login{max-width:430px;margin:70px auto;background:#fff;border-radius:16px;padding:25px}.login h1{margin:0 0 8px;color:var(--navy)}.field{margin:13px 0}.field label{display:block;font-size:11px;font-weight:850;color:var(--muted);margin-bottom:5px}.field input{width:100%;padding:10px;border:1px solid #cbd7dc;border-radius:8px}.msg{font-size:12px;color:#a83232;margin-top:9px}
+.report{width:min(210mm,calc(100% - 24px));margin:20px auto}.page{background:#fff;min-height:277mm;padding:18mm 17mm;margin:0 auto 18px;box-shadow:0 8px 30px rgba(16,40,63,.08);position:relative;overflow:hidden}.pageNo{position:absolute;right:17mm;bottom:10mm;font-size:9px;color:#8b98a2}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.09em;font-weight:900;color:var(--teal)}h1,h2,h3{color:var(--navy)}h1{font-size:38px;line-height:1.06;margin:8px 0 12px}h2{font-size:24px;margin:6px 0 14px}h3{font-size:14px;margin:0 0 6px}.lead{font-size:16px;line-height:1.55;color:#405260}.muted{color:var(--muted)}.small{font-size:10px;line-height:1.45}.rule{height:1px;background:var(--line);margin:16px 0}.cover{display:flex;flex-direction:column;justify-content:space-between}.coverTop{margin-top:25mm}.coverMark{width:54px;height:7px;background:var(--teal);border-radius:99px;margin-bottom:24px}.coverMeta{display:grid;grid-template-columns:1fr 1fr;gap:12px;border-top:1px solid var(--line);padding-top:16px}.coverMeta b{display:block;font-size:10px;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:5px}.scoreHero{display:grid;grid-template-columns:140px 1fr;gap:22px;align-items:center;margin:20px 0}.scoreRing{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--teal) var(--score-angle,0deg),#e8eef0 0);position:relative}.scoreRing:after{content:"";position:absolute;inset:11px;background:#fff;border-radius:50%}.scoreRingInner{position:relative;z-index:1;text-align:center}.scoreRingInner b{display:block;font-size:31px;color:var(--navy)}.scoreRingInner span{font-size:9px;color:var(--muted);font-weight:850}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:14px 0}.kpi{border:1px solid var(--line);border-radius:11px;padding:12px}.kpi b{display:block;color:var(--navy);font-size:21px}.kpi span{font-size:9px;color:var(--muted);line-height:1.35}.dim{display:grid;grid-template-columns:105px 1fr 42px;gap:8px;align-items:center;margin:10px 0;font-size:11px}.track{height:7px;background:#edf1f3;border-radius:99px;overflow:hidden}.fill{height:100%;background:var(--teal);border-radius:99px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.box{border:1px solid var(--line);border-radius:11px;padding:12px}.insight{padding:12px 0;border-top:1px solid var(--line)}.insight:first-child{border-top:0}.insightTop{display:flex;justify-content:space-between;gap:10px}.pill{font-size:9px;font-weight:850;padding:4px 7px;border-radius:99px;background:#eef2f4;color:#52616d;white-space:nowrap}.pill.high{background:#faeaea;color:#9d3232}.pill.medium{background:#fff3d9;color:#8b5b00}.insight p,.action p{font-size:10px;line-height:1.48;margin:5px 0;color:#52616d}.evidence{font-size:9px;line-height:1.45;background:#f7f9fa;border-radius:8px;padding:8px;margin-top:7px;color:#687985}.priority{display:grid;grid-template-columns:28px 1fr auto;gap:9px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.priority:first-child{border-top:0}.rank{width:26px;height:26px;border-radius:7px;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:10px;font-weight:900}.priority h3{font-size:12px}.scores{font-size:9px;color:var(--muted);text-align:right}.figures{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.figure{padding:12px;border:1px solid var(--line);border-radius:10px}.figure b{display:block;font-size:18px;color:var(--navy)}.figure span{font-size:9px;color:var(--muted)}.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.phase{border-top:4px solid var(--teal);background:#f7f9fa;padding:12px;border-radius:0 0 10px 10px}.phase h3{font-size:13px}.action{background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px;margin-top:8px}.action b{font-size:10px;color:var(--navy)}.warning{background:#fff7e5;border:1px solid #f0dfb8;border-radius:9px;padding:10px;font-size:10px;line-height:1.5;color:#72521a}.coverage{margin:8px 0}.coverageTop{display:flex;justify-content:space-between;gap:8px;font-size:9px;margin-bottom:4px}.footerNote{font-size:8px;line-height:1.5;color:var(--muted)}
+@media(max-width:760px){.report{width:calc(100% - 12px)}.page{min-height:auto;padding:22px 18px}.scoreHero,.grid2,.timeline,.coverMeta{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.appbar{align-items:flex-start}.controls{justify-content:flex-end}.controls select{min-width:150px}}
+@media print{
+ @page{size:A4;margin:0}
+ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .appbar,.login{display:none!important}.report{width:210mm;margin:0}.page{width:210mm;height:297mm;min-height:297mm;margin:0;box-shadow:none;page-break-after:always;break-after:page}.page:last-child{page-break-after:auto}
+}
+
+/* HP Visual System V3 */
+:root{--hp-green:#103833;--hp-green2:#174b43;--hp-green3:#2e6b5e;--hp-cream:#f7f6f2;--hp-ink:#17211f;--hp-muted:#727b78;--hp-line:#e2e5e2;--hp-paper:#fff;--hp-gold:#c98d27}
+body{background:var(--hp-cream)!important;color:var(--hp-ink)!important}
+.hp-topbar{min-height:80px;background:var(--hp-green);color:#fff;display:grid;grid-template-columns:minmax(280px,340px) minmax(0,1fr);align-items:center;gap:24px;padding:0 34px;position:sticky;top:0;z-index:30}
+.hp-identity{display:flex;align-items:center;gap:16px;min-width:0}.hp-monogram{font:42px/1 Georgia,"Times New Roman",serif;letter-spacing:-.06em}.hp-brand{font:23px/1.1 Georgia,"Times New Roman",serif;white-space:nowrap}
+.hp-top-right{display:flex;justify-content:flex-end;align-items:center;gap:26px;min-width:0}.hp-top-right a,.hp-top-right button{color:#fff!important;background:none!important;border:0!important;border-radius:0!important;padding:11px 0!important;font-size:14px;font-weight:500!important;text-decoration:none;cursor:pointer;white-space:nowrap}
+.hp-top-right .hp-active{border-bottom:2px solid #fff!important}
+.hp-tabs{height:55px;background:var(--hp-cream);border-bottom:1px solid var(--hp-line);display:flex;align-items:flex-end;gap:30px;padding:0 max(26px,calc((100vw - 1440px)/2 + 26px));overflow:auto;white-space:nowrap}
+.hp-tabs a{height:55px;display:flex;align-items:center;padding:0 10px;color:#68736f;text-decoration:none;font-size:13px;border-bottom:2px solid transparent}.hp-tabs a.active{color:var(--hp-ink);font-weight:700;border-color:var(--hp-ink)}
+.hp-page-title,h1,h2,h3{font-family:Georgia,"Times New Roman",serif}
+.card,.panel,.login{border-color:var(--hp-line)!important;box-shadow:0 3px 14px rgba(17,39,34,.035)!important}
+@media(max-width:900px){.hp-topbar{grid-template-columns:1fr;padding:14px 18px;gap:8px}.hp-top-right{justify-content:flex-start;gap:18px;overflow:auto}.hp-tabs{padding:0 10px;gap:10px}}
+
+:root{--navy:#103833;--teal:#2e6b5e;--ink:#17211f;--muted:#727b78;--line:#e2e5e2;--soft:#f7f6f2}
+body{background:#ecece8!important}.appbar{padding:0 34px!important}.controls select{height:40px;border-radius:5px!important;min-width:210px}.hp-top-right .hp-export{background:#fff!important;color:var(--hp-green)!important;border-radius:5px!important;padding:10px 13px!important;font-weight:700!important}
+.report{margin-top:20px}.page{box-shadow:0 4px 18px rgba(17,39,34,.06)!important}.coverMark{background:var(--hp-green)!important}.scoreRing{background:conic-gradient(var(--hp-green) var(--score-angle,0deg),#e8ecea 0)!important}.fill{background:var(--hp-green)!important}.rank{background:var(--hp-green)!important}.phase{border-top-color:var(--hp-green)!important}
+@media print{.hp-tabs{display:none!important}}
+
+
+/* HP Restitution V2 — visual report */
+.report{margin-top:10px!important}
+.page{margin-bottom:8px!important;padding:14mm 15mm!important}
+.pageNo{right:15mm!important;bottom:7mm!important}
+.reportHero{background:linear-gradient(135deg,#103833 0%,#174b43 68%,#2e6b5e 100%);color:#fff;border-radius:12px;padding:18px 20px;margin:12px 0 16px;position:relative;overflow:hidden}
+.reportHero:after{content:"";position:absolute;width:190px;height:190px;border:1px solid rgba(255,255,255,.14);border-radius:50%;right:-70px;top:-80px}
+.reportHero .eyebrow,.reportHero h1,.reportHero h2,.reportHero h3{color:#fff}.reportHero p{color:rgba(255,255,255,.78)}
+.visualKpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.visualKpi{border:1px solid var(--line);border-radius:9px;padding:10px 11px;background:#fff;min-height:72px}
+.visualKpi .v{font:700 21px/1.05 Georgia,"Times New Roman",serif;color:var(--navy);margin-bottom:5px}
+.visualKpi .l{font-size:8.5px;line-height:1.35;color:var(--muted)}
+.visualKpi.accent{background:#edf4f0;border-color:#d5e4dc}.visualKpi.gold{background:#fbf5e8;border-color:#eadbbd}
+.visualGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.visualPanel{border:1px solid var(--line);border-radius:10px;padding:11px;background:#fff;break-inside:avoid}
+.visualPanel h3{font-size:12px;margin-bottom:8px}.visualPanel .subline{font-size:8.5px;color:var(--muted);margin:-3px 0 8px}
+.chartBox{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff;break-inside:avoid}
+.chartHead{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:6px}.chartHead h3{font-size:12px;margin:0}.chartHead span{font-size:8px;color:var(--muted)}
+.svgChart{width:100%;height:145px;display:block;overflow:visible}.svgChart text{font-family:Inter,system-ui,sans-serif;fill:#77827e;font-size:8px}.svgChart .grid{stroke:#e8ebe9;stroke-width:1}.svgChart .axis{stroke:#cfd5d2;stroke-width:1}.svgChart .line{fill:none;stroke:#103833;stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}.svgChart .area{fill:#eaf2ee}.svgChart .point{fill:#103833;stroke:#fff;stroke-width:1.5}.svgChart .bar{fill:#2e6b5e}.svgChart .partial{fill:#b9c8c2}
+.dimensionCards{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:10px 0 12px}.dimensionCard{border:1px solid var(--line);border-radius:9px;padding:9px 8px;background:#fff}.dimensionCard b{display:block;font:700 18px Georgia,serif;color:var(--navy)}.dimensionCard span{font-size:8px;color:var(--muted);display:block;margin-top:3px}.dimensionCard .track{margin-top:7px;height:5px}
+.coverageGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.coverageCard{border:1px solid var(--line);border-radius:9px;padding:9px}.coverageCardTop{display:flex;justify-content:space-between;gap:8px;font-size:8.5px;margin-bottom:6px}.coverageCardTop b{font-size:9px}.coverageCard small{display:block;font-size:7.5px;color:var(--muted);margin-top:5px}
+.insightCard{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:10px;border:1px solid var(--line);border-radius:9px;margin:7px 0;break-inside:avoid}.insightIcon{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#edf4f0;color:#23664f;font-weight:900}.insightIcon.high{background:#fbf0dc;color:#9a6500}.insightCard h3{font-size:11px;margin:0 0 3px}.insightCard p{font-size:8.7px;line-height:1.42;margin:2px 0;color:#596965}.insightCard .consequence{border-top:1px solid #edf0ee;margin-top:6px;padding-top:6px;color:#394945}
+.priorityCard{display:grid;grid-template-columns:36px 1fr;gap:10px;border:1px solid var(--line);border-radius:10px;padding:11px;margin:8px 0;break-inside:avoid}.priorityRank{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#103833;color:#fff;font:700 16px Georgia,serif}.priorityCard h3{font-size:12px;margin:0}.priorityMeta{font-size:8px;color:var(--muted);margin:3px 0 6px}.priorityWhy{font-size:8.7px;line-height:1.4;color:#4e5e5a}.priorityAction{margin-top:6px;padding:7px 8px;background:#f4f7f5;border-radius:7px;font-size:8.5px;line-height:1.4}
+.roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.roadmapCol{border:1px solid var(--line);border-radius:10px;overflow:hidden}.roadmapHead{background:#103833;color:#fff;padding:9px 10px}.roadmapHead b{font:700 13px Georgia,serif}.roadmapHead span{display:block;font-size:7.5px;opacity:.7;margin-top:2px}.roadmapBody{padding:8px}.roadmapAction{border-bottom:1px solid #edf0ee;padding:7px 0}.roadmapAction:last-child{border:0}.roadmapAction b{font-size:8px;color:#2e6b5e}.roadmapAction p{font-size:8px;line-height:1.35;margin:3px 0;color:#53635f}
+.coverHero{min-height:155mm;background:#103833;color:#fff;margin:-14mm -15mm 14mm;padding:25mm 18mm 18mm;position:relative;overflow:hidden}.coverHero:before{content:"HP";position:absolute;right:-10mm;bottom:-25mm;font:190px Georgia,serif;color:rgba(255,255,255,.045)}.coverHero .eyebrow,.coverHero h1{color:#fff}.coverHero h1{font-size:44px;max-width:145mm;margin-top:18px}.coverHero .lead{color:rgba(255,255,255,.76);max-width:125mm}.coverLine{width:42px;height:5px;background:#c98d27;border-radius:99px;margin-bottom:24px}
+.coverStats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:24mm}.coverStat{border-top:1px solid rgba(255,255,255,.25);padding-top:8px}.coverStat b{display:block;font:700 20px Georgia,serif}.coverStat span{font-size:8px;color:rgba(255,255,255,.65)}
+.methodCards{display:grid;grid-template-columns:1fr 1fr;gap:10px}.methodCard{border:1px solid var(--line);border-radius:10px;padding:12px}.methodCard h3{font-size:12px}.methodCard p{font-size:9px;line-height:1.5;color:var(--muted)}
+@media(max-width:760px){.visualKpis{grid-template-columns:1fr 1fr}.visualGrid,.coverageGrid,.roadmap,.methodCards{grid-template-columns:1fr}.dimensionCards{grid-template-columns:1fr 1fr}.page{padding:20px!important}.coverHero{margin:-20px -20px 14px;padding:40px 24px}.coverStats{margin-top:40px}}
+@media print{
+ .report{margin:0!important}.page{margin:0!important;padding:14mm 15mm!important}
+ .coverHero{margin:-14mm -15mm 14mm!important}
+ .svgChart{height:135px}
+}
+
+
+/* HP Restitution V2.1 — compact flow correction */
+@media screen{
+  .report{width:min(1120px,calc(100% - 28px))!important;margin:12px auto 28px!important}
+  .page{min-height:0!important;width:100%!important;margin:0 auto 10px!important;padding:34px 42px!important;overflow:visible!important}
+  .page.cover{min-height:760px!important}
+  .coverHero{min-height:540px!important;margin:-34px -42px 28px!important;padding:72px 56px 46px!important}
+  .pageNo{bottom:18px!important;right:26px!important}
+  .visualKpis{gap:10px}.visualKpi{min-height:82px}
+  .svgChart{height:175px}
+}
+@media print{
+  @page{size:A4;margin:10mm 11mm}
+  body{background:#fff!important}
+  .report{width:auto!important;margin:0!important}
+  .page{width:auto!important;height:auto!important;min-height:0!important;margin:0!important;padding:8mm 5mm!important;box-shadow:none!important;overflow:visible!important;page-break-after:auto!important;break-after:auto!important}
+  .page.cover{height:277mm!important;min-height:277mm!important;page-break-after:always!important;break-after:page!important;padding:0!important}
+  .coverHero{min-height:195mm!important;margin:0!important;padding:28mm 18mm 18mm!important;border-radius:0!important}
+  .coverMeta{padding:10mm 18mm 0!important}
+  .pageNo{display:none!important}
+  .reportHero,.visualPanel,.chartBox,.visualKpi,.dimensionCard,.coverageCard,.insightCard,.priorityCard,.roadmapCol,.methodCard,.warning{break-inside:avoid!important;page-break-inside:avoid!important}
+  h2{break-after:avoid-page!important}
+  .visualGrid{break-inside:avoid!important}
+  .svgChart{height:155px!important}
+}
+
+
+/* HP Restitution V2.2 — print pagination */
+@media print{
+  .visualGrid{break-inside:auto!important;page-break-inside:auto!important}
+  .coverageGrid{break-inside:auto!important;page-break-inside:auto!important}
+  .eyebrow,h2,h3{break-after:avoid-page!important;page-break-after:avoid!important}
+  .eyebrow+h2{break-before:avoid-page!important}
+  .chartBox{break-inside:avoid!important;page-break-inside:avoid!important}
+  .priorityCard,.insightCard,.coverageCard,.visualKpi,.dimensionCard,.roadmapCol,.methodCard{break-inside:avoid!important;page-break-inside:avoid!important}
+}
+
+
+/* HP Restitution V2.5 - cover + charts refinement */
+.hp-identity{gap:13px!important;align-items:center!important}
+.hp-monogram{width:54px;min-width:54px;text-align:center;font-size:39px!important;line-height:1!important;letter-spacing:-.045em!important;transform:none!important}
+.hp-brand{line-height:1!important;padding-top:1px}
+.appbar.hp-topbar{grid-template-columns:330px minmax(0,1fr)!important}
+
+.coverHero{min-height:168mm!important;padding:20mm 17mm 14mm!important;display:flex;flex-direction:column}
+.coverBrand{display:flex;align-items:center;gap:11px;color:#fff;margin-bottom:20mm}
+.coverBrandMark{width:42px;height:42px;border:1px solid rgba(255,255,255,.48);display:grid;place-items:center;font:28px/1 Georgia,"Times New Roman",serif;letter-spacing:-.04em}
+.coverBrandText b{display:block;font:17px/1.05 Georgia,"Times New Roman",serif;color:#fff}.coverBrandText span{display:block;margin-top:4px;font-size:6.8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.58)}
+.coverMain{display:grid;grid-template-columns:1.22fr .78fr;gap:14mm;align-items:center}
+.coverHero h1{font-size:40px!important;margin:8px 0 10px!important;max-width:none!important}
+.coverHero .lead{font-size:13px!important;line-height:1.5!important;max-width:105mm!important}
+.coverScore{display:flex;justify-content:flex-end}
+.coverScoreRing{width:46mm;height:46mm;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#c98d27 var(--cover-angle,0deg),rgba(255,255,255,.13) 0);position:relative}
+.coverScoreRing:after{content:"";position:absolute;inset:4mm;background:#103833;border-radius:50%}
+.coverScoreInner{position:relative;z-index:2;text-align:center}.coverScoreInner b{display:block;font:700 32px/1 Georgia,serif;color:#fff}.coverScoreInner span{display:block;font-size:7px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.62);margin-top:3px}
+.coverStats{margin-top:auto!important;grid-template-columns:repeat(3,1fr)!important;gap:7mm!important}
+.coverStat{padding-top:7px!important}.coverStat b{font-size:19px!important}
+.coverBottom{display:grid;grid-template-columns:1.25fr .75fr;gap:10mm;align-items:start}
+.coverPillars{padding:0}.coverPillar{display:grid;grid-template-columns:29mm 1fr 14mm;gap:3mm;align-items:center;margin:5px 0;font-size:7.5px}.coverPillar .track{height:4px}.coverPillar b{text-align:right;font-size:7.5px}
+.coverPriority{border-left:3px solid #c98d27;padding-left:8px;margin:6px 0}.coverPriority b{display:block;font-size:8px;color:#17211f}.coverPriority span{font-size:7px;color:#727b78}
+.coverMeta{margin-top:7mm!important;padding-top:7mm!important;gap:8px!important}.coverMeta b{font-size:7.5px!important}.coverMeta>div{font-size:8.5px}
+
+.performanceCharts{display:grid;grid-template-columns:1fr;gap:10px;margin-top:9px}
+.chartBox{padding:11px 12px!important;overflow:hidden!important}
+.chartBox.full .svgChart{height:142px!important}
+.chartDuo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chartDuo .svgChart{height:137px!important}
+.chartHead{align-items:flex-start!important}.chartHead h3{font-size:11px!important}.chartHead span{font-size:7.5px!important;max-width:55%;text-align:right;line-height:1.3}
+.svgChart text{font-size:7px!important}.svgChart .valueLabel{font-size:6.7px!important;fill:#344640!important;font-weight:700}.svgChart .avgLine{stroke:#c98d27;stroke-width:1.4;stroke-dasharray:4 3}.svgChart .avgLabel{fill:#9a6500;font-size:6.5px!important;font-weight:700}.svgChart .plannedBar{fill:#c7d2ce}.svgChart .actualBar{fill:#2e6b5e}.svgChart .zero{stroke:#98a39f;stroke-width:1}
+.chartLegend{display:flex;gap:12px;align-items:center;font-size:7px;color:#727b78;margin-top:3px}.legendDot{width:7px;height:7px;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:-1px}.legendPlanned{background:#c7d2ce}.legendActual{background:#2e6b5e}
+.performanceNote{font-size:7.8px;color:#727b78;margin:5px 0 0}
+
+@media print{
+ .appbar.hp-topbar{display:none!important}
+ .coverHero{min-height:168mm!important;padding:20mm 17mm 14mm!important}
+ .coverScoreRing{width:44mm;height:44mm}
+ .chartBox.full .svgChart{height:138px!important}
+ .chartDuo .svgChart{height:132px!important}
+}
+
+
+/* HP Restitution V2.6 - pagination + cover proof block */
+.reportHero>div:nth-child(2){grid-template-columns:145px 1fr!important}
+.coverRightVisual{display:grid;grid-template-columns:31mm 1fr;gap:5mm;align-items:center;margin-bottom:5mm}
+.coverProofRing{width:29mm;height:29mm;border-radius:50%;display:grid;place-items:center;position:relative;background:conic-gradient(#2e6b5e var(--proof-angle,0deg),#e8eeeb 0)}
+.coverProofRing:after{content:"";position:absolute;inset:3.4mm;background:#fff;border-radius:50%}.coverProofRing div{position:relative;z-index:2;text-align:center}.coverProofRing b{display:block;font:700 15px/1 Georgia,serif;color:#103833}.coverProofRing span{display:block;font-size:5.8px;color:#727b78;margin-top:2px}
+.coverProofText b{display:block;font:700 10px Georgia,serif;color:#103833}.coverProofText span{display:block;font-size:7px;line-height:1.35;color:#727b78;margin-top:3px}
+.coverPriority{background:#faf8f2;border:1px solid #eee5d5;border-left:3px solid #c98d27!important;border-radius:0 6px 6px 0;padding:6px 7px!important;margin:5px 0!important}
+.coverPriority b{font-size:7.6px!important}.coverPriority span{font-size:6.7px!important}
+.priorityGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.priorityGrid .priorityCard{margin:0!important;padding:9px!important;grid-template-columns:30px 1fr!important;gap:8px!important}
+.priorityGrid .priorityRank{width:28px!important;height:28px!important;font-size:13px!important}
+.priorityGrid .priorityCard h3{font-size:10px!important}.priorityGrid .priorityMeta{font-size:7px!important;margin:2px 0 4px!important}.priorityGrid .priorityWhy{font-size:7.6px!important;line-height:1.32!important}.priorityGrid .priorityAction{font-size:7.4px!important;padding:5px 6px!important;margin-top:4px!important}
+.roadmapCompact .roadmapHead{padding:7px 9px!important}.roadmapCompact .roadmapBody{padding:6px 8px!important}.roadmapCompact .roadmapAction{padding:5px 0!important}.roadmapCompact .roadmapAction p{font-size:7.4px!important;margin:2px 0!important}
+@media print{
+ .printBreak{break-before:page!important;page-break-before:always!important}
+ .priorityGrid{gap:6px!important}
+ .priorityGrid .priorityCard{padding:7px!important}
+ .roadmapCompact{gap:6px!important}
+ .roadmapCompact .roadmapAction{padding:4px 0!important}
+}
+
+
+/* HP Restitution V2.8 - chart storytelling */
+.chartBox.full .svgChart{height:172px!important}
+.chartDuo .svgChart{height:158px!important}
+.chartTakeaways{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.chartTakeaway{border:1px solid var(--line);border-radius:9px;padding:9px 10px;background:#fafbf9}
+.chartTakeaway b{display:block;font:700 13px/1.1 Georgia,serif;color:#103833;margin-bottom:3px}.chartTakeaway span{display:block;font-size:7.3px;line-height:1.35;color:#727b78}
+@media print{.chartBox.full .svgChart{height:168px!important}.chartDuo .svgChart{height:153px!important}}
+
+
+/* HP Fixed Navigation V1 */
+:root{--hp-topbar-h:80px;--hp-tabs-h:55px}
+.hp-fixed-tabs,.hp-tabs{
+  position:sticky!important;top:var(--hp-topbar-h)!important;z-index:29!important;
+  background:#f7f6f2!important;
+}
+.hp-topbar,.topbar{position:sticky!important;top:0!important;z-index:40!important}
+.hp-global-search{position:relative;min-width:260px;max-width:520px;width:min(42vw,520px)}
+.hp-global-search:before{content:"⌕";position:absolute;left:15px;top:7px;font-size:25px;color:#66716d;z-index:1}
+.hp-global-search input{width:100%;height:44px;border:0;border-radius:6px;padding:0 14px 0 47px;background:#fff;color:#17211f;box-shadow:0 2px 8px rgba(0,0,0,.12);outline:none}
+.hp-global-search input::placeholder{color:#9ca5a2}
+.hp-global-search input:focus{box-shadow:0 0 0 2px rgba(255,255,255,.25),0 2px 8px rgba(0,0,0,.14)}
+@media(max-width:900px){
+ :root{--hp-topbar-h:0px}
+ .hp-topbar,.topbar{position:relative!important}
+ .hp-fixed-tabs,.hp-tabs{top:0!important}
+ .hp-global-search{width:100%;max-width:none;min-width:220px}
+}
+
+.appbar.hp-topbar{grid-template-columns:300px minmax(280px,520px) 1fr!important}
+.appbar .controls.hp-top-right{grid-column:3}
+.hp-tabs{top:80px!important}
+@media(max-width:900px){.appbar.hp-topbar{grid-template-columns:1fr!important}.hp-global-search,.appbar .controls.hp-top-right{grid-column:1}.hp-tabs{top:0!important}}
+@media print{.hp-global-search{display:none!important}}
+
+
+.appbar.hp-topbar{grid-template-columns:300px minmax(180px,1fr) auto!important}
+.appbar .controls.hp-top-right{grid-column:3}
+@media(max-width:900px){.appbar .controls.hp-top-right{grid-column:1}.appbar.hp-topbar{grid-template-columns:1fr!important}}
+
+
+.pageNo{display:block!important;font-size:8px!important;letter-spacing:.02em}
+@media print{
+    .pageNo{display:block!important;right:17mm!important;bottom:8mm!important}
+  .page.cover .pageNo{display:none!important}
+}
+
+
+/* HP Impact report */
+.impactHero{display:grid;grid-template-columns:1fr auto 1fr auto;gap:14px;align-items:center;background:#f7f9f7;border:1px solid var(--line);border-radius:12px;padding:18px;margin:12px 0 18px}
+.impactHeroBlock small{display:block;font-size:8px;color:#7b8581;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.impactHeroBlock b{font:700 28px/1 Georgia,serif;color:#103833}
+.impactHeroArrow{font-size:22px;color:#8a9490}
+.impactHeroDelta{font-size:13px;font-weight:800;padding:8px 11px;border-radius:99px;background:#e8f4ea;color:#2f7445;white-space:nowrap}
+.impactHeroDelta.negative{background:#f8e8e8;color:#9b3c3c}
+.impactDimList{display:grid;gap:10px;margin-top:14px}
+.impactDim{display:grid;grid-template-columns:105px 1fr 48px 18px 48px 62px;gap:8px;align-items:center}
+.impactDimName{font-size:8.5px;font-weight:700;color:#23312e}
+.impactTrack{height:9px;background:#e4e9e6;border-radius:99px;position:relative;overflow:hidden}
+.impactBefore,.impactAfter{position:absolute;left:0;border-radius:99px}
+.impactBefore{top:0;height:9px;background:#c7d0cc}
+.impactAfter{top:2px;height:5px;background:#356f62}
+.impactVal,.impactDelta{font-size:8.5px;font-weight:700;text-align:right}
+.impactNoteBox{margin-top:16px;border-left:3px solid #356f62;background:#f7f9f7;padding:10px 12px;font-size:8.5px;line-height:1.45;color:#5f6965}
+
+
+.econImpactReport{margin-top:16px;border-top:1px solid #dfe5e2;padding-top:12px}
+.econImpactReport h3{font-size:13px;margin:0 0 8px}
+.econImpactReportGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.econImpactReportCard{border:1px solid #e2e7e4;border-radius:8px;padding:9px;background:#fafbf9}
+.econImpactReportLabel{font-size:7.5px;color:#6f7975;margin-bottom:3px}
+.econImpactReportVals{font-size:9px;font-weight:700;color:#23312e}
+.econImpactReportDelta{font-size:8px;font-weight:800;margin-left:5px;color:#4f5f59}
+.econImpactReportMeta{font-size:6.8px;color:#7c8581;margin-top:4px}
+
+
+/* HP V3 report additions */
+.timeline{display:grid;gap:8px}.timeItem{display:grid;grid-template-columns:10px 1fr;gap:9px;align-items:start;border-bottom:1px solid #e6ebe8;padding:8px 0}.timeDot{width:8px;height:8px;border-radius:50%;background:#8aa098;margin-top:3px}.timeDot.baseline{background:#103833}.timeDot.follow_up{background:#c98d27}.timeDot.closing{background:#2e7d5b}.timeItem b{font-size:9px}.timeItem span{font-size:7.5px;color:#727d78}.roadmapCompact{grid-template-columns:repeat(4,1fr)!important}
+
+
+/* HP Proposal page */
+.proposalSummary{display:grid;grid-template-columns:1.4fr .6fr;gap:12px;margin:14px 0}
+.proposalSummaryBox{border:1px solid #dfe5e2;border-radius:10px;padding:13px;background:#fbfcfb}
+.proposalSummaryBox small{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.05em;color:#78817e;margin-bottom:4px}
+.proposalSummaryBox b{font-size:14px;color:#173c35}
+.proposalSummaryBox.total{background:#103833;color:#fff;border-color:#103833}
+.proposalSummaryBox.total small,.proposalSummaryBox.total b{color:#fff}
+.proposalReportList{display:grid;gap:8px;margin-top:12px}
+.proposalReportItem{border:1px solid #e0e6e3;border-radius:9px;padding:10px 11px;background:#fff}
+.proposalReportTop{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.proposalReportTop b{font-size:10px;color:#173c35}.proposalReportPrice{font-size:10px;font-weight:900;white-space:nowrap}
+.proposalReportMeta{font-size:8.5px;color:#707b77;margin-top:3px}
+.proposalReportDeliverables{font-size:8.5px;color:#495a54;margin-top:6px;line-height:1.45}
+.proposalReportReason{font-size:8px;color:#7a837f;margin-top:5px;padding-top:5px;border-top:1px solid #edf0ee}
+.proposalClosing{margin-top:12px;padding:11px;border-left:4px solid #c98d27;background:#fff8ec;border-radius:7px}
+.proposalClosing p{margin:0;font-size:9px;line-height:1.5;color:#655d4d}
+@media(max-width:700px){.proposalSummary{grid-template-columns:1fr}}
+
+
+/* PDF export generated in-app */
+.pdfGenerating{opacity:.65;pointer-events:none}
+@media screen{#report .page{break-inside:avoid}}
+
+
+/* HP PDF export — fixed A4 capture mode */
+body.pdfExportMode{background:#fff!important}
+body.pdfExportMode .appbar,
+body.pdfExportMode .hp-tabs{display:none!important}
+body.pdfExportMode .report{width:210mm!important;max-width:210mm!important;margin:0 auto!important}
+body.pdfExportMode .page{width:210mm!important;max-width:210mm!important;min-height:297mm!important;height:auto!important;margin:0!important;padding:14mm 15mm!important;box-shadow:none!important;overflow:visible!important;break-after:auto!important;page-break-after:auto!important}
+body.pdfExportMode .page.cover{min-height:297mm!important}
+body.pdfExportMode .coverHero{margin:-14mm -15mm 14mm!important}
+body.pdfExportMode .pageNo{right:15mm!important;bottom:8mm!important}
+body.pdfExportMode .visualGrid,
+body.pdfExportMode .coverageGrid{break-inside:auto!important}
+body.pdfExportMode .visualPanel,
+body.pdfExportMode .chartBox,
+body.pdfExportMode .visualKpi,
+body.pdfExportMode .dimensionCard,
+body.pdfExportMode .coverageCard,
+body.pdfExportMode .insightCard,
+body.pdfExportMode .priorityCard,
+body.pdfExportMode .roadmapCol,
+body.pdfExportMode .methodCard,
+body.pdfExportMode .proposalReportItem{break-inside:avoid!important}
+
+
+/* HP PDF export V2 — one report section = one A4 page */
+body.pdfExportMode .page{
+  width:210mm!important;
+  max-width:210mm!important;
+  min-height:297mm!important;
+  height:auto!important;
+  overflow:visible!important;
+  page-break-inside:avoid!important;
+  break-inside:avoid!important;
+}
+body.pdfExportMode .performanceCharts,
+body.pdfExportMode .chartBox,
+body.pdfExportMode .chartDuo,
+body.pdfExportMode .svgChart{
+  overflow:visible!important;
+}
+body.pdfExportMode .svgChart{
+  width:100%!important;
+  max-width:100%!important;
+}
+
+
+/* =========================================================
+   HP VISUAL IDENTITY — ÉDITORIAL CONSEIL
+   Concept 4 validated visual system
+   ========================================================= */
+:root{
+  --hp-emerald:#0B3D2E;
+  --hp-emerald-2:#125746;
+  --hp-emerald-soft:#E8F0EC;
+  --hp-black:#0F0F0E;
+  --hp-stone:#F6F4EF;
+  --hp-paper:#FFFEFB;
+  --hp-graphite:#666864;
+  --hp-ink:#171916;
+  --hp-line:#DDD8CE;
+  --hp-line-strong:#CFC8BC;
+  --hp-gold:#B99A68;
+  --hp-danger:#B54A45;
+  --hp-warning:#C88427;
+  --hp-shadow:0 10px 30px rgba(31,35,31,.055);
+  --hp-radius:12px;
+  --hp-sidebar:228px;
+  --hp-topbar:84px;
+}
+html{background:var(--hp-stone)}
+body{
+  background:
+    radial-gradient(circle at 82% 4%,rgba(185,154,104,.09),transparent 28%),
+    linear-gradient(180deg,#f8f6f1 0%,#f3f0ea 100%)!important;
+  color:var(--hp-ink)!important;
+  font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,.hp-page-title,.hero h1,.panel-head h2,.detail h2,.card h2{
+  font-family:"Playfair Display",Georgia,"Times New Roman",serif!important;
+  color:var(--hp-black)!important;
+  letter-spacing:-.018em;
+}
+h1{font-weight:600!important}
+h2,h3{font-weight:600!important}
+a{color:var(--hp-emerald-2)}
+::selection{background:#dce8e2;color:var(--hp-black)}
+button,input,select,textarea{font-family:"Inter",system-ui,sans-serif!important}
+
+/* Primary app rail */
+body > nav#internalTabs,
+body > nav.hp-tabs{
+  position:fixed!important;
+  left:0!important;top:0!important;bottom:0!important;
+  width:var(--hp-sidebar)!important;height:100vh!important;
+  display:flex!important;flex-direction:column!important;
+  align-items:stretch!important;justify-content:flex-start!important;
+  gap:7px!important;
+  padding:154px 16px 96px!important;
+  margin:0!important;
+  overflow-y:auto!important;overflow-x:hidden!important;
+  border:0!important;
+  background:
+    radial-gradient(circle at 58% 76%,rgba(74,105,90,.33),transparent 25%),
+    linear-gradient(165deg,#0c1713 0%,#0a2119 52%,#0b2f24 100%)!important;
+  box-shadow:14px 0 32px rgba(11,31,24,.08)!important;
+  z-index:80!important;
+}
+body > nav#internalTabs::before,
+body > nav.hp-tabs::before{
+  content:"HP\A HOSPITALITY\A PERFORMANCE";
+  white-space:pre;
+  position:absolute;left:25px;top:25px;right:22px;
+  color:#fff;
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:52px;line-height:.83;letter-spacing:-.055em;
+  padding-bottom:26px;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+body > nav#internalTabs::after,
+body > nav.hp-tabs::after{
+  content:"Des lieux d’exception\A plus performants demain.";
+  white-space:pre;
+  position:absolute;left:25px;right:22px;bottom:24px;
+  color:rgba(255,255,255,.66);
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:15px;line-height:1.35;font-style:italic;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.14);
+}
+body > nav#internalTabs a,
+body > nav.hp-tabs a{
+  min-height:46px!important;height:auto!important;
+  display:flex!important;align-items:center!important;
+  padding:0 14px!important;
+  border:1px solid transparent!important;border-radius:7px!important;
+  color:rgba(255,255,255,.76)!important;
+  font-size:13px!important;font-weight:500!important;
+  text-decoration:none!important;
+  transition:.18s ease!important;
+  background:transparent!important;
+}
+body > nav#internalTabs a:hover,
+body > nav.hp-tabs a:hover{
+  background:rgba(255,255,255,.055)!important;
+  color:#fff!important;
+  transform:translateX(2px);
+}
+body > nav#internalTabs a.active,
+body > nav.hp-tabs a.active,
+body > nav#internalTabs a[aria-current="page"],
+body > nav.hp-tabs a[aria-current="page"]{
+  background:linear-gradient(90deg,rgba(18,87,70,.96),rgba(11,61,46,.72))!important;
+  color:#fff!important;
+  border-color:rgba(255,255,255,.08)!important;
+  font-weight:700!important;
+  box-shadow:inset 2px 0 0 #d9e8e1!important;
+}
+
+/* Utility header */
+body > header.topbar,
+body > header.hp-topbar,
+body > header.appbar.hp-topbar{
+  position:fixed!important;
+  top:0!important;left:var(--hp-sidebar)!important;right:0!important;
+  width:auto!important;height:var(--hp-topbar)!important;min-height:var(--hp-topbar)!important;
+  display:flex!important;align-items:center!important;
+  padding:0 30px!important;margin:0!important;
+  background:rgba(250,248,243,.94)!important;
+  backdrop-filter:blur(18px)!important;
+  border:0!important;border-bottom:1px solid var(--hp-line)!important;
+  box-shadow:none!important;
+  color:var(--hp-ink)!important;
+  z-index:70!important;
+}
+body > header .identity,
+body > header .hp-identity{display:none!important}
+body > header .nav,
+body > header .hp-top-right,
+body > header .top-actions{
+  margin-left:auto!important;
+  color:var(--hp-ink)!important;
+}
+body > header button,
+body > header a{
+  color:var(--hp-ink)!important;
+  border-color:var(--hp-line)!important;
+}
+body > header .globalSearch,
+body > header .hp-global-search,
+body > header .top-search{
+  display:block!important;
+  width:min(520px,48vw)!important;
+  max-width:520px!important;
+  margin:0!important;
+}
+body > header input[type="search"],
+body > header .globalSearch input,
+body > header .hp-global-search input,
+body > header .top-search input{
+  height:44px!important;
+  border:1px solid var(--hp-line)!important;
+  border-radius:7px!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:none!important;
+  color:var(--hp-ink)!important;
+}
+body > header input::placeholder{color:#9b9c97!important}
+
+/* Core content surfaces */
+.card,.panel,.info,.analysis-card,.pilotCard,.estPanel,.estCard,
+.metric,.notice,.importIntel,.box,.figure,.phase,.chartBox,.visualPanel,
+.priorityCard,.methodCard,.proposalReportItem,.proposalItem,.deliveryService{
+  background:rgba(255,254,251,.96)!important;
+  border-color:var(--hp-line)!important;
+  box-shadow:var(--hp-shadow)!important;
+}
+.card,.panel,.estPanel,.estCard,.analysis-card,.pilotCard,.notice,.metric{
+  border-radius:var(--hp-radius)!important;
+}
+button,.btn,.actionBtn,.hp-export{
+  border-radius:7px!important;
+  font-weight:700!important;
+  letter-spacing:-.01em;
+}
+.btn-primary,.primary,.actionBtn.primary,.hp-export{
+  background:var(--hp-emerald)!important;
+  color:#fff!important;
+  border-color:var(--hp-emerald)!important;
+}
+.btn-primary:hover,.primary:hover,.actionBtn.primary:hover,.hp-export:hover{
+  background:var(--hp-emerald-2)!important;
+}
+.btn-light,.secondary{
+  background:#efede7!important;color:var(--hp-black)!important;
+}
+input,select,textarea{
+  border-color:var(--hp-line-strong)!important;
+  border-radius:7px!important;
+  background:#fffefb!important;
+  color:var(--hp-ink)!important;
+}
+input:focus,select:focus,textarea:focus{
+  outline:0!important;
+  border-color:var(--hp-emerald-2)!important;
+  box-shadow:0 0 0 3px rgba(18,87,70,.09)!important;
+}
+.badge,.count,.pill,.autobadge{
+  border-radius:999px!important;
+}
+
+/* Editorial section rhythm */
+.hero,.panel-head,.cardHead,.econContextHead,.pilotHead,.estCardHead{
+  border-color:var(--hp-line)!important;
+}
+.hero h1,.estHero h1{font-size:36px!important}
+.muted,.sub,.item-meta,.small{color:var(--hp-graphite)!important}
+.section-title{font-family:"Playfair Display",Georgia,serif!important;font-size:21px!important}
+.rule{background:var(--hp-line)!important}
+
+/* Main app offsets */
+body > main.app,
+body > .page,
+body > .wrap,
+body > main.report{
+  margin-left:var(--hp-sidebar)!important;
+}
+body > main.app,
+body > .page,
+body > .wrap{
+  padding-top:calc(var(--hp-topbar) + 24px)!important;
+}
+body > main.report{
+  padding-top:calc(var(--hp-topbar) + 18px)!important;
+}
+
+/* Scrollbars */
+*{scrollbar-width:thin;scrollbar-color:#b7b2a8 transparent}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-thumb{background:#bbb5aa;border-radius:99px}
+
+/* Responsive */
+@media(max-width:980px){
+  :root{--hp-sidebar:190px}
+  body > nav#internalTabs,body > nav.hp-tabs{padding-left:10px!important;padding-right:10px!important}
+  body > nav#internalTabs::before,body > nav.hp-tabs::before{left:18px;font-size:43px}
+  body > nav#internalTabs::after,body > nav.hp-tabs::after{left:18px;font-size:13px}
+}
+@media(max-width:760px){
+  :root{--hp-sidebar:0px;--hp-topbar:72px}
+  body > nav#internalTabs,body > nav.hp-tabs{
+    position:fixed!important;left:0!important;right:0!important;top:auto!important;bottom:0!important;
+    width:100%!important;height:64px!important;
+    flex-direction:row!important;padding:7px 8px!important;gap:4px!important;
+    overflow-x:auto!important;background:#0b2119!important;
+  }
+  body > nav#internalTabs::before,body > nav.hp-tabs::before,
+  body > nav#internalTabs::after,body > nav.hp-tabs::after{display:none!important}
+  body > nav#internalTabs a,body > nav.hp-tabs a{min-width:max-content!important;height:48px!important;padding:0 10px!important;font-size:11px!important}
+  body > header.topbar,body > header.hp-topbar,body > header.appbar.hp-topbar{
+    left:0!important;height:72px!important;min-height:72px!important;padding:0 14px!important;
+  }
+  body > .page,body > .wrap,body > main.app,body > main.report{margin-left:0!important;padding-bottom:82px!important}
+  body > header .globalSearch,body > header .hp-global-search,body > header .top-search{width:min(56vw,340px)!important}
+}
+@media print{
+  body > nav#internalTabs,body > nav.hp-tabs,
+  body > header.topbar,body > header.hp-topbar,body > header.appbar.hp-topbar{display:none!important}
+  body > main.report{margin-left:0!important;padding-top:0!important}
+}
+
+
+/* Restitution — Editorial Conseil */
+body>main.report{width:min(1120px,calc(100% - var(--hp-sidebar) - 50px))!important;margin-right:auto!important;margin-top:0!important;padding-top:106px!important}
+body>main.report .page{
+  background:#fffefb!important;border:1px solid var(--hp-line)!important;border-radius:10px!important;
+  box-shadow:0 14px 38px rgba(20,25,22,.07)!important;
+}
+.reportHero{background:linear-gradient(135deg,#0f0f0e 0%,#0b3d2e 78%)!important}
+.coverHero{background:linear-gradient(145deg,#0f0f0e,#0b3d2e 72%,#164e3e)!important}
+.coverLine{background:var(--hp-gold)!important}
+.scoreRing,.coverScoreRing{filter:saturate(.72)}
+.rank,.priorityRank,.roadmapHead{background:var(--hp-emerald)!important}
+.visualKpi.accent{background:#edf3ef!important;border-color:#d6e2dc!important}
+.visualKpi.gold{background:#f7f1e6!important;border-color:#e7dac3!important}
+.chartTakeaway{background:#faf8f3!important}
+.proposalSummaryBox.total{background:var(--hp-black)!important}
+.proposalClosing{border-left-color:var(--hp-gold)!important;background:#fbf6eb!important}
+@media print{
+  body>main.report{width:auto!important;margin:0!important;padding:0!important}
+  body>main.report .page{border:0!important;border-radius:0!important;box-shadow:none!important}
+}
+
+
+/* HP SIDEBAR STABLE — no overlap */
+:root{--hp-sidebar:214px!important;--hp-topbar-h:72px!important}
+body>nav#internalTabs,
+body>nav.hp-tabs{
+  position:fixed!important;z-index:100!important;
+  left:0!important;top:0!important;bottom:0!important;
+  width:214px!important;height:100vh!important;min-height:100vh!important;
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;
+  gap:5px!important;margin:0!important;padding:144px 14px 24px!important;
+  overflow-y:auto!important;overflow-x:hidden!important;
+  background:linear-gradient(180deg,#0d1714 0%,#091a15 55%,#0c2d23 100%)!important;
+  border:0!important;box-shadow:12px 0 30px rgba(19,27,23,.08)!important;
+}
+body>nav#internalTabs::before,
+body>nav.hp-tabs::before{
+  content:"HP\A HOSPITALITY\A PERFORMANCE"!important;white-space:pre!important;
+  position:absolute!important;left:28px!important;right:20px!important;top:25px!important;
+  padding-bottom:20px!important;border-bottom:1px solid rgba(255,255,255,.13)!important;
+  color:#fff!important;font-family:"Playfair Display",Georgia,serif!important;
+  font-size:50px!important;line-height:.82!important;letter-spacing:-.06em!important;
+}
+body>nav#internalTabs::after,
+body>nav.hp-tabs::after{display:none!important}
+body>nav#internalTabs a,
+body>nav.hp-tabs a{
+  flex:0 0 45px!important;height:45px!important;min-height:45px!important;
+  display:flex!important;align-items:center!important;padding:0 14px!important;margin:0!important;
+  border-radius:6px!important;border:1px solid transparent!important;
+  background:transparent!important;color:rgba(255,255,255,.76)!important;
+  font:500 12px/1 "Inter",sans-serif!important;text-decoration:none!important;white-space:nowrap!important;
+}
+body>nav#internalTabs a:hover,body>nav.hp-tabs a:hover{background:rgba(255,255,255,.05)!important;color:#fff!important}
+body>nav#internalTabs a.active,body>nav.hp-tabs a.active{
+  background:linear-gradient(90deg,#125746,#0d4638)!important;color:#fff!important;
+  border-color:rgba(255,255,255,.08)!important;box-shadow:inset 2px 0 #e7eee9!important;
+}
+body>header.topbar,body>header.hp-topbar,body>header.appbar.hp-topbar{
+  position:fixed!important;z-index:90!important;left:214px!important;right:0!important;top:0!important;
+  width:auto!important;height:72px!important;min-height:72px!important;margin:0!important;padding:0 26px!important;
+  background:rgba(250,248,243,.97)!important;border-bottom:1px solid #DED9CF!important;box-shadow:none!important;
+}
+body>.page,body>.wrap,body>main.app,body>main.report{margin-left:214px!important}
+body>.page,body>.wrap,body>main.app{padding-top:96px!important}
+body>main.report{padding-top:90px!important}
+@media(max-width:760px){
+  body>nav#internalTabs,body>nav.hp-tabs{
+    left:0!important;right:0!important;top:auto!important;bottom:0!important;width:100%!important;height:60px!important;min-height:60px!important;
+    flex-direction:row!important;padding:6px 8px!important;overflow-x:auto!important;overflow-y:hidden!important
+  }
+  body>nav#internalTabs::before,body>nav.hp-tabs::before{display:none!important}
+  body>nav#internalTabs a,body>nav.hp-tabs a{flex:0 0 auto!important;min-width:max-content!important;height:48px!important}
+  body>header.topbar,body>header.hp-topbar,body>header.appbar.hp-topbar{left:0!important;height:66px!important;min-height:66px!important;padding:0 12px!important}
+  body>.page,body>.wrap,body>main.app,body>main.report{margin-left:0!important;padding-bottom:72px!important}
+}
+
+
+/* ===== SHARED HP FIXED SIDEBAR — identical to Dashboard ===== */
+.sideNav{
+  position:fixed!important;z-index:100!important;left:0!important;top:0!important;bottom:0!important;
+  width:214px!important;height:100vh!important;
+  background:linear-gradient(180deg,#0d1714 0%,#091a15 55%,#0c2d23 100%)!important;
+  color:#fff!important;display:flex!important;flex-direction:column!important;
+  padding:25px 14px 20px!important;margin:0!important;
+  box-shadow:12px 0 30px rgba(19,27,23,.08)!important;
+  overflow:hidden!important;border:0!important;
+}
+.sideNav.hide{display:none!important}
+.brandBlock{padding:0 18px 22px!important;border-bottom:1px solid rgba(255,255,255,.13)!important}
+.hpMark{font:600 56px/.82 "Playfair Display",Georgia,serif!important;letter-spacing:-.07em!important;color:#fff!important}
+.hpWords{margin-top:10px!important;font:500 10px/1.5 "Inter",sans-serif!important;letter-spacing:.28em!important;text-transform:uppercase!important;color:rgba(255,255,255,.78)!important}
+.navItems{display:grid!important;gap:5px!important;margin-top:22px!important}
+.navItem{
+  min-height:45px!important;height:45px!important;border-radius:6px!important;padding:0 14px!important;
+  display:flex!important;align-items:center!important;gap:11px!important;
+  color:rgba(255,255,255,.76)!important;font:500 12px/1 "Inter",sans-serif!important;
+  border:1px solid transparent!important;white-space:nowrap!important;text-decoration:none!important;background:transparent!important;
+}
+.navItem:hover{background:rgba(255,255,255,.05)!important;color:#fff!important}
+.navItem.active{background:linear-gradient(90deg,#125746,#0d4638)!important;color:#fff!important;border-color:rgba(255,255,255,.08)!important;box-shadow:inset 2px 0 #e7eee9!important}
+.navIcon{width:18px!important;text-align:center!important;font-size:16px!important;flex:0 0 18px!important}
+.sideEditorial{margin-top:auto!important;padding:18px 17px 0!important;border-top:1px solid rgba(255,255,255,.13)!important;color:rgba(255,255,255,.68)!important}
+.sideEditorial em{display:block!important;font:500 15px/1.45 "Playfair Display",Georgia,serif!important;color:rgba(255,255,255,.83)!important}
+.sideEditorial small{display:block!important;margin-top:15px!important;font:500 7.5px/1.4 "Inter",sans-serif!important;letter-spacing:.23em!important;text-transform:uppercase!important}
+
+/* Remove old logo/navigation behavior from top bars */
+body>header .hp-identity,body>header .identity{display:none!important}
+body>header.hp-topbar,body>header.topbar,body>header.appbar.hp-topbar{
+  left:214px!important;width:auto!important;right:0!important;
+}
+body>main.app,body>.wrap,body>main.report,body>.page{margin-left:214px!important}
+
+@media(max-width:760px){
+  .sideNav{
+    left:0!important;right:0!important;top:auto!important;bottom:0!important;width:100%!important;height:60px!important;
+    padding:6px 8px!important;display:block!important;overflow-x:auto!important;overflow-y:hidden!important;background:#0b2119!important
+  }
+  .brandBlock,.sideEditorial{display:none!important}
+  .navItems{display:flex!important;margin:0!important;gap:4px!important}
+  .navItem{min-width:max-content!important;height:48px!important;min-height:48px!important;padding:0 10px!important}
+  .navIcon{display:none!important}
+  body>header.hp-topbar,body>header.topbar,body>header.appbar.hp-topbar{left:0!important}
+  body>main.app,body>.wrap,body>main.report,body>.page{margin-left:0!important;padding-bottom:76px!important}
+}
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+<style id="hp-final-nav-fix">
+:root{--hp-sidebar:214px;--hp-topbar-h:72px}
+.sideNav{
+  position:fixed!important;z-index:1000!important;
+  left:0!important;top:0!important;bottom:0!important;
+  width:214px!important;height:100vh!important;
+  display:flex!important;flex-direction:column!important;
+  padding:25px 14px 20px!important;margin:0!important;
+  background:linear-gradient(180deg,#0d1714 0%,#091a15 55%,#0c2d23 100%)!important;
+  color:#fff!important;border:0!important;
+  box-shadow:12px 0 30px rgba(19,27,23,.08)!important;
+  overflow:hidden!important
+}
+.sideNav.hide{display:none!important}
+.sideNav .brandBlock{padding:0 18px 22px!important;border-bottom:1px solid rgba(255,255,255,.13)!important}
+.sideNav .hpMark{font:600 56px/.82 "Playfair Display",Georgia,serif!important;letter-spacing:-.07em!important;color:#fff!important}
+.sideNav .hpWords{margin-top:10px!important;font:500 10px/1.5 "Inter",sans-serif!important;letter-spacing:.28em!important;text-transform:uppercase!important;color:rgba(255,255,255,.78)!important}
+.sideNav .navItems{display:grid!important;gap:5px!important;margin-top:22px!important}
+.sideNav .navItem{
+  height:45px!important;min-height:45px!important;padding:0 14px!important;margin:0!important;
+  display:flex!important;align-items:center!important;gap:11px!important;
+  border-radius:6px!important;border:1px solid transparent!important;
+  background:transparent!important;color:rgba(255,255,255,.76)!important;
+  font:500 12px/1 "Inter",sans-serif!important;text-decoration:none!important;white-space:nowrap!important
+}
+.sideNav .navItem:hover{background:rgba(255,255,255,.05)!important;color:#fff!important}
+.sideNav .navItem.active{background:linear-gradient(90deg,#125746,#0d4638)!important;color:#fff!important;border-color:rgba(255,255,255,.08)!important;box-shadow:inset 2px 0 #e7eee9!important}
+.sideNav .navIcon{width:18px!important;flex:0 0 18px!important;text-align:center!important;font-size:16px!important}
+.sideNav .sideEditorial{margin-top:auto!important;padding:18px 17px 0!important;border-top:1px solid rgba(255,255,255,.13)!important}
+.sideNav .sideEditorial em{display:block!important;font:500 15px/1.45 "Playfair Display",Georgia,serif!important;color:rgba(255,255,255,.83)!important}
+.sideNav .sideEditorial small{display:block!important;margin-top:15px!important;font:500 7.5px/1.4 "Inter",sans-serif!important;letter-spacing:.23em!important;text-transform:uppercase!important;color:rgba(255,255,255,.62)!important}
+
+/* one fixed top utility bar, never a second brand bar */
+body>header.hp-topbar,
+body>header.topbar,
+body>header.appbar.hp-topbar{
+  position:fixed!important;z-index:900!important;
+  left:214px!important;right:0!important;top:0!important;
+  width:auto!important;height:72px!important;min-height:72px!important;
+  margin:0!important;padding:0 26px!important;
+  display:flex!important;align-items:center!important;justify-content:flex-end!important;
+  background:rgba(250,248,243,.97)!important;
+  border:0!important;border-bottom:1px solid #DED9CF!important;
+  box-shadow:none!important
+}
+body>header .hp-identity,body>header .identity,body>header .hp-monogram,body>header .hp-brand{display:none!important}
+
+/* content always starts after sidebar + utility bar */
+body>main.app,body>.wrap,body>main.report,body>.page{
+  margin-left:214px!important;
+}
+body>main.app,body>.wrap,body>.page{padding-top:96px!important}
+body>main.report{padding-top:90px!important}
+
+/* Admin: remove legacy visual behavior and match app shell */
+body>main.app{
+  width:auto!important;max-width:none!important;
+  min-height:100vh!important;
+  padding-left:28px!important;padding-right:28px!important;padding-bottom:40px!important;
+  align-items:start!important
+}
+body>main.app>.panel,
+body>main.app>.detail{
+  background:rgba(255,254,251,.97)!important;
+  border:1px solid #DED9CF!important;
+  border-radius:10px!important;
+  box-shadow:0 7px 24px rgba(26,31,27,.045)!important
+}
+body>main.app>.panel{
+  position:sticky!important;top:92px!important;
+  max-height:calc(100vh - 112px)!important;overflow:auto!important
+}
+body>main.app>.detail{min-width:0!important;overflow:hidden!important}
+body>main.app>.detail>.hero{background:linear-gradient(135deg,#FFFEFB,#F3EFE7)!important;border-bottom:1px solid #DED9CF!important}
+body>main.app>.detail>nav.tabs{
+  position:sticky!important;top:72px!important;z-index:30!important;
+  display:flex!important;flex-wrap:wrap!important;gap:4px!important;
+  padding:9px 12px!important;background:#F3F0E9!important;border-bottom:1px solid #DED9CF!important
+}
+
+@media(max-width:760px){
+  .sideNav{
+    left:0!important;right:0!important;top:auto!important;bottom:0!important;
+    width:100%!important;height:60px!important;
+    padding:6px 8px!important;display:block!important;overflow-x:auto!important;overflow-y:hidden!important
+  }
+  .sideNav .brandBlock,.sideNav .sideEditorial{display:none!important}
+  .sideNav .navItems{display:flex!important;margin:0!important;gap:4px!important}
+  .sideNav .navItem{min-width:max-content!important;height:48px!important}
+  .sideNav .navIcon{display:none!important}
+  body>header.hp-topbar,body>header.topbar,body>header.appbar.hp-topbar{left:0!important;height:66px!important;min-height:66px!important}
+  body>main.app,body>.wrap,body>main.report,body>.page{margin-left:0!important;padding-bottom:76px!important}
+  body>main.app{display:block!important;padding:82px 10px 76px!important}
+  body>main.app>.panel{position:relative!important;top:auto!important;max-height:none!important;margin-bottom:10px!important}
+}
+</style>
+
+
+<style id="hp-report-reading-margin">
+body>main.report{
+  margin-left:238px!important;
+  margin-right:24px!important;
+  width:min(1120px,calc(100vw - 286px))!important;
+  padding-top:24px!important;
+  padding-bottom:42px!important;
+}
+body>main.report .page{margin-left:0!important;margin-right:0!important}
+@media(max-width:760px){
+  body>main.report{
+    margin-left:10px!important;margin-right:10px!important;
+    width:calc(100% - 20px)!important;padding-top:14px!important;padding-bottom:76px!important;
+  }
+}
+@media print{
+  body>main.report{margin:0!important;width:auto!important;padding:0!important}
+}
+</style>
+
+
+<style id="hp-typography-final">
+/* =========================================================
+   HP TYPOGRAPHY — FROZEN GLOBAL SYSTEM
+   Dashboard typography applied everywhere.
+   No layout, spacing or navigation changes.
+   ========================================================= */
+
+/* Interface base */
+html,body,
+button,input,select,textarea,
+table,thead,tbody,tfoot,tr,th,td,
+label,.label,.muted,.small,.sub,.meta,
+.badge,.pill,.status,.count,
+.navItem,.tab,.btn,.actionBtn,.hp-export,
+.item,.item-title,.item-meta,
+.notice,.field,.k,.v,
+.cardLink,.rowTitle,.rowSub,.dateTxt,
+.statusPill,.alertBadge,.serviceFamily,
+.guideBlock,.guideWarn,.proposalService,
+.proposalReportMeta,.proposalReportDeliverables,
+.proposalReportReason{
+  font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+}
+
+/* Editorial hierarchy */
+h1,h2,h3,h4,
+.hero h1,.hero h2,.hero h3,
+.card h1,.card h2,.card h3,
+.panel h1,.panel h2,.panel h3,
+.detail h1,.detail h2,.detail h3,
+.sectiontitle,.section-title,
+.guideHero h3,.guideStep h4,
+.estPanel h3,.estCard h4,
+.proposalHead h4,.proposalPreview h5,
+.deliveryPlanHead h4,.deliveryService h5,
+.coverTitle,.reportTitle,
+.hp-page-title,
+.scoreValue b,.scoreValue span,
+.gauge span,
+.portfolioKpi b,
+.metric strong,.metric b,
+.estScoreBig strong,
+.econMetric b,
+.priorityNum,
+.hpMark,.brand,.publicBrand,.publicMonogram{
+  font-family:"Playfair Display",Georgia,"Times New Roman",serif!important;
+}
+
+/* Tabs and navigation must always remain UI typography */
+nav,.tabs,.tab,
+.sideNav,.navItems,.navItem,
+.hpWords,.sideEditorial small,
+button,.btn,
+select,input,textarea,
+table,th,td{
+  font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+}
+
+/* Consistent headline weights */
+h1{font-weight:600!important}
+h2,h3,h4{font-weight:600!important}
+
+/* Consistent UI weights */
+.tab,.navItem,button,.btn{font-weight:600!important}
+th,label,.badge,.pill,.statusPill{font-weight:600!important}
+
+/* Preserve editorial italic quotes */
+.scoreQuote,.sideEditorial em,
+blockquote,.editorialQuote{
+  font-family:"Playfair Display",Georgia,"Times New Roman",serif!important;
+}
+</style>
+
+
+<style id="hp-report-cover-contrast-fix">
+/* Restitution cover contrast */
+.coverHero h1,
+.coverHero .coverTitle,
+.reportHero h1,
+.reportHero .reportTitle,
+.coverHero .eyebrow,
+.reportHero .eyebrow,
+.coverHero .scoreLabel,
+.reportHero .scoreLabel{
+  color:#FFFFFF!important;
+}
+</style>
+
+
+<style id="hp-report-dashboard-score">
+.reportHero .dashboardScoreLayout{
+  display:grid!important;
+  grid-template-columns:190px 190px minmax(0,1fr)!important;
+  gap:24px!important;
+  align-items:center!important;
+  margin-top:8px!important;
+}
+.reportHero .dashboardScoreValue b{
+  display:inline-block!important;
+  color:#fff!important;
+  font:600 54px/1 "Playfair Display",Georgia,serif!important;
+}
+.reportHero .dashboardScoreValue span{
+  color:#fff!important;
+  font:500 20px/1 "Playfair Display",Georgia,serif!important;
+}
+.reportHero .dashboardScoreMeta{
+  margin-top:7px!important;
+  color:rgba(255,255,255,.84)!important;
+  font:600 9px/1.4 "Inter",sans-serif!important;
+}
+.reportHero .dashboardSemiGauge{
+  --score:0;
+  position:relative!important;
+  width:180px!important;
+  height:90px!important;
+  overflow:hidden!important;
+}
+.reportHero .dashboardSemiGauge:before{
+  content:""!important;
+  position:absolute!important;
+  inset:0 0 -90px!important;
+  border-radius:180px 180px 0 0!important;
+  background:
+    conic-gradient(
+      from 270deg at 50% 100%,
+      #dce9e3 calc(var(--score)*1.8deg),
+      rgba(255,255,255,.18) 0 180deg,
+      transparent 0
+    )!important;
+}
+.reportHero .dashboardSemiGauge:after{
+  content:""!important;
+  position:absolute!important;
+  left:27px!important;right:27px!important;top:27px!important;
+  height:63px!important;
+  background:#103833!important;
+  border-radius:130px 130px 0 0!important;
+}
+.reportHero .dashboardSemiGaugeValue{
+  position:absolute!important;
+  z-index:2!important;
+  left:0!important;right:0!important;bottom:4px!important;
+  text-align:center!important;
+  color:#fff!important;
+  font:600 32px/1 "Playfair Display",Georgia,serif!important;
+}
+.reportHero .dashboardScoreText h2{
+  margin:0 0 6px!important;
+  color:#fff!important;
+  font:600 25px/1.1 "Playfair Display",Georgia,serif!important;
+}
+.reportHero .dashboardScoreText p{
+  margin:0!important;
+  color:rgba(255,255,255,.88)!important;
+  font:500 10px/1.55 "Inter",sans-serif!important;
+}
+@media(max-width:760px){
+  .reportHero .dashboardScoreLayout{
+    grid-template-columns:1fr!important;
+  }
+  .reportHero .dashboardSemiGauge{margin:auto!important}
+}
+</style>
+
+
+<style id="hp-business-strategy-icons">
+.navIcon{
+  width:22px!important;height:22px!important;min-width:22px!important;
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  flex:0 0 22px!important;color:currentColor!important;
+}
+.hpNavSvg{
+  width:20px!important;height:20px!important;display:block!important;
+  fill:none!important;stroke:currentColor!important;stroke-width:1.9!important;
+  stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+.navItem.active .hpNavSvg{stroke-width:2.15!important}
+@media(max-width:760px){.navIcon{display:none!important}}
+</style>
+
+
+<style id="hp-report-option2-scorecard">
+/* OPTION 2 — Pagination scorecard */
+:root{
+  --o2-navy:#102635;--o2-blue:#1b5972;--o2-cyan:#2aa8b7;
+  --o2-cyan2:#73d2d7;--o2-red:#dc685f;--o2-paper:#fff;
+  --o2-soft:#f3f6f7;--o2-line:#d8e1e5;
+}
+body{background:#10212b!important}
+.report{width:210mm!important;margin:26px auto 60px!important}
+.page{
+  width:210mm!important;height:297mm!important;min-height:297mm!important;
+  margin:0 auto 20px!important;padding:13mm 13mm 14mm!important;
+  background:#fff!important;box-shadow:0 20px 50px rgba(0,0,0,.25)!important;
+  overflow:hidden!important;page-break-after:always!important;break-after:page!important;
+}
+.page:not(.cover)::before{
+  content:"HP   |   RAPPORT DE DIAGNOSTIC";
+  display:block;padding-bottom:4mm;margin-bottom:6mm;border-bottom:1px solid var(--o2-line);
+  color:#596d77;font:700 6.5px/1 Inter,system-ui,sans-serif;letter-spacing:.13em;
+}
+.pageNo{
+  top:9mm!important;bottom:auto!important;right:13mm!important;
+  color:#7b8c94!important;font-size:7px!important;
+}
+.eyebrow{color:var(--o2-blue)!important;font-size:8px!important;letter-spacing:.14em!important}
+h1,h2,h3{color:var(--o2-navy)!important}
+h2{font-size:26px!important;line-height:1.08!important;margin:4px 0 6mm!important}
+
+.cover{padding:0!important}
+.coverHero{
+  min-height:176mm!important;height:176mm!important;margin:0!important;
+  padding:16mm 15mm 12mm!important;border-radius:0!important;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(42,168,183,.28),transparent 30%),
+    linear-gradient(145deg,#0d2530,#103b4a 58%,#155a67)!important;
+}
+.coverHero h1{font-size:45px!important;color:#fff!important}
+.coverBottom{padding:10mm 15mm 5mm!important;background:#fff!important}
+.coverMeta{padding:6mm 15mm 0!important;background:#fff!important}
+
+.reportHero{
+  margin:0 0 5mm!important;padding:6mm!important;border-radius:3mm!important;
+  background:linear-gradient(135deg,#102635,#155a67)!important;
+}
+.dashboardScoreLayout{grid-template-columns:45mm 48mm 1fr!important;gap:5mm!important}
+.dashboardScoreValue b{font-size:47px!important}
+.dashboardSemiGauge{width:44mm!important;height:22mm!important}
+
+.visualKpis{
+  grid-template-columns:repeat(4,1fr)!important;gap:2.5mm!important;margin:4mm 0 6mm!important;
+}
+.visualKpi{
+  min-height:23mm!important;padding:3.5mm!important;border-radius:3mm!important;
+  border:1px solid var(--o2-line)!important;background:#fff!important;
+}
+.visualKpi.accent{background:#eef8f9!important;border-color:#cde6e9!important}
+.visualKpi.gold{background:#f4f7f8!important;border-color:#dce4e7!important}
+.visualKpi .v{font:700 24px/1 Georgia,serif!important;color:#12384a!important}
+.visualKpi .l{font-size:7.5px!important}
+
+.dimensionCards{
+  grid-template-columns:repeat(5,1fr)!important;gap:2mm!important;margin:4mm 0!important;
+}
+.dimensionCard{
+  min-height:31mm!important;padding:3.5mm!important;border-radius:3mm!important;text-align:center!important;
+}
+.dimensionCard b{font-size:22px!important;margin-bottom:2mm!important}
+.dimensionCard .track{height:3px!important}
+
+.visualGrid{gap:4mm!important}
+.visualPanel,.chartBox,.coverageCard,.methodCard{
+  border-radius:3mm!important;border-color:var(--o2-line)!important;
+}
+
+.insightCard{
+  border-radius:3mm!important;grid-template-columns:11mm 1fr!important;padding:3.5mm!important;
+}
+.insightIcon{
+  width:9mm!important;height:9mm!important;background:#eaf7f8!important;color:#147181!important;
+}
+
+.priorityGrid{
+  display:grid!important;grid-template-columns:1fr 1fr!important;gap:3mm!important;
+}
+.priorityCard{
+  min-height:44mm!important;margin:0!important;padding:4mm!important;border-radius:3mm!important;
+  grid-template-columns:11mm 1fr!important;
+}
+.priorityRank{
+  width:9mm!important;height:9mm!important;font-size:14px!important;background:#0f5366!important;
+}
+.priorityAction{background:#eef6f7!important}
+
+.roadmap{grid-template-columns:repeat(2,1fr)!important;gap:3mm!important}
+.roadmapCol{border-radius:3mm!important}
+.roadmapHead{background:#0f5366!important;padding:4mm!important}
+.roadmapBody{padding:3mm!important}
+
+.chartBox{padding:4mm!important}
+.chartTakeaways{
+  display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:2.5mm!important;
+}
+.chartTakeaway{
+  background:#f4f8f9!important;border:1px solid var(--o2-line)!important;
+  border-radius:3mm!important;padding:3mm!important;
+}
+.coverageGrid{gap:2.5mm!important}
+.coverageCard{background:#fafcfc!important}
+.econImpactReportCard{border-left:4px solid var(--o2-cyan)!important}
+.proposalSummaryBox.total{background:#102635!important}
+
+@media screen and (max-width:900px){
+  .report{width:calc(100% - 24px)!important}
+  .page{width:100%!important;height:auto!important;min-height:0!important}
+}
+@media print{
+  @page{size:A4;margin:0}
+  .report{width:210mm!important;margin:0!important}
+  .page{
+    width:210mm!important;height:297mm!important;min-height:297mm!important;
+    margin:0!important;padding:13mm 13mm 14mm!important;box-shadow:none!important;
+  }
+  .cover{padding:0!important}
+  .coverHero{height:176mm!important;min-height:176mm!important}
+}
+</style>
+
+</head>
+<body>
+<header id="appbar" class="appbar hp-topbar hide">
+ <div class="hp-identity"><div class="hp-monogram">HP</div><div class="hp-brand">Hospitality Performance</div></div>
+ <div></div>
+ <div class="controls hp-top-right"><button id="printBtn" class="hp-export">Enregistrer le PDF</button><span id="pdfState" style="font-size:11px;opacity:.8"></span><button id="logoutBtn">Déconnexion</button></div>
+</header>
+<aside class="sideNav hide" id="internalTabs">
+  <div class="brandBlock">
+    <div class="hpMark">HP</div>
+    <div class="hpWords">Hospitality<br>Performance</div>
+  </div>
+  <nav class="navItems">
+    <a class="navItem" data-hp-page href="dashboard.html"><span class="navIcon"><svg class="hpNavSvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.6V21h13V9.6"/><path d="M9.5 21v-7h5v7"/></svg></span>Dashboard</a>
+    <a class="navItem" data-hp-page href="admin.html"><span class="navIcon"><svg class="hpNavSvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16"/><path d="M6 21V8h7v13"/><path d="M13 21V3h5v18"/><path d="M8.5 11h2M8.5 14h2M8.5 17h2M15.5 6h1M15.5 9h1M15.5 12h1M15.5 15h1"/></svg></span>Administration</a>
+    <a class="navItem" data-hp-page href="economics.html"><span class="navIcon"><svg class="hpNavSvg" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 17 6-6 4 4 8-9"/><path d="M16 6h5v5"/></svg></span>Performance</a>
+    <a class="navItem" data-hp-page href="documents.html"><span class="navIcon"><svg class="hpNavSvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5h6l2-2h10v13.5H3z"/><path d="M3 9h18"/></svg></span>Documents</a>
+    <a class="navItem active" data-hp-page href="report.html"><span class="navIcon"><svg class="hpNavSvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10h4v10M10 20V4h4v16M16 20v-7h4v7"/><path d="M3 20h18"/></svg></span>Restitution</a>
+    <a class="navItem" href="guide.html" target="_blank" rel="noopener"><span class="navIcon"><svg class="hpNavSvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H12v17H7.5A3.5 3.5 0 0 0 4 22z"/><path d="M20 5.5A3.5 3.5 0 0 0 16.5 2H12v17h4.5A3.5 3.5 0 0 1 20 22z"/></svg></span>Guide d’utilisation</a>
+  </nav>
+  <div class="sideEditorial">
+    <em>Des lieux d’exception<br>plus performants demain.</em>
+    <small>HP — Hospitality Performance</small>
+  </div>
+</aside>
+
+<section id="loginView" class="login">
+ <h1>Restitution HP</h1><p class="muted small">Accès interne. Le rapport généré peut ensuite être exporté en PDF.</p>
+ <div class="field"><label>Email</label><input id="email" type="email"></div>
+ <div class="field"><label>Mot de passe</label><input id="password" type="password"></div>
+ <button id="loginBtn" class="btn btnTeal" style="width:100%">Se connecter</button><div id="loginMsg" class="msg"></div>
+</section>
+
+<main id="report" class="report hide"></main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.116.0";
+const sb=createClient("https://wztiaiwjprarpdzsudpx.supabase.co","sb_publishable_JqSGi4QEil2MBaI5tYsQvA_wQnxz8U_");
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+const num=(v,d=0)=>v===null||v===undefined?"—":Number(v).toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d});
+const euro=v=>v===null||v===undefined?"—":Number(v).toLocaleString("fr-FR",{maximumFractionDigits:0})+" €";
+const dateFr=v=>{if(!v)return"—";const [y,m,d]=String(v).slice(0,10).split("-");return `${d}/${m}/${y}`};
+const monthFr=v=>{if(!v)return"—";const d=new Date(String(v).slice(0,10)+"T12:00:00");return d.toLocaleDateString("fr-FR",{month:"short"}).replace(".","")};
+let diagnostics=[],current=null,currentDiagnostic=null,currentReportData=null,currentReportProposal=null;
+
+function hpSyncNav(id){
+  document.querySelectorAll("[data-hp-page]").forEach(a=>{
+    const raw=a.getAttribute("href")||"";
+    const parts=raw.split("#"),base=parts[0].split("?")[0],hash=parts[1]?`#${parts[1]}`:"";
+    a.href=id?`${base}?diagnostic=${encodeURIComponent(id)}${hash}`:`${base}${hash}`;
+  });
+  document.querySelectorAll("[data-guide-page]").forEach(a=>a.href=id?`admin.html?diagnostic=${encodeURIComponent(id)}#guide`:"admin.html#guide");
+}
+
+
+async function savePdf(){
+  const btn=$("printBtn"),state=$("pdfState");
+  const JsPDF=window.jspdf?.jsPDF;
+  if(typeof window.html2canvas!=="function"||!JsPDF){
+    state.textContent="Générateur PDF indisponible.";
+    return;
+  }
+
+  btn.disabled=true;
+  document.body.classList.add("pdfGenerating","pdfExportMode");
+  state.textContent="Préparation du PDF…";
+
+  const originalScrollY=window.scrollY;
+  try{
+    if(document.fonts?.ready)await document.fonts.ready;
+    await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+
+    const pages=[...document.querySelectorAll("#report .page")];
+    if(!pages.length)throw new Error("Aucune page à exporter");
+
+    const safeName=String(currentReportData?.establishment_name||currentDiagnostic?.establishment_name||"etablissement")
+      .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+      .replace(/[^a-zA-Z0-9_-]+/g,"_").replace(/^_+|_+$/g,"");
+    const stamp=new Date().toISOString().slice(0,10);
+    const fileName=`HP_${safeName}_${stamp}.pdf`;
+
+    const pdf=new JsPDF({unit:"mm",format:"a4",orientation:"portrait",compress:true});
+    const a4WidthMm=210;
+    const a4HeightMm=297;
+    let pdfPageCount=0;
+
+    for(let pageIndex=0;pageIndex<pages.length;pageIndex++){
+      state.textContent=`Génération PDF · page ${pageIndex+1}/${pages.length}`;
+
+      const pageEl=pages[pageIndex];
+      const canvas=await window.html2canvas(pageEl,{
+        scale:2.5,
+        useCORS:true,
+        backgroundColor:"#ffffff",
+        logging:false,
+        scrollX:0,
+        scrollY:0,
+        windowWidth:pageEl.scrollWidth,
+        windowHeight:pageEl.scrollHeight
+      });
+
+      // One HTML section = one PDF page.
+      // Never split a chart or a report section across two pages.
+      const sourceRatio=canvas.width/canvas.height;
+      const a4Ratio=a4WidthMm/a4HeightMm;
+
+      let renderedWidthMm,renderedHeightMm,xMm=0,yMm=0;
+      if(sourceRatio>=a4Ratio){
+        renderedWidthMm=a4WidthMm;
+        renderedHeightMm=a4WidthMm/sourceRatio;
+        yMm=(a4HeightMm-renderedHeightMm)/2;
+      }else{
+        renderedHeightMm=a4HeightMm;
+        renderedWidthMm=a4HeightMm*sourceRatio;
+        xMm=(a4WidthMm-renderedWidthMm)/2;
+      }
+
+      if(pdfPageCount>0)pdf.addPage("a4","portrait");
+
+      // Higher-quality rasterization keeps SVG charts and labels sharp.
+      const imgData=canvas.toDataURL("image/jpeg",0.985);
+      pdf.addImage(
+        imgData,
+        "JPEG",
+        xMm,yMm,renderedWidthMm,renderedHeightMm,
+        undefined,
+        "MEDIUM"
+      );
+
+      pdfPageCount++;
+      canvas.width=1;
+      canvas.height=1;
+    }
+
+    const blob=pdf.output("blob");
+    const path=`${current}/${crypto.randomUUID()}-${fileName}`;
+
+    state.textContent="Archivage du PDF…";
+    const {error:upErr}=await sb.storage
+      .from("hp-reports")
+      .upload(path,blob,{contentType:"application/pdf",upsert:false});
+    if(upErr)throw upErr;
+
+    const {error:dbErr}=await sb.from("hp_report_exports").insert({
+      diagnostic_id:current,
+      proposal_id:currentReportProposal?.id||null,
+      file_name:fileName,
+      storage_path:path
+    });
+    if(dbErr)throw dbErr;
+
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;
+    a.download=fileName;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1500);
+
+    state.textContent=`PDF enregistré · ${pdfPageCount} section${pdfPageCount>1?"s":""} / ${pdfPageCount} page${pdfPageCount>1?"s":""}.`;
+  }catch(e){
+    console.error("Erreur génération PDF",e);
+    state.textContent="Erreur PDF : "+(e?.message||"échec de génération");
+  }finally{
+    document.body.classList.remove("pdfGenerating","pdfExportMode");
+    window.scrollTo(0,originalScrollY);
+    btn.disabled=false;
+  }
+}
+$("printBtn").onclick=savePdf;
+$("logoutBtn").onclick=async()=>{await sb.auth.signOut();location.reload()};
+$("loginBtn").onclick=async()=>{const {error}=await sb.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});if(error){$("loginMsg").textContent=error.message;return}showApp()};
+
+async function boot(){const {data:{session}}=await sb.auth.getSession();if(session)showApp()}
+async function showApp(){
+ $("loginView").classList.add("hide");$("appbar").classList.remove("hide");$("internalTabs").classList.remove("hide");$("report").classList.remove("hide");
+ const q=new URLSearchParams(location.search).get("diagnostic")||localStorage.getItem("hp_selected_diagnostic");
+ if(!q){
+   $("report").innerHTML='<section class="page"><h2>Aucun établissement sélectionné</h2><p class="muted">Ouvrez la restitution depuis le Dashboard afin de conserver le contexte de l’établissement.</p><p><a class="btn btnTeal" href="dashboard.html">Retour au Dashboard</a></p></section>';
+   return;
+ }
+ const {data,error}=await sb.from("hp_diagnostics").select("id,establishment_name,establishment_type,created_at").eq("id",q).maybeSingle();
+ if(error||!data){
+   $("report").innerHTML='<section class="page"><h2>Établissement introuvable</h2><p class="muted">La référence transmise à la restitution n’est pas valide.</p><p><a class="btn btnTeal" href="dashboard.html">Retour au Dashboard</a></p></section>';
+   return;
+ }
+ diagnostics=[data];currentDiagnostic=data;current=data.id;
+ localStorage.setItem("hp_selected_diagnostic",current);
+ hpSyncNav(current);
+ await loadReport();
+}
+async function loadReport(){
+ $("report").innerHTML='<section class="page"><p class="muted">Génération de la restitution…</p></section>';
+ const [{data:d,error},{data:p},{data:plan},{data:monthly,error:monthlyError},{data:impact,error:impactError},{data:economicImpact,error:economicImpactError},{data:evidence,error:evidenceError},{data:actions,error:actionsError},{data:bench,error:benchError},{data:timeline,error:timelineError},{data:audit,error:auditError},{data:proposal,error:proposalError},{data:proposalPlan,error:proposalPlanError}]=await Promise.all([
+  sb.from("hp_client_report_summary_v1").select("*").eq("diagnostic_id",current).maybeSingle(),
+  sb.from("hp_prioritized_actions_v1").select("*").eq("diagnostic_id",current).order("blocked").order("action_rank"),
+  sb.from("hp_action_plan_v1").select("*").eq("diagnostic_id",current),
+  sb.from("hp_rh_monthly_analysis").select("month_start,revenue_ht,planned_hours,actual_hours,productivity_ht_per_hour,hours_variance_pct,active_days,partial_period").eq("diagnostic_id",current).order("month_start"),
+  sb.from("hp_score_impact_v1").select("*").eq("diagnostic_id",current).maybeSingle(),
+  sb.from("hp_economic_impact_v1").select("*").eq("diagnostic_id",current).eq("comparable",true),
+  sb.from("hp_evidence_center_v1").select("*").eq("diagnostic_id",current).order("criterion_code"),
+  sb.from("hp_action_portfolio_v1").select("*").eq("diagnostic_id",current).order("priority_index",{ascending:false}),
+  sb.from("hp_economic_metric_snapshot_v2").select("metric_code,label,unit,actual_value,benchmark_min,benchmark_reference,benchmark_high,benchmark_name,benchmark_source_name,benchmark_comparable").eq("diagnostic_id",current).eq("benchmark_comparable",true).not("actual_value","is",null),
+  sb.from("hp_snapshot_timeline_v1").select("*").eq("diagnostic_id",current).order("snapshot_date"),
+  sb.from("hp_audit_progress_v1").select("*").eq("diagnostic_id",current).order("started_at",{ascending:false}).limit(1).maybeSingle(),
+  sb.from("hp_proposals")
+    .select("*,hp_proposal_items(*)")
+    .eq("diagnostic_id",current)
+    .neq("status","Archivée")
+    .order("created_at",{ascending:false})
+    .limit(1)
+    .maybeSingle(),
+  sb.from("hp_proposal_action_plan_v1")
+    .select("*")
+    .eq("diagnostic_id",current)
+    .order("service_name")
+    .order("step_order")
+ ]);
+ if(error||!d){$("report").innerHTML='<section class="page"><p>Rapport indisponible.</p></section>';return}
+ currentReportData=d;
+ currentReportProposal=proposalError?null:proposal;
+ render(d,p||[],plan||[],monthlyError?[]:(monthly||[]),impactError?null:impact,economicImpactError?[]:(economicImpact||[]),evidenceError?[]:(evidence||[]),actionsError?[]:(actions||[]),benchError?[]:(bench||[]),timelineError?[]:(timeline||[]),auditError?null:audit,currentReportProposal,proposalPlanError?[]:(proposalPlan||[]));
+}
+function page(n,content,cls="",total=5){
+  const isCover=String(cls).split(/\s+/).includes("cover");
+  const pagination=isCover?"":`<div class="pageNo">Page ${n} / ${total}</div>`;
+  return `<section class="page ${cls}">${content}${pagination}</section>`;
+}
+function niceMax(v){if(!Number.isFinite(v)||v<=0)return 1;const p=Math.pow(10,Math.floor(Math.log10(v)));const n=v/p;return (n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*p}
+function revenueChart(rows){
+ if(!rows.length)return '<div class="evidence">Série mensuelle non disponible.</div>';
+ const W=620,H=142,L=46,R=12,T=18,B=27,vals=rows.map(r=>Number(r.revenue_ht)).filter(Number.isFinite),max=niceMax(Math.max(...vals)*1.08);
+ const slot=(W-L-R)/rows.length,bw=Math.min(38,slot*.56);
+ const grid=[0,.25,.5,.75,1].map(t=>{const yy=T+(H-T-B)*t,val=max*(1-t);return `<line class="grid" x1="${L}" y1="${yy}" x2="${W-R}" y2="${yy}"/><text x="${L-6}" y="${yy+3}" text-anchor="end">${Math.round(val/1000)}k</text>`}).join("");
+ const bars=rows.map((r,i)=>{const v=Number(r.revenue_ht)||0,h=(H-T-B)*(v/max),xx=L+i*slot+(slot-bw)/2,yy=H-B-h;return `<rect class="${r.partial_period?"partial":"bar"}" x="${xx}" y="${yy}" width="${bw}" height="${h}" rx="3"/><text class="valueLabel" x="${xx+bw/2}" y="${Math.max(10,yy-4)}" text-anchor="middle">${Math.round(v/1000)}k</text><text x="${xx+bw/2}" y="${H-8}" text-anchor="middle">${monthFr(r.month_start)}${r.partial_period?"*":""}</text>`}).join("");
+ return `<svg class="svgChart" viewBox="0 0 ${W} ${H}" role="img">${grid}<line class="axis" x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}"/>${bars}</svg>`;
+}
+function productivityChart(rows){
+ if(!rows.length)return '<div class="evidence">Série mensuelle non disponible.</div>';
+ const W=300,H=137,L=34,R=10,T=17,B=25,vals=rows.map(r=>Number(r.productivity_ht_per_hour)).filter(Number.isFinite),max=niceMax(Math.max(...vals)*1.08),avg=vals.reduce((a,b)=>a+b,0)/vals.length;
+ const x=i=>L+(W-L-R)*(rows.length===1?.5:i/(rows.length-1)), y=v=>T+(H-T-B)*(1-Number(v)/max);
+ const grid=[0,.5,1].map(t=>{const yy=T+(H-T-B)*t,val=max*(1-t);return `<line class="grid" x1="${L}" y1="${yy}" x2="${W-R}" y2="${yy}"/><text x="${L-5}" y="${yy+3}" text-anchor="end">${Math.round(val)}</text>`}).join("");
+ const pts=rows.map((r,i)=>`${x(i)},${y(r.productivity_ht_per_hour)}`).join(" ");
+ const labels=rows.map((r,i)=>`<text x="${x(i)}" y="${H-7}" text-anchor="middle">${monthFr(r.month_start)}${r.partial_period?"*":""}</text>`).join("");
+ const points=rows.map((r,i)=>`<circle class="point" cx="${x(i)}" cy="${y(r.productivity_ht_per_hour)}" r="2.7"/>`).join("");
+ const ay=y(avg);
+ return `<svg class="svgChart" viewBox="0 0 ${W} ${H}" role="img">${grid}<line class="avgLine" x1="${L}" y1="${ay}" x2="${W-R}" y2="${ay}"/><text class="avgLabel" x="${W-R}" y="${ay-4}" text-anchor="end">moy. ${num(avg,1)}</text><polyline class="line" points="${pts}"/>${points}${labels}</svg>`;
+}
+function hoursChart(rows){
+ if(!rows.length)return '<div class="evidence">Série mensuelle non disponible.</div>';
+ const W=300,H=137,L=35,R=8,T=17,B=25,vals=rows.flatMap(r=>[Number(r.planned_hours),Number(r.actual_hours)]).filter(Number.isFinite),max=niceMax(Math.max(...vals)*1.08);
+ const slot=(W-L-R)/rows.length,bw=Math.min(9,slot*.28),group=bw*2+2;
+ const grid=[0,.5,1].map(t=>{const yy=T+(H-T-B)*t,val=max*(1-t);return `<line class="grid" x1="${L}" y1="${yy}" x2="${W-R}" y2="${yy}"/><text x="${L-5}" y="${yy+3}" text-anchor="end">${Math.round(val)}</text>`}).join("");
+ const bars=rows.map((r,i)=>{const cx=L+i*slot+slot/2, pv=Number(r.planned_hours)||0,av=Number(r.actual_hours)||0,ph=(H-T-B)*(pv/max),ah=(H-T-B)*(av/max),px=cx-group/2,ax=px+bw+2;return `<rect class="plannedBar" x="${px}" y="${H-B-ph}" width="${bw}" height="${ph}" rx="2"/><rect class="actualBar" x="${ax}" y="${H-B-ah}" width="${bw}" height="${ah}" rx="2"/><text x="${cx}" y="${H-7}" text-anchor="middle">${monthFr(r.month_start)}${r.partial_period?"*":""}</text>`}).join("");
+ return `<svg class="svgChart" viewBox="0 0 ${W} ${H}" role="img">${grid}<line class="axis" x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}"/>${bars}</svg><div class="chartLegend"><span><i class="legendDot legendPlanned"></i>Planifiées</span><span><i class="legendDot legendActual"></i>Réelles</span></div>`;
+}
+function friendlyMetricLabel(label){
+ const map={
+  "Taux de conversion":"Part des demandes transformées en ventes",
+  "Valeur moyenne signée HT":"Montant moyen d’une vente confirmée",
+  "Productivité réelle — période":"Chiffre d’affaires généré par heure travaillée",
+  "Productivité HT/heure":"Chiffre d’affaires généré par heure travaillée",
+  "Masse salariale / CA":"Part du chiffre d’affaires consacrée au personnel",
+  "Prime cost":"Coût matières + personnel",
+  "Marge d’exploitation":"Résultat de l’activité",
+  "Marge brute matière":"Marge après coût des produits"
+ };
+ return map[label]||label;
+}
+function metricHelp(label){
+ const key=friendlyMetricLabel(label);
+ const map={
+  "Part des demandes transformées en ventes":"Part des demandes commerciales qui aboutissent réellement à une vente.",
+  "Montant moyen d’une vente confirmée":"Montant moyen généré par une vente ou un événement confirmé.",
+  "Chiffre d’affaires généré par heure travaillée":"Chiffre d’affaires généré en moyenne pour chaque heure travaillée.",
+  "Part du chiffre d’affaires consacrée au personnel":"Part du chiffre d’affaires utilisée pour rémunérer les équipes.",
+  "Coût matières + personnel":"Part du chiffre d’affaires absorbée par les produits vendus et le personnel.",
+  "Résultat de l’activité":"Ce que l’activité dégage après ses principales charges d’exploitation.",
+  "Marge après coût des produits":"Ce qu’il reste après avoir payé les produits ou matières consommés.",
+  "Encaissement moyen par ticket":"Montant moyen encaissé pour chaque ticket payé.",
+  "Ticket moyen HT":"Montant moyen dépensé par ticket, hors taxes."
+ };
+ return map[key]||"";
+}
+function render(d,priorities,plan,monthly,impact,economicImpact,evidence,actions,bench,timeline,audit,proposal,proposalPlan){
+ const score=d.hp_score_final!==null?Number(d.hp_score_final):Number(d.preliminary_score||0);
+ const dims=Array.isArray(d.dimension_scores)?d.dimension_scores:[];
+ const cov=Array.isArray(d.client_coverage)?d.client_coverage:[];
+ const insights=Array.isArray(d.client_insights)?d.client_insights:[];
+ const actionable=priorities.filter(x=>!x.blocked&&Number(x.action_rank)<=4);
+ const blocked=priorities.filter(x=>x.blocked);
+ const reportDate=new Date().toLocaleDateString("fr-FR");
+ const insightByCode=Object.fromEntries(insights.map(i=>[i.code,i]));
+ const bestDim=[...dims].sort((a,b)=>(Number(b.score)/Math.max(1,Number(b.max_score)))-(Number(a.score)/Math.max(1,Number(a.max_score))))[0];
+ const valid=Number(d.source_validated||0),total=Number(d.source_total||0),filled=Number(d.source_filled||0);
+ const fullMonths=monthly.filter(x=>!x.partial_period);
+ const revPeak=(fullMonths.length?fullMonths:monthly).reduce((a,b)=>!a||Number(b.revenue_ht)>Number(a.revenue_ht)?b:a,null);
+ const prodPeak=(fullMonths.length?fullMonths:monthly).reduce((a,b)=>!a||Number(b.productivity_ht_per_hour)>Number(a.productivity_ht_per_hour)?b:a,null);
+ const hoursGap=monthly.reduce((s,x)=>s+(Number(x.actual_hours||0)-Number(x.planned_hours||0)),0);
+ const hasImpact=!!(impact&&impact.baseline_snapshot_id&&impact.latest_snapshot_id&&impact.comparison_status==="Comparaison disponible");
+ const hasProposal=!!(proposal&&proposal.id&&Array.isArray(proposal.hp_proposal_items)&&proposal.hp_proposal_items.length);
+ const proposalPlanRows=hasProposal?(proposalPlan||[]).filter(x=>x.proposal_id===proposal.id):[];
+ const planGroups={};
+ proposalPlanRows.forEach(x=>(planGroups[x.service_name]??=[]).push(x));
+ const planServices=Object.entries(planGroups);
+ const planChunks=[];
+ for(let i=0;i<planServices.length;i+=3)planChunks.push(planServices.slice(i,i+3));
+ const basePages=hasImpact?9:8;
+ const actionPlanPages=planChunks.length;
+ const totalPages=basePages+(hasProposal?1:0)+actionPlanPages;
+ let pages=[];
+
+ pages.push(page(0,`<div class="coverHero">
+ <div class="coverBrand"><div class="coverBrandMark">HP</div><div class="coverBrandText"><b>Hospitality Performance</b><span>Piloter · Analyser · Performer</span></div></div>
+ <div class="coverMain"><div><div class="eyebrow">Rapport de diagnostic · ${reportDate}</div><h1>${esc(d.establishment_name)}</h1><p class="lead">Analyse de la performance commerciale, opérationnelle, humaine et digitale. Une restitution conçue pour transformer les données disponibles en priorités d'action.</p></div>
+ <div class="coverScore"><div class="coverScoreRing" style="--cover-angle:${score*3.6}deg"><div class="coverScoreInner"><b>${num(score)}</b><span>HP Score${d.hp_score_final===null?" provisoire":""}</span></div></div></div></div>
+ <div class="coverStats"><div class="coverStat"><b>${num(d.score_coverage_pct)} %</b><span>Scoring documenté</span></div><div class="coverStat"><b>${valid}/${total}</b><span>Sources économiques validées</span></div><div class="coverStat"><b>${num(actionable.length)}</b><span>Priorités actives</span></div></div></div>
+ <div class="coverBottom"><div><div class="eyebrow">Profil du diagnostic</div>${dims.map(x=>{const pct=Number(x.score||0)/Math.max(1,Number(x.max_score||20))*100;return `<div class="coverPillar"><span>${esc(x.dimension)}</span><div class="track"><div class="fill" style="width:${Math.min(100,pct)}%"></div></div><b>${num(x.score)}/${num(x.max_score)}</b></div>`}).join("")}</div>
+ <div><div class="coverRightVisual"><div class="coverProofRing" style="--proof-angle:${Math.max(0,Math.min(100,Number(d.validated_data_pct||0)))*3.6}deg"><div><b>${num(d.validated_data_pct)}%</b><span>validé</span></div></div><div class="coverProofText"><b>Niveau de preuve économique</b><span>${valid}/${total} sources attendues sont actuellement validées.</span></div></div><div class="eyebrow">3 priorités de départ</div>${actionable.slice(0,3).map((p,i)=>`<div class="coverPriority"><b>${i+1}. ${esc(p.title)}</b><span>${esc(p.service_area)}</span></div>`).join("")}</div></div>
+ <div class="coverMeta"><div><b>Méthodologie</b>Hospitality Performance · HP V2.5</div><div><b>Périmètre</b>Commercial · RH · Exploitation · Données</div><div><b>Statut</b>${d.hp_score_final===null?"Diagnostic en cours de consolidation":"Diagnostic consolidé"}</div><div><b>État de la preuve</b>${num(d.validated_data_pct)} % des données économiques attendues validées</div></div>`,"cover",totalPages));
+
+ pages.push(page(1,`<div class="eyebrow">01 · Synthèse exécutive</div><h2>La situation en un regard</h2>
+ <div class="reportHero">
+  <div class="eyebrow">HP Score</div>
+  <div class="dashboardScoreLayout">
+    <div class="dashboardScoreValue">
+      <div><b>${num(score)}</b> <span>/ 100</span></div>
+      <div class="dashboardScoreMeta">${d.hp_score_final===null?"Score provisoire":"Score consolidé"} · ${num(d.score_coverage_pct)} % documenté</div>
+    </div>
+    <div class="dashboardSemiGauge" style="--score:${Math.max(0,Math.min(100,Number(score)||0))}">
+      <div class="dashboardSemiGaugeValue">${num(score)}</div>
+    </div>
+    <div class="dashboardScoreText">
+      <h2>${d.hp_score_final===null?"Score provisoire":"Score consolidé"}</h2>
+      <p>${num(d.score_coverage_pct)} % des critères HP sont documentés. Le score mesure le niveau de structuration observé, pas la rentabilité de l’établissement.</p>
+    </div>
+  </div>
+</div>
+ <div class="visualKpis"><div class="visualKpi accent"><div class="v">${num(d.validated_data_pct)} %</div><div class="l">Sources économiques validées</div></div><div class="visualKpi"><div class="v">${num(d.insight_count)}</div><div class="l">Constats structurés</div></div><div class="visualKpi gold"><div class="v">${num(actionable.length)}</div><div class="l">Priorités actives</div></div><div class="visualKpi"><div class="v">${num(d.actions_30)}</div><div class="l">Actions prévues à 30 jours</div></div></div>
+ <h3>Score par pilier</h3><div class="dimensionCards">${dims.map(x=>{const pct=Number(x.score||0)/Math.max(1,Number(x.max_score||20))*100;return `<div class="dimensionCard"><b>${num(x.score)}/${num(x.max_score)}</b><span>${esc(x.dimension)}</span><div class="track"><div class="fill" style="width:${Math.min(100,pct)}%"></div></div></div>`}).join("")}</div>
+ <div class="visualPanel"><h3>Lecture exécutive</h3><p class="small muted" style="margin:0">Le diagnostic fait ressortir en priorité la structuration du processus commercial et la consolidation des données. Les contrôles RH et d’exploitation complètent cette lecture. Aucun gain financier n’est affiché sans cible ou coût documenté.</p></div>`, "", totalPages));
+
+ pages.push(page(2,`<div class="eyebrow">02 · Diagnostic</div><h2>Forces, fragilités et fiabilité des données</h2>
+ <div class="visualGrid"><div><h3>Constats prioritaires</h3>${insights.slice(0,3).map((i,idx)=>`<div class="insightCard"><div class="insightIcon ${i.priority==="Haute"?"high":""}">${idx+1}</div><div><h3>${esc(i.title)}</h3><p>${esc(i.finding)}</p><p class="consequence"><b>Conséquence :</b> ${esc(i.consequence)}</p></div></div>`).join("")}</div>
+ <div><h3>Fiabilité par domaine</h3><div class="coverageGrid">${cov.map(x=>`<div class="coverageCard"><div class="coverageCardTop"><b>${esc(x.area)}</b><span>${num(x.validated_pct)} %</span></div><div class="track"><div class="fill" style="width:${Math.min(100,Number(x.validated_pct||0))}%"></div></div><small>${num(x.source_validated)}/${num(x.source_total)} sources validées · ${esc(x.status)}</small></div>`).join("")}</div>
+ <div class="visualKpis" style="grid-template-columns:1fr 1fr;margin-top:9px"><div class="visualKpi"><div class="v">${filled}/${total}</div><div class="l">Sources renseignées</div></div><div class="visualKpi accent"><div class="v">${valid}/${total}</div><div class="l">Sources validées</div></div></div></div></div>
+ <p class="footerNote">Lorsqu’une information manque, HP ne conclut ni positivement ni négativement : le point reste simplement à préciser.</p>`, "", totalPages));
+
+ if(hasImpact){
+   const dimMap=arr=>{
+     const out={};
+     (Array.isArray(arr)?arr:[]).forEach(x=>{out[String(x.dimension||"")]=x});
+     return out;
+   };
+   const bDims=dimMap(impact.baseline_dimension_scores);
+   const aDims=dimMap(impact.latest_dimension_scores);
+   const labels=["Humain","Performance","Croissance","Opérations","Systèmes"];
+   const delta=Number(impact.hp_score_delta_points||0);
+   const bd=new Date(impact.baseline_date).toLocaleDateString("fr-FR");
+   const ad=new Date(impact.latest_date).toLocaleDateString("fr-FR");
+   pages.push(page(3,`<div class="eyebrow">03 · Évolution depuis la situation de départ</div><h2>Évolution du HP Score</h2>
+   <div class="impactHero">
+     <div class="impactHeroBlock"><small>Situation de départ</small><b>${num(impact.baseline_hp_score,1)}/100</b></div>
+     <div class="impactHeroArrow">→</div>
+     <div class="impactHeroBlock"><small>${impact.latest_snapshot_type==="closing"?"Clôture":"Dernière évaluation"}</small><b>${num(impact.latest_hp_score,1)}/100</b></div>
+     <div class="impactHeroDelta ${delta<0?"negative":""}">${delta>0?"+":""}${num(delta,1)} pts</div>
+   </div>
+   <div class="impactDimList">${labels.map(label=>{
+     const b=bDims[label]||{},a=aDims[label]||{};
+     const bv=Number(b.score||0),av=Number(a.score||0),max=Math.max(Number(b.max_score||20),Number(a.max_score||20),1),dd=av-bv;
+     return `<div class="impactDim"><div class="impactDimName">${esc(label)}</div><div class="impactTrack"><div class="impactBefore" style="width:${Math.max(0,Math.min(100,bv/max*100))}%"></div><div class="impactAfter" style="width:${Math.max(0,Math.min(100,av/max*100))}%"></div></div><div class="impactVal">${num(bv,1)}</div><div class="impactHeroArrow">→</div><div class="impactVal">${num(av,1)}</div><div class="impactDelta">${dd>0?"+":""}${num(dd,1)} pt${Math.abs(dd)>1?"s":""}</div></div>`;
+   }).join("")}</div>
+   ${(economicImpact||[]).length?`<div class="econImpactReport"><h3>Évolution des résultats</h3><div class="econImpactReportGrid">${(economicImpact||[]).slice(0,4).map(x=>{ const f=(v,u)=>u==="%"?`${num(v,1)} %`:u==="EUR_HT/heure"?`${num(v,1)} € HT/h`:(u==="EUR_HT"||u==="EUR")?`${num(v,1)} €${u==="EUR_HT"?" HT":""}`:`${num(v,1)} ${u||""}`.trim(); const dd=Number(x.absolute_delta||0); const du=x.unit==="%"?"pt":x.unit==="EUR_HT/heure"?"€ HT/h":(x.unit==="EUR_HT"||x.unit==="EUR")?"€":x.unit||""; return `<div class="econImpactReportCard"><div class="econImpactReportLabel">${esc(x.metric_label)}</div><div class="econImpactReportVals">${f(x.baseline_value,x.unit)} → ${f(x.latest_value,x.unit)} <span class="econImpactReportDelta">${dd>0?"+":""}${num(dd,2)} ${esc(du)}</span></div><div class="econImpactReportMeta">Évolution constatée entre deux évaluations validées.</div></div>`; }).join("")}</div></div>`:""}
+   <div class="impactNoteBox"><b>Période observée :</b> ${bd} → ${ad}. ${impact.latest_snapshot_type==="closing"?"La mesure finale correspond au bilan réalisé à la fin de l’accompagnement.":"Cette page montre ce qui a progressé entre la situation de départ et la dernière évaluation."} Elle ne constitue pas, à elle seule, une attribution causale ou financière des résultats à l’accompagnement.</div>`, "printBreak", totalPages));
+ }
+
+
+ const evidencePageNo=hasImpact?4:3;
+ pages.push(page(evidencePageNo,`<div class="eyebrow">${String(evidencePageNo).padStart(2,"0")} · Preuves & confiance</div><h2>Sur quoi repose le diagnostic</h2>
+ <div class="visualKpis"><div class="visualKpi accent"><div class="v">${evidence.reduce((s,x)=>s+Number(x.evidence_count||0),0)}</div><div class="l">Preuves rattachées aux critères</div></div><div class="visualKpi"><div class="v">${evidence.filter(x=>x.confidence_level==="Élevée").length}</div><div class="l">Critères à confiance élevée</div></div><div class="visualKpi gold"><div class="v">${audit?num(audit.completion_pct):"—"}${audit?" %":""}</div><div class="l">Dernier audit terrain</div></div><div class="visualKpi"><div class="v">${audit?num(audit.high_findings):"—"}</div><div class="l">Alertes terrain hautes</div></div></div>
+ <div class="coverageGrid">${evidence.filter(x=>x.score!==null).slice(0,10).map(x=>`<div class="coverageCard"><div class="coverageCardTop"><b>${esc(x.criterion_code)} · ${esc(x.criterion_label)}</b><span>${esc(x.confidence_level||"Faible")}</span></div><small>${num(x.evidence_count)} preuve(s) · score ${num(x.score)}/5</small></div>`).join("")}</div>
+ <div class="visualPanel"><h3>Principe Evidence Center</h3><p class="small muted" style="margin:0">Chaque score peut être justifié par des documents, des chiffres, des observations terrain, des réponses au questionnaire ou des photos. Le niveau de confiance indique simplement si les informations disponibles sont solides, partielles ou encore à compléter.</p></div>`, "printBreak", totalPages));
+
+ const figs=[];
+ if(d.revenue_ht_common_period!==null) figs.push(["CA HT documenté",euro(d.revenue_ht_common_period),`${dateFr(d.period_start)} → ${dateFr(d.period_end)}`]);
+ if(d.avg_payment_per_ticket!==null) figs.push(["Encaissement moyen / ticket payé",euro(d.avg_payment_per_ticket),`${num(d.paid_tickets)} tickets avec paiement`]);
+ if(d.rh_productivity_ht_per_hour!==null) figs.push(["Productivité RH",num(d.rh_productivity_ht_per_hour,2)+" € HT/h",`${dateFr(d.rh_period_start)} → ${dateFr(d.rh_period_end)}`]);
+ if(d.hours_variance_pct!==null) figs.push(["Heures réelles vs planifiées",num(d.hours_variance_pct,1)+" %",`${num(d.tension_signal_count)} signaux de tension potentielle`]);
+ pages.push(page(hasImpact?5:4,`<div class="eyebrow">${hasImpact?"05":"04"} · Performance documentée</div><h2>Les chiffres qui structurent l'analyse</h2>
+ <div class="visualKpis">${figs.map((f,i)=>`<div class="visualKpi ${i===0?"accent":i===3?"gold":""}"><div class="v">${esc(f[1])}</div><div class="l">${esc(f[0])}<br>${esc(f[2])}</div></div>`).join("")}</div>
+ <div class="performanceCharts">
+  <div class="chartBox full"><div class="chartHead"><h3>Chiffre d'affaires HT mensuel</h3><span>Lecture en k€ · source Combo · * période partielle</span></div>${revenueChart(monthly)}</div>
+  <div class="chartDuo">
+   <div class="chartBox"><div class="chartHead"><h3>Productivité RH</h3><span>€ HT / heure réelle</span></div>${productivityChart(monthly)}</div>
+   <div class="chartBox"><div class="chartHead"><h3>Heures planifiées vs réelles</h3><span>Volume mensuel d'heures</span></div>${hoursChart(monthly)}</div>
+  </div>
+ </div>
+ <div class="chartTakeaways">
+  <div class="chartTakeaway"><b>${revPeak?euro(revPeak.revenue_ht):"—"}</b><span>Pic mensuel documenté · ${revPeak?monthFr(revPeak.month_start):"—"}</span></div>
+  <div class="chartTakeaway"><b>${prodPeak?num(prodPeak.productivity_ht_per_hour,1)+" € HT/h":"—"}</b><span>Productivité mensuelle la plus élevée · ${prodPeak?monthFr(prodPeak.month_start):"—"}</span></div>
+  <div class="chartTakeaway"><b>${num(hoursGap,0)} h</b><span>Écart cumulé réel - planifié sur la période · indicateur de contrôle</span></div>
+ </div>
+ <p class="performanceNote">Les graphiques décrivent les données disponibles. Ils ne constituent pas, à eux seuls, une estimation de gain ou de sous-effectif.</p>
+ <div class="warning" style="margin-top:7px"><b>Potentiel économique :</b> ${esc(d.economic_value_status)}</div>`,"printBreak",totalPages));
+
+ pages.push(page(hasImpact?6:5,`<div class="eyebrow">${hasImpact?"06":"05"} · Priorisation</div><h2>Les leviers à traiter en premier</h2>
+ <div class="priorityGrid">${actionable.map(p=>{const ins=insightByCode[p.insight_code]||insightByCode[p.code]||{};return `<div class="priorityCard"><div class="priorityRank">${num(p.action_rank)}</div><div><h3>${esc(p.title)}</h3><div class="priorityMeta">${esc(p.service_area)} · ${esc(p.quadrant)}</div><div class="priorityWhy">${esc(ins.consequence||ins.finding||"Priorité issue de la matrice Impact × Effort HP.")}</div><div class="priorityAction"><b>Orientation :</b> ${esc(p.recommended_action||ins.action||"Traiter ce levier selon la feuille de route 30 / 60 / 90 jours.")}</div></div></div>`}).join("")}</div>
+ ${blocked.length?`<div class="warning"><b>Prérequis :</b> ${blocked.map(x=>esc(x.title)).join(", ")} reste bloqué par une donnée source manquante.</div>`:""}
+ <p class="footerNote">Le classement est issu de la matrice Impact × Effort interne HP. Le rapport client conserve le rang et la catégorie d'action sans exposer les coefficients techniques.</p>`,"printBreak",totalPages));
+
+ const phases=[["30","0–30 jours","Cadrer & sécuriser"],["60","31–60 jours","Mesurer & tester"],["90","61–90 jours","Stabiliser & piloter"],["180","91–180 jours","Ancrer & optimiser"]];
+ const roadmapPageNo=hasImpact?7:6;
+ pages.push(page(roadmapPageNo,`<div class="eyebrow">${String(roadmapPageNo).padStart(2,"0")} · Feuille de route</div><h2>Un plan d’action clair sur 6 mois</h2>
+ <div class="roadmap roadmapCompact">${phases.map(([code,label,sub])=>{const items=(actions.length?actions:[]).filter(a=>a.phase_days===code).sort((a,b)=>Number(b.priority_index||0)-Number(a.priority_index||0));return `<div class="roadmapCol"><div class="roadmapHead"><b>${label}</b><span>${sub}</span></div><div class="roadmapBody">${items.slice(0,4).map(a=>`<div class="roadmapAction"><b>${esc(a.action_class||a.criterion_code||"Action HP")}</b><p>${esc(a.action_title||a.action)}</p><small>${esc(a.status||"À faire")}</small></div>`).join("")||'<div class="roadmapAction"><p>Aucune action pilotable.</p></div>'}</div></div>`}).join("")}</div>
+ <div class="visualKpis"><div class="visualKpi accent"><div class="v">${actions.filter(a=>a.phase_days==="30").length}</div><div class="l">Actions 0–30 jours</div></div><div class="visualKpi"><div class="v">${actions.filter(a=>a.phase_days==="60").length}</div><div class="l">Actions 31–60 jours</div></div><div class="visualKpi"><div class="v">${actions.filter(a=>a.phase_days==="90").length}</div><div class="l">Actions 61–90 jours</div></div><div class="visualKpi gold"><div class="v">${actions.filter(a=>a.phase_days==="180").length}</div><div class="l">Actions 91–180 jours</div></div></div>
+ <div class="visualPanel"><h3>Principe de pilotage</h3><p class="small muted" style="margin:0">Chaque étape doit produire une preuve exploitable : procédure, mesure, comparaison ou indicateur. La feuille de route ne suppose pas de gain économique avant validation des données nécessaires.</p></div><p class="footerNote" style="margin-top:8px">Méthode HP V2 · Aucun benchmark non comparable ni gain économique sans cible ou coût documenté. Rapport généré à partir des données disponibles au ${reportDate}.</p>`, "", totalPages));
+
+
+
+ const benchmarkPageNo=hasImpact?8:7;
+ pages.push(page(benchmarkPageNo,`<div class="eyebrow">${String(benchmarkPageNo).padStart(2,"0")} · Benchmarks</div><h2>Se comparer à des établissements réellement comparables</h2>
+ <div class="coverageGrid">${bench.slice(0,10).map(x=>`<div class="coverageCard"><div class="coverageCardTop"><b>${esc(friendlyMetricLabel(x.label))}</b><span>${x.actual_value===null?"—":num(x.actual_value,1)} ${esc(x.unit||"")}</span></div><small>${esc(x.benchmark_name||x.benchmark_source_name||"Référence documentée")} · plage ${x.benchmark_min??"—"} → ${x.benchmark_high??"—"} ${esc(x.unit||"")}</small></div>`).join("")||'<div class="coverageCard"><small>Aucune référence externe comparable active pour ce diagnostic.</small></div>'}</div>
+ <div class="visualPanel"><h3>Règle de comparaison HP</h3><p class="small muted" style="margin:0">Un niveau de référence n’est affiché que lorsqu’il repose sur une source fiable et sur des établissements réellement comparables. Les références issues des données HP ne seront utilisées que lorsque le nombre d’établissements sera suffisant pour être pertinent.</p></div>`, "printBreak", totalPages));
+
+ const methodologyPageNo=hasImpact?9:8;
+ pages.push(page(methodologyPageNo,`<div class="eyebrow">${String(methodologyPageNo).padStart(2,"0")} · Méthodologie & traçabilité</div><h2>Suivre les progrès dans le temps</h2>
+ <div class="timeline" style="margin-top:12px">${timeline.map(x=>`<div class="timeItem"><i class="timeDot ${esc(x.snapshot_type)}"></i><div><b>${esc(x.snapshot_label||x.snapshot_type)}</b><br><span>${new Date(x.snapshot_date).toLocaleDateString("fr-FR")} · HP ${num(x.hp_score,1)}/100 · couverture ${num(x.score_coverage_pct)} %</span></div></div>`).join("")||'<p class="small muted">Aucun snapshot figé.</p>'}</div>
+ <div class="visualPanel"><h3>Lecture du rapport</h3><p class="small muted" style="margin:0">HP distingue les données collectées, les constats, les recommandations, les niveaux de référence et les évolutions observées. Une amélioration entre deux périodes n’est attribuée à l’accompagnement HP que lorsqu’un lien peut être clairement établi. Chaque étape est conservée pour pouvoir revenir à la situation de départ, aux suivis et au bilan final.</p></div>
+ 
+ <div class="visualPanel"><h3>Quelques termes utilisés</h3>
+ <p class="small muted" style="margin:0"><b>Score HP :</b> niveau de structuration global de l’établissement. <b>Situation de départ :</b> mesure prise avant la mise en œuvre des actions. <b>Niveau de référence :</b> valeur issue d’établissements ou de sources comparables. <b>Fiabilité :</b> solidité des informations disponibles pour justifier un constat.</p></div><p class="footerNote">Méthode Hospitality Performance · Rapport généré le ${reportDate} à partir des données disponibles et validées dans Hospitality Performance.</p>`, "", totalPages));
+
+ if(hasProposal){
+   const proposalItems=[...(proposal.hp_proposal_items||[])].sort((a,b)=>Number(a.sort_order||0)-Number(b.sort_order||0));
+   const proposalTotal=Number(proposal.total_amount||proposalItems.reduce((sum,x)=>sum+Number(x.price||0),0));
+   const proposalPageNo=basePages+1;
+   pages.push(page(proposalPageNo,`<div class="eyebrow">${String(proposalPageNo).padStart(2,"0")} · Proposition d’accompagnement</div>
+   <h2>${esc(proposal.proposal_name||"Accompagnement Hospitality Performance")}</h2>
+   <p class="lead">À partir du diagnostic, HP a identifié les accompagnements les plus pertinents pour corriger les points faibles et renforcer les pratiques de l’établissement.</p>
+
+   <div class="proposalSummary">
+     <div class="proposalSummaryBox"><small>Statut de la proposition</small><b>${esc(proposal.status||"Brouillon")}</b></div>
+     <div class="proposalSummaryBox total"><small>Montant total</small><b>${proposalTotal.toLocaleString("fr-FR",{maximumFractionDigits:0})} €</b></div>
+   </div>
+
+   <div class="proposalReportList">
+     ${proposalItems.map(x=>`<div class="proposalReportItem">
+       <div class="proposalReportTop">
+         <div><b>${esc(x.service_name)}</b><div class="proposalReportMeta">${esc(x.service_family||"Accompagnement")} · ${esc(x.duration||"Durée à définir")} · ${esc(x.format||"Format à définir")}</div></div>
+         <div class="proposalReportPrice">${Number(x.price||0).toLocaleString("fr-FR",{maximumFractionDigits:0})} €</div>
+       </div>
+       ${Array.isArray(x.deliverables)&&x.deliverables.length?`<div class="proposalReportDeliverables"><b>Livrables prévus :</b> ${esc(x.deliverables.join(" · "))}</div>`:""}
+       ${x.rationale?`<div class="proposalReportReason"><b>Pourquoi cet accompagnement :</b> ${esc(x.rationale)}</div>`:""}
+     </div>`).join("")}
+   </div>
+
+   ${proposal.notes?`<div class="visualPanel"><h3>Précisions sur la proposition</h3><p class="small muted" style="margin:0">${esc(proposal.notes)}</p></div>`:""}
+
+   <div class="proposalClosing"><p><b>Principe :</b> cette proposition est construite à partir des besoins identifiés dans le diagnostic HP. Son contenu, sa durée et son périmètre peuvent être ajustés avant validation avec l’établissement.</p></div>
+   <p class="footerNote">Proposition générée depuis Hospitality Performance · ${reportDate}</p>`, "", totalPages));
+ }
+
+ if(hasProposal&&planChunks.length){
+   planChunks.forEach((chunk,idx)=>{
+     const pageNo=basePages+2+idx;
+     pages.push(page(pageNo,`<div class="eyebrow">${String(pageNo).padStart(2,"0")} · Plan d’action</div>
+     <h2>${idx===0?"Plan d’action des prestations retenues":"Plan d’action · suite"}</h2>
+     <p class="lead">Ce plan traduit les prestations retenues en actions concrètes, avec livrables attendus et critères de réussite.</p>
+     <div class="proposalReportList">
+       ${chunk.map(([service,steps])=>`<div class="visualPanel">
+         <h3>${esc(service)}</h3>
+         ${steps.sort((a,b)=>Number(a.step_order||0)-Number(b.step_order||0)).map(x=>`<div class="proposalReportItem">
+           <div class="proposalReportTop"><div><b>${esc(x.phase)} · ${esc(x.action_title)}</b><div class="proposalReportMeta">${esc(x.action_description||"")}</div></div></div>
+           <div class="proposalReportDeliverables"><b>Livrable :</b> ${esc(x.deliverable||"—")}</div>
+           <div class="proposalReportReason"><b>Critère de réussite :</b> ${esc(x.success_indicator||"—")}</div>
+         </div>`).join("")}
+       </div>`).join("")}
+     </div>
+     <div class="proposalClosing"><p><b>Suivi :</b> les actions doivent être adaptées au contexte réel de l’établissement et validées au fil de l’accompagnement. Les résultats sont ensuite mesurés dans les évaluations de suivi HP.</p></div>`, "printBreak", totalPages));
+   });
+ }
+
+
+ $("report").innerHTML=pages.join("");
+}
+boot();
+</script>
+</body>
+</html>
