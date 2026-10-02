@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HP | Parcours</title>
+<style>
+:root{font-family:Inter,Arial,sans-serif;background:#f6f6f2;color:#193b32;font-size:14px}
+*{box-sizing:border-box}body{margin:0}button,select{font:inherit}
+.top{background:#103d32;color:#fff;padding:18px max(20px,calc((100vw - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:14px}
+.top b{font:700 24px Georgia,serif}.top small{display:block;opacity:.75;font-size:12px;margin-top:4px}
+.top a{background:#fff;color:#103d32;text-decoration:none;padding:10px 13px;border-radius:8px;font-weight:750}
+.wrap{max-width:1120px;margin:28px auto 64px;padding:0 20px}
+h1,h2{font-family:Georgia,serif}h1{font-size:34px;margin:4px 0 8px}h2{font-size:23px;margin:0 0 10px}
+.lead{display:flex;justify-content:space-between;gap:20px;align-items:start}.lead p{color:#69766e;line-height:1.55;margin:0}
+.tag{display:inline-flex;border-radius:99px;padding:6px 10px;background:#e8eee9;color:#28584a;font-size:11px;font-weight:800}
+.panel{background:#fff;border:1px solid #e1e6e0;border-radius:14px;padding:22px;margin:20px 0}
+.switch{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.field label{display:block;font-size:11px;font-weight:750;margin-bottom:6px;color:#5f6f64}
+.field select{min-width:280px;padding:10px;border:1px solid #d9e1d9;border-radius:8px;background:#fff;color:#193b32}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:8px;background:#103d32;color:white;padding:11px 17px;font-weight:800;text-decoration:none;cursor:pointer}
+.btn.secondary{background:#edf2ed;color:#204b3b}
+.hero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.hero strong{font:700 28px Georgia,serif}.muted{font-size:12px;color:#69766e;line-height:1.5}
+.timeline{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin-top:18px}
+.step{position:relative;border:1px solid #e1e6e0;border-radius:12px;padding:16px 12px;background:#fbfcfb;min-height:125px}
+.step:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#dfe6df;border-radius:12px 0 0 12px}
+.step.done{background:#f4f8f4}.step.done:before{background:#4f8b68}.step.active{border-color:#90b4a1;background:#eef5f0}.step.active:before{background:#176844}
+.num{font-size:11px;font-weight:850;color:#6b796f}.step h3{font-size:14px;margin:8px 0 6px}.state{font-size:11px;color:#68766d}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}.stat{border:1px solid #e2e7e1;border-radius:10px;padding:14px}.stat b{display:block;font:700 22px Georgia,serif;margin-top:6px}
+.notice{border-left:3px solid #b28a39;background:#fcf8ed;color:#725a27;padding:13px 15px;line-height:1.5;margin:14px 0}
+.ok{border-left-color:#35795a;background:#eef7f1;color:#315f49}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.error{color:#a9413b}.empty{padding:24px;color:#69766e}
+@media(max-width:900px){.timeline{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:1fr 1fr}.hero{grid-template-columns:1fr}}
+@media(max-width:520px){.timeline,.stats{grid-template-columns:1fr}.field select{min-width:0;width:100%}}
+</style>
+</head>
+<body>
+<header class="top"><div><b>HP</b><small>Hospitality Performance · Parcours automatisé</small></div><a href="dashboard.html">Retour au Dashboard</a></header>
+<main class="wrap"><div id="app" class="empty">Chargement du parcours…</div></main>
+<script type="module">
+import {createClient} from 'https://esm.sh/@supabase/supabase-js@2.116.0';
+const sb=createClient('https://wztiaiwjprarpdzsudpx.supabase.co','sb_publishable_JqSGi4QEil2MBaI5tYsQvA_wQnxz8U_');
+const app=document.getElementById('app'),q=new URLSearchParams(location.search);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const stages=['Diagnostic','Analyse & recommandations','Plan de mission','Suivi des missions','Bilan d’intervention','Suivi post-intervention','Clôture & réévaluation'];
+const labels=['Situation initiale','Priorités','Méthode & livrables','Exécution','Résultats','J+30 / J+60 / J+90','Décision finale'];
+let diagnostics=[],selected='';
+function stageIndex(row){if(row.current_stage==='Cycle clôturé')return 7;return Math.max(0,stages.indexOf(row.current_stage))}
+function routeFor(row,i){
+ if(i===0)return `admin.html?diagnostic=${encodeURIComponent(row.diagnostic_id)}`;
+ if(i===1)return `report.html?diagnostic=${encodeURIComponent(row.diagnostic_id)}`;
+ if(!row.proposal_id)return '';
+ if(i===2)return `consultant.html?proposal=${encodeURIComponent(row.proposal_id)}`;
+ if(i===3)return `suivi.html?proposal=${encodeURIComponent(row.proposal_id)}`;
+ if(i===4)return `bilan.html?proposal=${encodeURIComponent(row.proposal_id)}`;
+ if(i===5)return `post_bilan.html?proposal=${encodeURIComponent(row.proposal_id)}`;
+ if(i===6)return `cloture.html?proposal=${encodeURIComponent(row.proposal_id)}`;
+ return '';
+}
+function dateFR(v){return v?new Date(v+'T12:00:00').toLocaleDateString('fr-FR'):'—'}
+function render(row){
+ const idx=stageIndex(row),complete=row.current_stage==='Cycle clôturé';
+ app.innerHTML=`<section class="lead"><div><span class="tag">Cycle HP</span><h1>${esc(row.establishment_name||'Établissement')}</h1><p>HP détermine automatiquement l’étape active à partir des données réellement enregistrées.</p></div><span class="tag">${esc(row.current_stage)}</span></section>
+ <section class="panel"><div class="switch"><div class="field"><label>Établissement</label><select id="diagSel">${diagnostics.map(d=>`<option value="${esc(d.diagnostic_id)}" ${d.diagnostic_id===selected?'selected':''}>${esc(d.establishment_name||'Sans nom')}</option>`).join('')}</select></div><a class="btn" href="${esc(row.next_route)}">${esc(row.next_action_label)} →</a></div></section>
+ <section class="panel"><div class="hero"><div><div class="muted">Étape active</div><strong>${esc(row.current_stage)}</strong><div class="muted">${row.proposal_name?esc(row.proposal_name):'Aucune proposition enregistrée pour le moment.'}</div></div>${complete?'<span class="tag">Cycle terminé</span>':''}</div>
+ <div class="timeline">${stages.map((s,i)=>{const done=complete||i<idx,active=!complete&&i===idx,href=routeFor(row,i);return `<article class="step ${done?'done':''} ${active?'active':''}"><div class="num">${String(i+1).padStart(2,'0')}</div><h3>${esc(s)}</h3><div class="state">${esc(labels[i])}</div>${href?`<div class="actions"><a class="btn secondary" href="${esc(href)}">Ouvrir</a></div>`:''}</article>`}).join('')}</div></section>
+ <section class="panel"><h2>État du cycle</h2><div class="stats">
+ <div class="stat"><small>Actions prévues</small><b>${row.planned_actions??0}</b></div>
+ <div class="stat"><small>Actions terminées</small><b>${row.completed_actions??0}</b></div>
+ <div class="stat"><small>Contrôles post-bilan</small><b>${row.checkpoints_done??0}/3</b></div>
+ <div class="stat"><small>Décision finale</small><b style="font-size:15px">${esc(row.closure_decision||'—')}</b></div>
+ </div>
+ ${row.next_checkpoint_date?`<div class="notice ${new Date(row.next_checkpoint_date+'T23:59:59')<new Date()?'':'ok'}"><b>Prochaine échéance post-intervention :</b> ${esc(dateFR(row.next_checkpoint_date))}${new Date(row.next_checkpoint_date+'T23:59:59')<new Date()?' · échéance atteinte ou dépassée':''}</div>`:''}
+ <div class="muted">Le moteur de parcours n’altère ni le HP Score ni les données économiques. Il choisit uniquement l’écran à ouvrir selon l’état réel du dossier.</div></section>`;
+ document.getElementById('diagSel').onchange=e=>{selected=e.target.value;localStorage.setItem('hp_selected_diagnostic',selected);history.replaceState(null,'',`?diagnostic=${encodeURIComponent(selected)}`);const x=diagnostics.find(d=>d.diagnostic_id===selected);if(x)render(x)}
+}
+async function load(){
+ const {data:{session}}=await sb.auth.getSession();if(!session){app.innerHTML='<section class="panel error">Connexion requise. Connecte-toi à HP puis rouvre le Parcours.</section>';return}
+ const {data,error}=await sb.from('hp_lifecycle_status_v1').select('*').order('establishment_name');if(error)throw error;
+ diagnostics=data||[];if(!diagnostics.length){app.innerHTML='<section class="panel">Aucun diagnostic disponible.</section>';return}
+ const requested=q.get('diagnostic'),stored=localStorage.getItem('hp_selected_diagnostic');
+ selected=(requested&&diagnostics.some(x=>x.diagnostic_id===requested))?requested:(stored&&diagnostics.some(x=>x.diagnostic_id===stored)?stored:diagnostics[0].diagnostic_id);
+ render(diagnostics.find(x=>x.diagnostic_id===selected));
+}
+load().catch(e=>{console.error(e);app.innerHTML=`<section class="panel error">Parcours indisponible : ${esc(e.message)}</section>`});
+</script>
+</body>
+</html>

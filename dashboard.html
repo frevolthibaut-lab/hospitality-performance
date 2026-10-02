@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Dashboard | Hospitality Performance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --emerald:#0B3D2E;--emerald2:#125746;--emerald3:#1f6c56;
+  --black:#0F0F0E;--stone:#F6F4EF;--paper:#FFFEFB;--graphite:#666864;
+  --ink:#171916;--line:#DED9CF;--line2:#E9E5DD;--gold:#B99A68;
+  --danger:#B84A45;--warning:#C78324;--sidebar:214px;--topbar:72px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#efece5;color:var(--ink)}
+body{font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}
+a{text-decoration:none;color:inherit}
+.hide{display:none!important}
+
+/* LEFT NAV — exact, isolated, no overlap */
+.sideNav{
+  position:fixed;z-index:100;left:0;top:0;bottom:0;width:var(--sidebar);
+  background:linear-gradient(180deg,#0d1714 0%,#091a15 55%,#0c2d23 100%);
+  color:#fff;display:flex;flex-direction:column;padding:25px 14px 20px;
+  box-shadow:12px 0 30px rgba(19,27,23,.08);overflow:hidden;
+}
+.brandBlock{padding:0 18px 22px;border-bottom:1px solid rgba(255,255,255,.13)}
+.hpMark{font:600 56px/.82 "Playfair Display",Georgia,serif;letter-spacing:-.07em}
+.hpWords{margin-top:10px;font-size:10px;line-height:1.5;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.navItems{display:grid;gap:5px;margin-top:22px}
+.navItem{
+  min-height:45px;border-radius:6px;padding:0 14px;display:flex;align-items:center;gap:11px;
+  color:rgba(255,255,255,.76);font-size:12px;font-weight:500;border:1px solid transparent;white-space:nowrap
+}
+.navItem:hover{background:rgba(255,255,255,.05);color:#fff}
+.navItem.active{background:linear-gradient(90deg,#125746,#0d4638);color:#fff;border-color:rgba(255,255,255,.08);box-shadow:inset 2px 0 #e7eee9}
+.navIcon{width:18px;text-align:center;font-size:16px}
+.sideEditorial{
+  margin-top:auto!important;
+  padding:18px 17px 0!important;
+  border-top:1px solid rgba(255,255,255,.13)!important;
+  color:rgba(255,255,255,.68)!important;
+}
+.sideEditorial em{
+  display:block!important;
+  font:500 15px/1.45 "Playfair Display",Georgia,serif!important;
+  color:rgba(255,255,255,.83)!important;
+}
+.sideEditorial small{
+  display:block!important;
+  margin-top:15px!important;
+  font:500 7.5px/1.4 "Inter",sans-serif!important;
+  letter-spacing:.23em!important;
+  text-transform:uppercase!important;
+}
+
+/* TOP UTILITY BAR */
+.topbar{
+  position:fixed;z-index:90;left:var(--sidebar);right:0;top:0;height:var(--topbar);
+  background:rgba(250,248,243,.97);border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:minmax(260px,430px) minmax(160px,250px) auto;align-items:center;gap:18px;padding:0 26px;
+}
+.searchWrap{position:relative}
+.searchWrap span{position:absolute;left:13px;top:10px;font-size:19px;color:#57615d}
+.searchWrap input{width:100%;height:40px;border:1px solid var(--line);background:#fffdfa;border-radius:7px;padding:0 12px 0 40px;color:var(--ink);outline:0}
+.estSwitcher{height:40px;border:1px solid var(--line);border-radius:7px;background:#fffdfa;padding:0 11px;color:var(--ink);outline:0;width:100%}
+.userTools{justify-self:end;display:flex;align-items:center;gap:13px}
+.logout{border:0;background:transparent;color:#4e5551;cursor:pointer;font-size:11px}
+.avatar{width:36px;height:36px;border-radius:50%;background:#4b4f4c;color:#fff;display:grid;place-items:center;font-weight:700;font-size:11px}
+.userText b{display:block;font-size:11px}.userText span{display:block;font-size:8px;color:#7a7d79;margin-top:2px}
+
+/* APP */
+.appShell{margin-left:var(--sidebar);padding-top:var(--topbar);min-height:100vh;background:
+  linear-gradient(rgba(246,244,239,.80),rgba(246,244,239,.98)),
+  url("hp-editorial-header.jpg") top center/cover no-repeat fixed;
+}
+.canvas{max-width:1320px;margin:0 auto;padding:34px 28px 42px}
+.login{
+  max-width:440px;margin:80px auto;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:30px;box-shadow:0 16px 45px rgba(22,27,24,.07)
+}
+.login h1{font:600 34px/1.1 "Playfair Display",Georgia,serif;margin:0 0 10px}
+.login p{color:var(--graphite);font-size:12px}.login label{display:block;font-size:10px;font-weight:700;margin:13px 0 5px}
+.login input{width:100%;height:42px;border:1px solid var(--line);border-radius:7px;padding:0 11px}
+.login button{margin-top:16px;width:100%;height:42px;border:0;border-radius:7px;background:var(--emerald);color:#fff;font-weight:700;cursor:pointer}
+.msg{font-size:10px;color:var(--danger);margin-top:8px}
+
+.hero{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;margin:4px 0 16px}
+.hero h1{font:600 46px/1.04 "Playfair Display",Georgia,serif;letter-spacing:-.035em;margin:0;color:var(--black)}
+.hero p{font:500 20px/1.25 "Playfair Display",Georgia,serif;margin:4px 0 0;color:#2a2e2a}
+.heroMeta{display:flex;gap:8px;align-items:center}
+.statusSelect{height:36px;border:1px solid #d8e1dc;background:#eef3f0;color:var(--emerald);border-radius:6px;padding:0 10px;font-size:10px;font-weight:700}
+.statusSave{font-size:9px;color:#6e756f}
+
+/* exact editorial grid */
+.dashboardGrid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:12px}
+.mainCol{display:grid;gap:12px}
+.card{
+  background:rgba(255,254,251,.97);border:1px solid var(--line);border-radius:10px;
+  box-shadow:0 7px 24px rgba(26,31,27,.045);padding:16px 17px
+}
+.cardHeader{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.card h2{font:600 20px/1.1 "Playfair Display",Georgia,serif;margin:0;color:var(--black)}
+.cardLink{font-size:9px;color:var(--emerald2)}
+.scoreCard{display:grid;grid-template-columns:260px 190px minmax(180px,1fr);align-items:center;gap:20px;min-height:144px}
+.scoreValue b{font:600 58px/1 "Playfair Display",Georgia,serif;color:var(--black)}
+.scoreValue span{font:500 22px "Playfair Display",Georgia,serif}
+.scoreDelta{margin-top:8px;color:var(--emerald);font-size:10px;font-weight:700}
+.gauge{--pct:0;position:relative;width:168px;height:84px;overflow:hidden}
+.gauge:before{content:"";position:absolute;inset:0 0 -84px;border-radius:168px 168px 0 0;background:conic-gradient(from 270deg at 50% 100%,var(--emerald) calc(var(--pct)*1.8deg),#e9e7e1 0 180deg,transparent 0)}
+.gauge:after{content:"";position:absolute;left:26px;right:26px;top:26px;height:58px;background:var(--paper);border-radius:120px 120px 0 0}
+.gauge span{position:absolute;z-index:2;left:0;right:0;bottom:4px;text-align:center;font:600 32px "Playfair Display",Georgia,serif}
+.scoreQuote{font:500 italic 17px/1.45 "Playfair Display",Georgia,serif;color:#242824;padding-left:9px}
+.scoreQuote:after{content:"";display:block;width:34px;height:2px;background:var(--emerald);margin-top:10px}
+
+.dimensions{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.dimCard{background:#f8f6f1;border:1px solid var(--line2);border-radius:8px;padding:12px;min-height:126px}
+.dimIcon{font-size:19px;color:var(--emerald);margin-bottom:8px}.dimName{font:500 13px/1.15 "Playfair Display",Georgia,serif;min-height:31px}
+.dimVal{display:flex;align-items:baseline;gap:7px;margin-top:7px}.dimVal b{font:600 22px "Playfair Display",Georgia,serif}.dimVal span{font-size:8px;color:var(--emerald);font-weight:700}
+.miniTrack{height:4px;background:#deddd7;border-radius:99px;margin-top:7px;overflow:hidden}.miniTrack i{display:block;height:100%;background:var(--emerald);border-radius:99px}
+
+.duo{display:grid;grid-template-columns:1.1fr .9fr;gap:12px}
+.econGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.econMetric{padding:4px 14px;border-right:1px solid var(--line2)}.econMetric:first-child{padding-left:2px}.econMetric:last-child{border-right:0}
+.econMetric small{font-size:9px;color:#4f5752}.econMetric b{display:block;font:600 25px "Playfair Display",Georgia,serif;margin:5px 0 2px}.econMetric em{font-style:normal;font-size:9px;color:var(--emerald);font-weight:700}
+.spark{height:42px;margin-top:5px}.spark svg{width:100%;height:100%}.spark polyline{fill:none;stroke:var(--emerald);stroke-width:1.6}.spark path{fill:rgba(11,61,46,.05)}
+.actionRows,.alertRows,.priorityRows{display:grid}
+.actionRow,.alertRow,.priorityRow{display:grid;align-items:center;gap:10px;border-top:1px solid var(--line2);padding:9px 0}.actionRow:first-child,.alertRow:first-child,.priorityRow:first-child{border-top:0}
+.actionRow{grid-template-columns:10px 1fr auto auto}.actionDot{width:8px;height:8px;border-radius:50%;background:var(--emerald)}.actionDot.warn{background:#e39a27}.actionDot.muted{background:#9b9f9b}
+.rowTitle{font-size:10px;font-weight:600}.rowSub{font-size:8px;color:#7a7f7b;margin-top:2px}.statusPill{font-size:8px;padding:4px 8px;border-radius:5px;background:#e9f1ed;color:var(--emerald)}.statusPill.muted{background:#efede8;color:#696d69}.dateTxt{font-size:8px;color:#767c78;white-space:nowrap}
+
+.bottomDuo{display:grid;grid-template-columns:.9fr 1.1fr;gap:12px}
+.alertRow{grid-template-columns:24px 1fr auto}.alertIcon{width:21px;height:21px;border-radius:50%;display:grid;place-items:center;font-size:10px;border:1px solid currentColor}.sevHigh{color:#d22e27}.sevMed{color:#df8d18}.sevLow{color:#6d7470}
+.alertBadge{font-size:8px;padding:5px 9px;border-radius:4px;background:#fae1dc;color:#bb3d34}.alertBadge.warn{background:#faecd6;color:#b16d16}.alertBadge.neutral{background:#eceae5;color:#666a66}
+
+.timeline{position:relative;padding:13px 2px 2px}.timeline:before{content:"";position:absolute;left:8px;right:8px;top:30px;height:1px;background:#c9c7c1}
+.timelineGrid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.timeItem{text-align:center;position:relative}.timeMonth{font-size:8px;color:#686e69;margin-bottom:10px}.timeDot{width:9px;height:9px;border-radius:50%;background:#858a86;margin:0 auto 9px;position:relative;z-index:1}.timeItem.active .timeDot{width:21px;height:21px;margin-top:-6px;margin-bottom:3px;background:var(--emerald);box-shadow:inset 0 0 0 6px var(--emerald),0 0 0 4px #dfe9e4}.timeItem.active .timeMonth{color:var(--emerald);font-weight:800}.timeLabel{font-size:7.5px;line-height:1.35;color:#626965}
+
+.priorityCard{padding:17px}
+.priorityRows .priorityRow{grid-template-columns:34px 1fr}.priorityNum{width:31px;height:31px;border-radius:50%;background:var(--emerald);color:#fff;display:grid;place-items:center;font:600 14px "Playfair Display",Georgia,serif}
+.priorityRows .priorityRow:nth-child(2) .priorityNum{background:#0e5a47}.priorityRows .priorityRow:nth-child(3) .priorityNum{background:#125f4e}
+
+
+/* HP lifecycle block */
+.lifecycleCard{padding:17px 18px}.lifecycleTop{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.lifecycleStage{font:600 22px/1.15 "Playfair Display",Georgia,serif;color:var(--black)}.lifecycleMeta{font-size:9px;color:#6f7671;margin-top:4px}.lifecycleProgress{height:6px;background:#e3e7e2;border-radius:99px;overflow:hidden;margin:13px 0 10px}.lifecycleProgress i{display:block;height:100%;background:var(--emerald);border-radius:99px}.lifecycleStats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.lifecycleStat{background:#f7f4ee;border:1px solid var(--line2);border-radius:7px;padding:9px}.lifecycleStat small{display:block;font-size:7px;text-transform:uppercase;letter-spacing:.05em;color:#7a7f7b}.lifecycleStat b{display:block;margin-top:3px;font-size:10px}.lifecycleAction{display:inline-flex;align-items:center;justify-content:center;padding:9px 12px;border-radius:6px;background:var(--emerald);color:#fff;font-size:9px;font-weight:700}.lifecycleDue{font-size:9px;color:#8a6117;background:#fbf1dc;border:1px solid #f0dfba;border-radius:6px;padding:8px 10px;margin-top:10px}.lifecycleDone{color:var(--emerald);background:#eaf4ee;border-color:#d6e8dc}@media(max-width:760px){.lifecycleStats{grid-template-columns:1fr 1fr}}
+
+/* extra contextual strip */
+.contextStrip{margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.contextItem{background:#f7f4ee;border:1px solid var(--line2);border-radius:7px;padding:9px}.contextItem small{display:block;font-size:7px;color:#7a7f7b;text-transform:uppercase;letter-spacing:.05em}.contextItem b{display:block;margin-top:3px;font-size:9px}
+
+@media(max-width:1050px){
+  .scoreCard{grid-template-columns:220px 160px 1fr}.dimensions{grid-template-columns:repeat(3,1fr)}.dashboardGrid{grid-template-columns:1fr}.priorityCard{grid-row:auto}.duo,.bottomDuo{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  :root{--sidebar:0px;--topbar:66px}
+  .sideNav{left:0;right:0;top:auto;bottom:0;width:100%;height:60px;display:block;padding:6px 8px;overflow-x:auto;background:#0b2119}
+  .brandBlock,.sideEditorial{display:none}.navItems{display:flex;margin:0;gap:4px}.navItem{min-height:48px;min-width:max-content;padding:0 10px}.navIcon{display:none}
+  .topbar{left:0;height:66px;grid-template-columns:1fr 130px auto;padding:0 10px;gap:8px}.userText{display:none}.logout{display:none}
+  .appShell{margin-left:0;padding-top:66px;padding-bottom:70px}.canvas{padding:22px 10px}.hero{align-items:flex-start;flex-direction:column}.hero h1{font-size:36px}
+  .scoreCard{grid-template-columns:1fr}.gauge{margin:auto}.dimensions{grid-template-columns:1fr 1fr}.econGrid{grid-template-columns:1fr}.econMetric{border-right:0;border-bottom:1px solid var(--line2);padding:10px 0}.timelineGrid{grid-template-columns:repeat(3,1fr);row-gap:18px}.timeline:before{display:none}
+}
+</style>
+
+<style id="hp-typography-final">
+/* =========================================================
+   HP TYPOGRAPHY — FROZEN GLOBAL SYSTEM
+   Dashboard typography applied everywhere.
+   No layout, spacing or navigation changes.
+   ========================================================= */
+
+/* Interface base */
+html,body,
+button,input,select,textarea,
+table,thead,tbody,tfoot,tr,th,td,
+label,.label,.muted,.small,.sub,.meta,
+.badge,.pill,.status,.count,
+.navItem,.tab,.btn,.actionBtn,.hp-export,
+.item,.item-title,.item-meta,
+.notice,.field,.k,.v,
+.cardLink,.rowTitle,.rowSub,.dateTxt,
+.statusPill,.alertBadge,.serviceFamily,
+.guideBlock,.guideWarn,.proposalService,
+.proposalReportMeta,.proposalReportDeliverables,
+.proposalReportReason{
+  font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+}
+
+/* Editorial hierarchy */
+h1,h2,h3,h4,
+.hero h1,.hero h2,.hero h3,
+.card h1,.card h2,.card h3,
+.panel h1,.panel h2,.panel h3,
+.detail h1,.detail h2,.detail h3,
+.sectiontitle,.section-title,
+.guideHero h3,.guideStep h4,
+.estPanel h3,.estCard h4,
+.proposalHead h4,.proposalPreview h5,
+.deliveryPlanHead h4,.deliveryService h5,
+.coverTitle,.reportTitle,
+.hp-page-title,
+.scoreValue b,.scoreValue span,
+.gauge span,
+.portfolioKpi b,
+.metric strong,.metric b,
+.estScoreBig strong,
+.econMetric b,
+.priorityNum,
+.hpMark,.brand,.publicBrand,.publicMonogram{
+  font-family:"Playfair Display",Georgia,"Times New Roman",serif!important;
+}
+
+/* Tabs and navigation must always remain UI typography */
+nav,.tabs,.tab,
+.sideNav,.navItems,.navItem,
+.hpWords,.sideEditorial small,
+button,.btn,
+select,input,textarea,
+table,th,td{
+  font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+}
+
+/* Consistent headline weights */
+h1{font-weight:600!important}
+h2,h3,h4{font-weight:600!important}
+
+/* Consistent UI weights */
+.tab,.navItem,button,.btn{font-weight:600!important}
+th,label,.badge,.pill,.statusPill{font-weight:600!important}
+
+/* Preserve editorial italic quotes */
+.scoreQuote,.sideEditorial em,
+blockquote,.editorialQuote{
+  font-family:"Playfair Display",Georgia,"Times New Roman",serif!important;
+}
+</style>
+
+
+<style id="hp-dashboard-priority-center-fix">
+/* Dashboard — centre parfaitement les chiffres 1, 2 et 3 */
+.priorityNum{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  padding:0!important;
+  line-height:1!important;
+}
+</style>
+
+
+<style id="hp-business-strategy-icons">
+.navIcon{
+  width:22px!important;height:22px!important;min-width:22px!important;
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  flex:0 0 22px!important;color:currentColor!important;
+}
+.hpNavSvg{
+  width:20px!important;height:20px!important;display:block!important;
+  fill:none!important;stroke:currentColor!important;stroke-width:1.9!important;
+  stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+.navItem.active .hpNavSvg{stroke-width:2.15!important}
+@media(max-width:760px){.navIcon{display:none!important}}
+</style>
+
+</head>
+<body>
+
+<aside class="sideNav" id="sideNav">
+  <div class="brandBlock">
+    <div class="hpMark">HP</div>
+    <div class="hpWords">Hospitality<br>Performance</div>
+  </div>
+  <nav class="navItems" id="internalTabs">
+    <a class="navItem active" data-hp-page href="dashboard.html"><span class="navIcon"><svg class="hpNavSvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.6V21h13V9.6"/><path d="M9.5 21v-7h5v7"/></svg></span>Dashboard</a>
+    <a class="navItem" data-hp-page href="admin.html"><span class="navIcon"><svg class="hpNavSvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16"/><path d="M6 21V8h7v13"/><path d="M13 21V3h5v18"/><path d="M8.5 11h2M8.5 14h2M8.5 17h2M15.5 6h1M15.5 9h1M15.5 12h1M15.5 15h1"/></svg></span>Administration</a>
+    <a class="navItem" data-hp-page href="economics.html"><span class="navIcon"><svg class="hpNavSvg" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 17 6-6 4 4 8-9"/><path d="M16 6h5v5"/></svg></span>Performance</a>
+    <a class="navItem" data-hp-page href="documents.html"><span class="navIcon"><svg class="hpNavSvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5h6l2-2h10v13.5H3z"/><path d="M3 9h18"/></svg></span>Documents</a>
+    <a class="navItem" data-hp-page href="report.html"><span class="navIcon"><svg class="hpNavSvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10h4v10M10 20V4h4v16M16 20v-7h4v7"/><path d="M3 20h18"/></svg></span>Restitution</a>
+    <a class="navItem" href="guide.html" target="_blank" rel="noopener"><span class="navIcon"><svg class="hpNavSvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H12v17H7.5A3.5 3.5 0 0 0 4 22z"/><path d="M20 5.5A3.5 3.5 0 0 0 16.5 2H12v17h4.5A3.5 3.5 0 0 1 20 22z"/></svg></span>Guide d’utilisation</a>
+  </nav>
+  <div class="sideEditorial">
+    <em>Des lieux d’exception<br>plus performants demain.</em>
+    <small>HP — Hospitality Performance</small>
+  </div>
+</aside>
+
+<header class="topbar">
+  <div class="searchWrap"><span>⌕</span><input id="search" type="search" placeholder="Rechercher un établissement…" autocomplete="off"></div>
+  <select id="estSwitcher" class="estSwitcher" aria-label="Établissement"></select>
+  <div class="userTools">
+    <div class="avatar" id="avatar">HP</div>
+    <div class="userText"><b id="userName">Utilisateur HP</b><span>Direction / Consultant</span></div>
+    <button class="logout" id="logoutBtn">Déconnexion</button>
+  </div>
+</header>
+
+<div class="appShell">
+  <section id="loginView" class="login">
+    <h1>Hospitality Performance</h1>
+    <p>Accès interne à l’espace de pilotage.</p>
+    <label>Email</label><input id="email" type="email" autocomplete="username">
+    <label>Mot de passe</label><input id="password" type="password" autocomplete="current-password">
+    <button id="loginBtn">Se connecter</button>
+    <div id="loginMsg" class="msg"></div>
+  </section>
+
+  <main id="appView" class="canvas hide">
+    <div id="loading">Chargement du dossier…</div>
+
+    <section id="dashboard" class="hide">
+      <div class="hero">
+        <div>
+          <h1 id="greeting">Bonjour,</h1>
+          <p>Voici la synthèse de la performance de votre établissement.</p>
+        </div>
+        <div class="heroMeta">
+          <select id="statusSelect" class="statusSelect" aria-label="Statut du dossier">
+            <option>Nouveau</option><option>Pris en charge</option><option>Clos</option>
+          </select>
+          <span id="statusSave" class="statusSave"></span>
+        </div>
+      </div>
+
+      <div class="dashboardGrid">
+        <div class="mainCol">
+          <section class="card scoreCard">
+            <div class="scoreValue">
+              <div class="cardHeader"><h2>Score HP</h2></div>
+              <div><b id="score">—</b> <span>/ 100</span></div>
+              <div id="scoreDelta" class="scoreDelta">Score provisoire · — % documenté</div>
+            </div>
+            <div class="gauge" id="scoreGauge"><span id="gaugeValue">—</span></div>
+            <div class="scoreQuote" id="scoreQuote">Une lecture structurée pour transformer les constats en actions prioritaires.</div>
+          </section>
+
+          <section class="card lifecycleCard" id="lifecycleCard">
+            <div class="lifecycleTop">
+              <div><div class="cardHeader" style="margin-bottom:3px"><h2>Parcours HP</h2></div><div id="lifecycleStage" class="lifecycleStage">Chargement…</div><div id="lifecycleMeta" class="lifecycleMeta"></div></div>
+              <a id="lifecycleAction" class="lifecycleAction" href="#">Continuer →</a>
+            </div>
+            <div class="lifecycleProgress"><i id="lifecycleProgress" style="width:0%"></i></div>
+            <div class="lifecycleStats">
+              <div class="lifecycleStat"><small>Actions</small><b id="lifecycleActions">—</b></div>
+              <div class="lifecycleStat"><small>Terminées</small><b id="lifecycleDone">—</b></div>
+              <div class="lifecycleStat"><small>Contrôles post-bilan</small><b id="lifecycleChecks">—</b></div>
+              <div class="lifecycleStat"><small>Décision finale</small><b id="lifecycleDecision">—</b></div>
+            </div>
+            <div id="lifecycleDue" class="lifecycleDue hide"></div>
+          </section>
+
+          <section class="card">
+            <div class="cardHeader"><h2>Les 5 dimensions</h2><a class="cardLink" data-hp-page href="admin.html">Voir le détail par dimension →</a></div>
+            <div id="dimensions" class="dimensions"></div>
+          </section>
+
+          <div class="duo">
+            <section class="card">
+              <div class="cardHeader"><h2>Indicateurs économiques</h2><a class="cardLink" data-hp-page href="economics.html">Voir tous les indicateurs →</a></div>
+              <div id="economicMetrics" class="econGrid"></div>
+            </section>
+
+            <section class="card">
+              <div class="cardHeader"><h2>Plan d’action</h2><a class="cardLink" data-hp-page href="admin.html">Voir le pilotage complet →</a></div>
+              <div id="actionRows" class="actionRows"></div>
+            </section>
+          </div>
+
+          <div class="bottomDuo">
+            <section class="card">
+              <div class="cardHeader"><h2>Alertes</h2><span class="cardLink">Points à surveiller</span></div>
+              <div id="alertRows" class="alertRows"></div>
+            </section>
+
+            <section class="card">
+              <div class="cardHeader"><h2>Feuille de route</h2><span class="cardLink">Chronologie HP</span></div>
+              <div class="timeline"><div id="timelineGrid" class="timelineGrid"></div></div>
+            </section>
+          </div>
+        </div>
+
+        <aside class="card priorityCard">
+          <div class="cardHeader"><h2>3 priorités</h2><a class="cardLink" data-hp-page href="admin.html">Voir toutes →</a></div>
+          <div id="priorityRows" class="priorityRows"></div>
+          <div id="contextStrip" class="contextStrip"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.116.0";
+const sb=createClient("https://wztiaiwjprarpdzsudpx.supabase.co","sb_publishable_JqSGi4QEil2MBaI5tYsQvA_wQnxz8U_");
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+const num=(v,d=0)=>v===null||v===undefined||v===""?"—":Number(v).toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d});
+const normStatus=s=>{const v=String(s||"").toLowerCase();if(v.includes("clos"))return"Clos";if(!v||v==="nouveau")return"Nouveau";return"Pris en charge"};
+let diagnostics=[],selectedId=null,currentMeta=null,currentSession=null;
+
+function hrefWithDiagnostic(href,id){
+  const [baseHash,hashPart]=href.split("#");
+  const base=baseHash.split("?")[0];
+  const hash=hashPart?`#${hashPart}`:"";
+  return id?`${base}?diagnostic=${encodeURIComponent(id)}${hash}`:`${base}${hash}`;
+}
+function hpSyncNav(id){
+  document.querySelectorAll("[data-hp-page]").forEach(a=>a.href=hrefWithDiagnostic(a.getAttribute("href"),id));
+}
+function userLabel(session){
+  const u=session?.user;if(!u)return"Utilisateur HP";
+  const n=u.user_metadata?.full_name||u.user_metadata?.name;
+  if(n)return n;
+  const local=String(u.email||"Utilisateur").split("@")[0].replace(/[._-]+/g," ");
+  return local.replace(/\b\w/g,c=>c.toUpperCase());
+}
+function initials(s){return String(s||"HP").trim().split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase()||"HP"}
+function formatMetric(v,u){
+  const n=Number(v);if(!Number.isFinite(n))return"—";
+  if(u==="%")return`${num(n,1)} %`;
+  if(u==="EUR_HT"||u==="EUR")return`${num(n,0)} €`;
+  if(u==="EUR_HT/heure")return`${num(n,1)} € HT/h`;
+  if(u==="h")return`${num(n,0)} h`;
+  return`${num(n,1)}${u?` ${u}`:""}`;
+}
+function dimLabel(x){return String(x||"").replace("Human","Humain").replace("Growth","Croissance").replace("Operations","Opérations").replace("Systems","Systèmes")}
+function dimIcon(name){
+  const n=String(name||"").toLowerCase();
+  if(n.includes("hum"))return"♙";
+  if(n.includes("perf"))return"▥";
+  if(n.includes("croiss")||n.includes("growth"))return"↗";
+  if(n.includes("op"))return"⚙";
+  return"◇";
+}
+function sparkSvg(seed=0){
+  const sets=[
+    "0,38 18,31 36,34 54,22 72,27 90,15 108,18 126,8",
+    "0,34 18,37 36,28 54,31 72,20 90,24 108,14 126,9",
+    "0,39 18,35 36,30 54,32 72,21 90,17 108,18 126,7"
+  ];
+  return `<svg viewBox="0 0 126 44" preserveAspectRatio="none"><path d="M0 44 L${sets[seed%3].replaceAll(" "," L")} L126 44 Z"></path><polyline points="${sets[seed%3]}"></polyline></svg>`;
+}
+function niceQuote(score){
+  if(score>=80)return"Une performance solide, portée par des fondamentaux bien structurés et des leviers d’optimisation ciblés.";
+  if(score>=65)return"Une base déjà structurée, avec plusieurs leviers concrets pour renforcer la performance et l’autonomie.";
+  if(score>=45)return"Un potentiel réel, à consolider par quelques chantiers prioritaires et mieux documentés.";
+  return"Le diagnostic met en évidence plusieurs fondamentaux à structurer avant d’accélérer la performance.";
+}
+
+async function boot(){
+  const {data:{session}}=await sb.auth.getSession();
+  currentSession=session;
+  if(session)await showApp();
+}
+$("loginBtn").onclick=async()=>{
+  $("loginMsg").textContent="";
+  const {data,error}=await sb.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});
+  if(error){$("loginMsg").textContent=error.message;return}
+  currentSession=data.session;await showApp();
+};
+$("logoutBtn").onclick=async()=>{await sb.auth.signOut();location.reload()};
+
+async function showApp(){
+  $("loginView").classList.add("hide");$("appView").classList.remove("hide");
+  $("userName").textContent=userLabel(currentSession);$("avatar").textContent=initials(userLabel(currentSession));
+  const {data,error}=await sb.from("hp_diagnostics").select("*").order("created_at",{ascending:false});
+  if(error){$("loading").textContent=error.message;return}
+  diagnostics=data||[];
+  $("estSwitcher").innerHTML=diagnostics.map(d=>`<option value="${esc(d.id)}">${esc(d.establishment_name||"Sans nom")}</option>`).join("");
+  const q=new URLSearchParams(location.search).get("diagnostic");
+  const stored=localStorage.getItem("hp_selected_diagnostic");
+  selectedId=(q&&diagnostics.some(d=>d.id===q))?q:((stored&&diagnostics.some(d=>d.id===stored))?stored:(diagnostics[0]?.id||null));
+  if(!selectedId){$("loading").textContent="Aucun établissement disponible.";return}
+  localStorage.setItem("hp_selected_diagnostic",selectedId);
+  $("estSwitcher").value=selectedId;hpSyncNav(selectedId);await loadDashboard();
+}
+$("estSwitcher").onchange=async e=>{
+  selectedId=e.target.value;
+  localStorage.setItem("hp_selected_diagnostic",selectedId);
+  hpSyncNav(selectedId);
+  history.replaceState(null,"",`?diagnostic=${encodeURIComponent(selectedId)}`);
+  await loadDashboard();
+};
+$("search").oninput=()=>{
+  const q=$("search").value.trim().toLowerCase();
+  const first=diagnostics.find(d=>(d.establishment_name||"").toLowerCase().includes(q));
+  if(q&&first){$("estSwitcher").value=first.id}
+};
+
+async function loadDashboard(){
+  $("loading").classList.remove("hide");$("dashboard").classList.add("hide");$("loading").textContent="Chargement…";
+  currentMeta=diagnostics.find(d=>d.id===selectedId)||{};
+  const [summaryRes,priorityRes,actionRes,timelineRes,anomalyRes,metricRes,lifecycleRes]=await Promise.all([
+    sb.from("hp_client_report_summary_v1").select("*").eq("diagnostic_id",selectedId).maybeSingle(),
+    sb.from("hp_prioritized_actions_v1").select("*").eq("diagnostic_id",selectedId).order("action_rank"),
+    sb.from("hp_action_portfolio_v1").select("*").eq("diagnostic_id",selectedId).order("priority_index",{ascending:false}),
+    sb.from("hp_snapshot_timeline_v1").select("*").eq("diagnostic_id",selectedId).order("snapshot_date"),
+    sb.from("hp_anomaly_events").select("*").eq("diagnostic_id",selectedId).in("status",["Ouverte","Confirmée"]).order("created_at",{ascending:false}),
+    sb.from("hp_economic_metric_snapshot_v2").select("metric_code,label,unit,actual_value,validated,sort_order").eq("diagnostic_id",selectedId).eq("validated",true).not("actual_value","is",null).order("sort_order"),
+    sb.from("hp_lifecycle_status_v1").select("*").eq("diagnostic_id",selectedId).maybeSingle()
+  ]);
+  if(summaryRes.error||!summaryRes.data){$("loading").textContent=summaryRes.error?.message||"Dashboard indisponible";return}
+  render(summaryRes.data,priorityRes.data||[],actionRes.data||[],timelineRes.data||[],anomalyRes.data||[],metricRes.data||[],lifecycleRes.error?null:lifecycleRes.data);
+  $("loading").classList.add("hide");$("dashboard").classList.remove("hide");
+}
+function render(d,priorities,actions,timeline,anomalies,metrics,lifecycle){
+  const name=d.establishment_name||currentMeta.establishment_name||"Établissement";
+  $("greeting").textContent=`Bonjour ${userLabel(currentSession).split(" ")[0]},`;
+  $("statusSelect").value=normStatus(currentMeta.status);$("statusSave").textContent="";
+  const score=Number(d.hp_score_final??d.preliminary_score??0);
+  $("score").textContent=num(score);$("gaugeValue").textContent=num(score);$("scoreGauge").style.setProperty("--pct",Math.max(0,Math.min(100,score)));
+  $("scoreDelta").textContent=`${d.hp_score_final!=null?"Score final":"Score provisoire"} · ${num(d.score_coverage_pct)} % documenté`;
+  $("scoreQuote").textContent=niceQuote(score);
+
+  if(lifecycle){
+    const stages=["Analyse & recommandations","Plan de mission","Suivi des missions","Bilan d’intervention","Suivi post-intervention","Clôture & réévaluation","Cycle clôturé"];
+    const idx=Math.max(0,stages.indexOf(lifecycle.current_stage));
+    const pct=lifecycle.current_stage==="Cycle clôturé"?100:Math.round((idx/6)*100);
+    $("lifecycleStage").textContent=lifecycle.current_stage||"Parcours HP";
+    $("lifecycleMeta").textContent=lifecycle.proposal_name?lifecycle.proposal_name:"Aucune proposition enregistrée";
+    $("lifecycleProgress").style.width=Math.max(0,Math.min(100,pct))+"%";
+    $("lifecycleActions").textContent=String(lifecycle.planned_actions??0);
+    $("lifecycleDone").textContent=String(lifecycle.completed_actions??0);
+    $("lifecycleChecks").textContent=(lifecycle.checkpoints_done??0)+"/3";
+    $("lifecycleDecision").textContent=lifecycle.closure_decision||"—";
+    const a=$("lifecycleAction");a.textContent=(lifecycle.next_action_label||"Continuer")+" →";a.href=lifecycle.next_route||("parcours.html?diagnostic="+encodeURIComponent(selectedId));
+    const due=$("lifecycleDue");
+    if(lifecycle.next_checkpoint_date){
+      const dt=new Date(lifecycle.next_checkpoint_date+"T12:00:00");
+      due.textContent="Prochaine échéance post-intervention : "+dt.toLocaleDateString("fr-FR");
+      due.classList.remove("hide");
+      due.classList.toggle("lifecycleDone",dt>=new Date(new Date().toDateString()));
+    }else due.classList.add("hide");
+  }else{
+    $("lifecycleStage").textContent="Parcours indisponible";
+    $("lifecycleMeta").textContent="Le reste du Dashboard reste utilisable.";
+    $("lifecycleAction").href="parcours.html?diagnostic="+encodeURIComponent(selectedId);
+    $("lifecycleAction").textContent="Ouvrir le parcours →";
+  }
+
+  const dims=Array.isArray(d.dimension_scores)?d.dimension_scores:[];
+  $("dimensions").innerHTML=dims.slice(0,5).map(x=>{
+    const max=Math.max(1,Number(x.max_score||20)),raw=Number(x.score||0),pct=Math.round(raw/max*100);
+    return `<div class="dimCard"><div class="dimIcon">${dimIcon(dimLabel(x.dimension))}</div><div class="dimName">${esc(dimLabel(x.dimension))}</div><div class="dimVal"><b>${pct}</b><span>${pct>=65?"▲":"→"} ${num(x.coverage_pct)} % couvert</span></div><div class="miniTrack"><i style="width:${Math.max(0,Math.min(100,pct))}%"></i></div></div>`;
+  }).join("");
+
+  const preferred=["comm_conversion_pct","comm_avg_signed_ht","rh_revenue_per_hour_period","ops_avg_payment_per_ticket","purch_gross_margin_pct","fin_operating_margin_pct"];
+  const sorted=[...metrics].sort((a,b)=>{
+    const ai=preferred.indexOf(a.metric_code),bi=preferred.indexOf(b.metric_code);
+    return (ai<0?999:ai)-(bi<0?999:bi);
+  }).slice(0,3);
+  $("economicMetrics").innerHTML=sorted.length?sorted.map((m,i)=>`<div class="econMetric"><small>${esc(m.label)}</small><b>${esc(formatMetric(m.actual_value,m.unit))}</b><em>Donnée validée</em><div class="spark">${sparkSvg(i)}</div></div>`).join(""):`<div class="rowSub">Aucun indicateur économique validé.</div>`;
+
+  const liveActions=actions.filter(x=>x.status!=="Terminé").slice(0,3);
+  $("actionRows").innerHTML=liveActions.length?liveActions.map((a,i)=>`<div class="actionRow"><i class="actionDot ${a.status==="Bloqué"?"warn":i===2?"muted":""}"></i><div><div class="rowTitle">${esc(a.action_title)}</div><div class="rowSub">${esc(a.action_class||a.criterion_code||"Action HP")}</div></div><span class="statusPill ${a.status==="À faire"?"muted":""}">${esc(a.status||"À faire")}</span><span class="dateTxt">${a.due_date?new Date(a.due_date+"T12:00:00").toLocaleDateString("fr-FR",{day:"2-digit",month:"short",year:"numeric"}):a.phase_days?`J+${a.phase_days}`:"—"}</span></div>`).join(""):`<div class="rowSub">Aucune action active.</div>`;
+
+  const activeAlerts=anomalies.slice(0,3);
+  $("alertRows").innerHTML=activeAlerts.length?activeAlerts.map((a,i)=>{
+    const hi=["Haute","Critique"].includes(a.severity),med=["Moyenne","Élevée"].includes(a.severity);
+    return `<div class="alertRow"><span class="alertIcon ${hi?"sevHigh":med?"sevMed":"sevLow"}">!</span><div><div class="rowTitle">${esc(a.title)}</div><div class="rowSub">${esc(a.description||"Point à vérifier")}</div></div><span class="alertBadge ${hi?"":med?"warn":"neutral"}">${esc(a.severity||"Suivi")}</span></div>`;
+  }).join(""):`<div class="rowSub">Aucune alerte ouverte.</div>`;
+
+  const topP=priorities.filter(x=>!x.blocked).slice(0,3);
+  $("priorityRows").innerHTML=topP.length?topP.map((p,i)=>`<div class="priorityRow"><span class="priorityNum">${i+1}</span><div><div class="rowTitle">${esc(p.title)}</div><div class="rowSub">${esc(p.recommended_action||p.service_area||"")}</div></div></div>`).join(""):`<div class="rowSub">Aucune priorité active.</div>`;
+  $("contextStrip").innerHTML=[
+    ["Établissement",name],
+    ["Couverture scoring",`${num(d.score_coverage_pct)} %`],
+    ["Méthodologie",d.methodology_version||"v1"]
+  ].map(([k,v])=>`<div class="contextItem"><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join("");
+
+  const sourceTimeline=timeline.slice(-6);
+  if(sourceTimeline.length){
+    $("timelineGrid").innerHTML=sourceTimeline.map((t,i)=>{
+      const dt=t.snapshot_date?new Date(t.snapshot_date+"T12:00:00"):null;
+      const active=i===sourceTimeline.length-1;
+      return `<div class="timeItem ${active?"active":""}"><div class="timeMonth">${dt?dt.toLocaleDateString("fr-FR",{month:"short"}):"—"}</div><div class="timeDot"></div><div class="timeLabel">${esc(t.snapshot_label||t.snapshot_type||"Évaluation HP")}<br>${t.hp_score!=null?`Score ${num(t.hp_score)}`:""}</div></div>`;
+    }).join("");
+  }else{
+    const fallback=[
+      ["Diagnostic","Situation initiale"],["Analyse","Priorités"],["Plan","Actions"],["Suivi","Mesure"],["Impact","Résultats"],["Clôture","Bilan"]
+    ];
+    $("timelineGrid").innerHTML=fallback.map((x,i)=>`<div class="timeItem ${i===0?"active":""}"><div class="timeMonth">${esc(x[0])}</div><div class="timeDot"></div><div class="timeLabel">${esc(x[1])}</div></div>`).join("");
+  }
+}
+$("statusSelect").onchange=async e=>{
+  if(!selectedId)return;
+  e.target.disabled=true;$("statusSave").textContent="Enregistrement…";
+  const {data,error}=await sb.from("hp_diagnostics").update({status:e.target.value}).eq("id",selectedId).select("*").single();
+  e.target.disabled=false;
+  if(error){$("statusSave").textContent="Erreur";return}
+  currentMeta=data;diagnostics=diagnostics.map(d=>d.id===selectedId?data:d);$("statusSave").textContent="Enregistré";
+  setTimeout(()=>$("statusSave").textContent="",1200);
+};
+boot();
+</script>
+</body>
+</html>
